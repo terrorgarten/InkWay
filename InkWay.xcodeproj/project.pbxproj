@@ -8,17 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
-		F99AC41F2A1BD16000188124 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41E2A1BD16000188124 /* ContentView.swift */; };
+		F99AC41F2A1BD16000188124 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41E2A1BD16000188124 /* MainView.swift */; };
 		F99AC4212A1BD16900188124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99AC4202A1BD16900188124 /* Assets.xcassets */; };
 		F99AC4242A1BD16900188124 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99AC4232A1BD16900188124 /* Preview Assets.xcassets */; };
+		F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */; };
+		F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC42F2A1BD3F400188124 /* FirebaseAuth */; };
+		F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC4312A1BD3F400188124 /* FirebaseFirestore */; };
+		F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */; };
+		F99AC4362A1BD89500188124 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F99AC4352A1BD89500188124 /* GoogleService-Info.plist */; };
+		F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */; };
+		F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */; };
+		F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */; };
+		F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */; };
+		F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF26812A1BF04E00D8F5FA /* LoginView.swift */; };
+		F9CF26842A1BF6EC00D8F5FA /* LoginHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CF26832A1BF6EC00D8F5FA /* LoginHeadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99AC41C2A1BD16000188124 /* InkWayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkWayApp.swift; sourceTree = "<group>"; };
-		F99AC41E2A1BD16000188124 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F99AC41E2A1BD16000188124 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F99AC4202A1BD16900188124 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F99AC4232A1BD16900188124 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F99AC4352A1BD89500188124 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
+		F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWButton.swift; sourceTree = "<group>"; };
+		F9CF26812A1BF04E00D8F5FA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F9CF26832A1BF6EC00D8F5FA /* LoginHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +44,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
+				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
+				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
+				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +73,10 @@
 		F99AC41B2A1BD16000188124 /* InkWay */ = {
 			isa = PBXGroup;
 			children = (
-				F99AC41C2A1BD16000188124 /* InkWayApp.swift */,
-				F99AC41E2A1BD16000188124 /* ContentView.swift */,
-				F99AC4202A1BD16900188124 /* Assets.xcassets */,
+				F9CF26802A1BEC1400D8F5FA /* Other */,
+				F9CF267F2A1BEBCC00D8F5FA /* ViewModels */,
+				F9CF267E2A1BEBC800D8F5FA /* Models */,
+				F9CF267D2A1BEBC000D8F5FA /* Views */,
 				F99AC4222A1BD16900188124 /* Preview Content */,
 			);
 			path = InkWay;
@@ -65,6 +88,44 @@
 				F99AC4232A1BD16900188124 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F9CF267D2A1BEBC000D8F5FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F99AC41E2A1BD16000188124 /* MainView.swift */,
+				F9CF26812A1BF04E00D8F5FA /* LoginView.swift */,
+				F9CF26832A1BF6EC00D8F5FA /* LoginHeadingView.swift */,
+				F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */,
+				F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F9CF267E2A1BEBC800D8F5FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F9CF267F2A1BEBCC00D8F5FA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */,
+				F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F9CF26802A1BEC1400D8F5FA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
+				F99AC41C2A1BD16000188124 /* InkWayApp.swift */,
+				F99AC4202A1BD16900188124 /* Assets.xcassets */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +144,12 @@
 			dependencies = (
 			);
 			name = InkWay;
+			packageProductDependencies = (
+				F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */,
+				F99AC42F2A1BD3F400188124 /* FirebaseAuth */,
+				F99AC4312A1BD3F400188124 /* FirebaseFirestore */,
+				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
+			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +178,9 @@
 				Base,
 			);
 			mainGroup = F99AC4102A1BD15F00188124;
+			packageReferences = (
+				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +197,7 @@
 			files = (
 				F99AC4242A1BD16900188124 /* Preview Assets.xcassets in Resources */,
 				F99AC4212A1BD16900188124 /* Assets.xcassets in Resources */,
+				F99AC4362A1BD89500188124 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F99AC41F2A1BD16000188124 /* ContentView.swift in Sources */,
+				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
+				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
+				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
+				F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */,
+				F9CF26842A1BF6EC00D8F5FA /* LoginHeadingView.swift in Sources */,
+				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
+				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
 				F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,18 +339,19 @@
 		F99AC4282A1BD16900188124 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = InkWay;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -281,6 +359,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.nourish-softworks.InkWay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,18 +371,19 @@
 		F99AC4292A1BD16900188124 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = InkWay;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +391,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.nourish-softworks.InkWay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -337,6 +422,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F99AC42F2A1BD3F400188124 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F99AC4312A1BD3F400188124 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F99AC4112A1BD15F00188124 /* Project object */;
 }
