@@ -16,6 +16,21 @@
 		F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC4312A1BD3F400188124 /* FirebaseFirestore */; };
 		F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */; };
 		F99AC4362A1BD89500188124 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F99AC4352A1BD89500188124 /* GoogleService-Info.plist */; };
+		F9B873192A1C594300806327 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873182A1C594300806327 /* UserModel.swift */; };
+		F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731A2A1C5A3700806327 /* Extensions.swift */; };
+		F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */; };
+		F9B8731F2A1C5ED500806327 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731E2A1C5ED500806327 /* UserHomeView.swift */; };
+		F9B873212A1C656100806327 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873202A1C656100806327 /* UserProfileView.swift */; };
+		F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873222A1C665600806327 /* UserProfileViewModel.swift */; };
+		F9B873252A1C666600806327 /* UserHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873242A1C666600806327 /* UserHomeViewModel.swift */; };
+		F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8732A2A24FC4F00806327 /* IWErrors.swift */; };
+		F9B8732D2A2509DB00806327 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8732C2A2509DB00806327 /* UserMapView.swift */; };
+		F9B873302A250B3500806327 /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F9B8732F2A250B3500806327 /* LocationPicker */; };
+		F9B873332A254CFF00806327 /* UserLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873322A254CFE00806327 /* UserLocationViewModel.swift */; };
+		F9B873352A254D6000806327 /* UserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873342A254D6000806327 /* UserLocationView.swift */; };
+		F9B873372A25507200806327 /* UserLocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873362A25507200806327 /* UserLocationRequestView.swift */; };
+		F9B873392A2621D200806327 /* LocationTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873382A2621D200806327 /* LocationTestViewModel.swift */; };
+		F9B8733B2A26233C00806327 /* LocationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8733A2A26233C00806327 /* LocationTestView.swift */; };
 		F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */; };
 		F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */; };
 		F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */; };
@@ -31,6 +46,21 @@
 		F99AC4202A1BD16900188124 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F99AC4232A1BD16900188124 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F99AC4352A1BD89500188124 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9B873182A1C594300806327 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		F9B8731A2A1C5A3700806327 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		F9B8731E2A1C5ED500806327 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
+		F9B873202A1C656100806327 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		F9B873222A1C665600806327 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		F9B873242A1C666600806327 /* UserHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewModel.swift; sourceTree = "<group>"; };
+		F9B8732A2A24FC4F00806327 /* IWErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWErrors.swift; sourceTree = "<group>"; };
+		F9B8732C2A2509DB00806327 /* UserMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
+		F9B873312A25491A00806327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F9B873322A254CFE00806327 /* UserLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationViewModel.swift; sourceTree = "<group>"; };
+		F9B873342A254D6000806327 /* UserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationView.swift; sourceTree = "<group>"; };
+		F9B873362A25507200806327 /* UserLocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationRequestView.swift; sourceTree = "<group>"; };
+		F9B873382A2621D200806327 /* LocationTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestViewModel.swift; sourceTree = "<group>"; };
+		F9B8733A2A26233C00806327 /* LocationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestView.swift; sourceTree = "<group>"; };
 		F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -46,6 +76,7 @@
 			files = (
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
+				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -73,6 +104,7 @@
 		F99AC41B2A1BD16000188124 /* InkWay */ = {
 			isa = PBXGroup;
 			children = (
+				F9B873312A25491A00806327 /* Info.plist */,
 				F9CF26802A1BEC1400D8F5FA /* Other */,
 				F9CF267F2A1BEBCC00D8F5FA /* ViewModels */,
 				F9CF267E2A1BEBC800D8F5FA /* Models */,
@@ -98,6 +130,12 @@
 				F9CF26832A1BF6EC00D8F5FA /* LoginHeadingView.swift */,
 				F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */,
 				F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */,
+				F9B8731E2A1C5ED500806327 /* UserHomeView.swift */,
+				F9B873202A1C656100806327 /* UserProfileView.swift */,
+				F9B8732C2A2509DB00806327 /* UserMapView.swift */,
+				F9B873342A254D6000806327 /* UserLocationView.swift */,
+				F9B873362A25507200806327 /* UserLocationRequestView.swift */,
+				F9B8733A2A26233C00806327 /* LocationTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +143,7 @@
 		F9CF267E2A1BEBC800D8F5FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F9B873182A1C594300806327 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,6 +153,11 @@
 			children = (
 				F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */,
 				F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */,
+				F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */,
+				F9B873222A1C665600806327 /* UserProfileViewModel.swift */,
+				F9B873242A1C666600806327 /* UserHomeViewModel.swift */,
+				F9B873322A254CFE00806327 /* UserLocationViewModel.swift */,
+				F9B873382A2621D200806327 /* LocationTestViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -124,6 +168,8 @@
 				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
 				F99AC41C2A1BD16000188124 /* InkWayApp.swift */,
 				F99AC4202A1BD16900188124 /* Assets.xcassets */,
+				F9B8731A2A1C5A3700806327 /* Extensions.swift */,
+				F9B8732A2A24FC4F00806327 /* IWErrors.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -149,6 +195,7 @@
 				F99AC42F2A1BD3F400188124 /* FirebaseAuth */,
 				F99AC4312A1BD3F400188124 /* FirebaseFirestore */,
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
+				F9B8732F2A250B3500806327 /* LocationPicker */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -180,6 +227,7 @@
 			mainGroup = F99AC4102A1BD15F00188124;
 			packageReferences = (
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -209,13 +257,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
+				F9B873392A2621D200806327 /* LocationTestViewModel.swift in Sources */,
+				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
+				F9B873332A254CFF00806327 /* UserLocationViewModel.swift in Sources */,
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
 				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
+				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
+				F9B8732D2A2509DB00806327 /* UserMapView.swift in Sources */,
 				F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */,
+				F9B873372A25507200806327 /* UserLocationRequestView.swift in Sources */,
+				F9B8731F2A1C5ED500806327 /* UserHomeView.swift in Sources */,
+				F9B873212A1C656100806327 /* UserProfileView.swift in Sources */,
 				F9CF26842A1BF6EC00D8F5FA /* LoginHeadingView.swift in Sources */,
+				F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */,
+				F9B873252A1C666600806327 /* UserHomeViewModel.swift in Sources */,
 				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
 				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
+				F9B873192A1C594300806327 /* UserModel.swift in Sources */,
 				F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */,
+				F9B8733B2A26233C00806327 /* LocationTestView.swift in Sources */,
+				F9B873352A254D6000806327 /* UserLocationView.swift in Sources */,
+				F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +408,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InkWay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InkWay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us please your location for better suggestions";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access for best matches.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -378,9 +442,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InkWay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = InkWay;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us please your location for better suggestions";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access for best matches.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -432,6 +498,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alessiorubicini/LocationPickerForSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -454,6 +528,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		F9B8732F2A250B3500806327 /* LocationPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */;
+			productName = LocationPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

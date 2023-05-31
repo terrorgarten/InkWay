@@ -16,7 +16,10 @@ struct RegisterUserView: View {
             LoginHeadingView(title: "InkWay", subtitle: "nice to meet you!")
                 .offset(y: -50)
             Spacer()
-            
+            if viewModel.errorMessage != "" {
+                Text(viewModel.errorMessage)
+                    .foregroundColor(Color.red)
+            }
             Form {
                 Section("Registration"){
                     TextField("Name", text: $viewModel.name)
@@ -29,6 +32,8 @@ struct RegisterUserView: View {
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
                     SecureField("Password", text: $viewModel.password)
+                        .autocapitalization(.none)
+                    SecureField("Repeat password", text: $viewModel.passwordConfirm)
                         .autocapitalization(.none)
                     IWButton(title: "Register", action: viewModel.register)
                 }

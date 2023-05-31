@@ -22,7 +22,16 @@ class LoginViewModel: ObservableObject {
             return
         }
         
-        Auth.auth().signIn(withEmail: email, password: password)
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            // Check for sign-in success or failure
+            if let error = error {
+                // Handle sign-in failure
+                self.errorMessage = "Invalid credentials."
+                print("Sign-in failed with error: \(error.localizedDescription)")
+            } else {
+                print("Sign-in successful")
+            }
+        }
         
         print("Login passed")
     }

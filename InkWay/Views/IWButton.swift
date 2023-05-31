@@ -24,6 +24,7 @@ struct IWButton: View {
                     .bold()
             }
         }
+        .foregroundColor(Color.mint)
         .padding()
     }
 }
