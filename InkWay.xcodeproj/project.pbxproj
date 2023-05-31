@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */; };
+		F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */; };
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
 		F99AC41F2A1BD16000188124 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41E2A1BD16000188124 /* MainView.swift */; };
 		F99AC4212A1BD16900188124 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F99AC4202A1BD16900188124 /* Assets.xcassets */; };
@@ -19,18 +21,21 @@
 		F9B873192A1C594300806327 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873182A1C594300806327 /* UserModel.swift */; };
 		F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731A2A1C5A3700806327 /* Extensions.swift */; };
 		F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */; };
-		F9B8731F2A1C5ED500806327 /* UserHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8731E2A1C5ED500806327 /* UserHomeView.swift */; };
 		F9B873212A1C656100806327 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873202A1C656100806327 /* UserProfileView.swift */; };
 		F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873222A1C665600806327 /* UserProfileViewModel.swift */; };
-		F9B873252A1C666600806327 /* UserHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873242A1C666600806327 /* UserHomeViewModel.swift */; };
 		F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8732A2A24FC4F00806327 /* IWErrors.swift */; };
-		F9B8732D2A2509DB00806327 /* UserMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8732C2A2509DB00806327 /* UserMapView.swift */; };
 		F9B873302A250B3500806327 /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = F9B8732F2A250B3500806327 /* LocationPicker */; };
-		F9B873332A254CFF00806327 /* UserLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873322A254CFE00806327 /* UserLocationViewModel.swift */; };
-		F9B873352A254D6000806327 /* UserLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873342A254D6000806327 /* UserLocationView.swift */; };
-		F9B873372A25507200806327 /* UserLocationRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873362A25507200806327 /* UserLocationRequestView.swift */; };
-		F9B873392A2621D200806327 /* LocationTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873382A2621D200806327 /* LocationTestViewModel.swift */; };
-		F9B8733B2A26233C00806327 /* LocationTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8733A2A26233C00806327 /* LocationTestView.swift */; };
+		F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873382A2621D200806327 /* FindArtistsViewModel.swift */; };
+		F9B8733B2A26233C00806327 /* FindArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8733A2A26233C00806327 /* FindArtistsView.swift */; };
+		F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873402A26DA1300806327 /* EditUserProfileView.swift */; };
+		F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */; };
+		F9B873472A27036200806327 /* UploadDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873462A27036200806327 /* UploadDesignView.swift */; };
+		F9B873492A27037800806327 /* UploadDesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873482A27037800806327 /* UploadDesignViewModel.swift */; };
+		F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8734A2A27054900806327 /* UserDesignView.swift */; };
+		F9B8734D2A2705F200806327 /* UserDesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8734C2A2705F200806327 /* UserDesignViewModel.swift */; };
+		F9B8734F2A27159B00806327 /* DesignModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8734E2A27159B00806327 /* DesignModel.swift */; };
+		F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F9B873512A2718DE00806327 /* FirebaseStorage */; };
+		F9B873542A27641400806327 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873532A27641300806327 /* ImagePickerView.swift */; };
 		F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */; };
 		F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */; };
 		F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */; };
@@ -40,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardView.swift; sourceTree = "<group>"; };
+		F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardViewModel.swift; sourceTree = "<group>"; };
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99AC41C2A1BD16000188124 /* InkWayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkWayApp.swift; sourceTree = "<group>"; };
 		F99AC41E2A1BD16000188124 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -49,18 +56,20 @@
 		F9B873182A1C594300806327 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		F9B8731A2A1C5A3700806327 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		F9B8731E2A1C5ED500806327 /* UserHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeView.swift; sourceTree = "<group>"; };
 		F9B873202A1C656100806327 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		F9B873222A1C665600806327 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
-		F9B873242A1C666600806327 /* UserHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHomeViewModel.swift; sourceTree = "<group>"; };
 		F9B8732A2A24FC4F00806327 /* IWErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWErrors.swift; sourceTree = "<group>"; };
-		F9B8732C2A2509DB00806327 /* UserMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapView.swift; sourceTree = "<group>"; };
 		F9B873312A25491A00806327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F9B873322A254CFE00806327 /* UserLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationViewModel.swift; sourceTree = "<group>"; };
-		F9B873342A254D6000806327 /* UserLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationView.swift; sourceTree = "<group>"; };
-		F9B873362A25507200806327 /* UserLocationRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationRequestView.swift; sourceTree = "<group>"; };
-		F9B873382A2621D200806327 /* LocationTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestViewModel.swift; sourceTree = "<group>"; };
-		F9B8733A2A26233C00806327 /* LocationTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTestView.swift; sourceTree = "<group>"; };
+		F9B873382A2621D200806327 /* FindArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindArtistsViewModel.swift; sourceTree = "<group>"; };
+		F9B8733A2A26233C00806327 /* FindArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindArtistsView.swift; sourceTree = "<group>"; };
+		F9B873402A26DA1300806327 /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
+		F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateArtistModeView.swift; sourceTree = "<group>"; };
+		F9B873462A27036200806327 /* UploadDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDesignView.swift; sourceTree = "<group>"; };
+		F9B873482A27037800806327 /* UploadDesignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDesignViewModel.swift; sourceTree = "<group>"; };
+		F9B8734A2A27054900806327 /* UserDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDesignView.swift; sourceTree = "<group>"; };
+		F9B8734C2A2705F200806327 /* UserDesignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDesignViewModel.swift; sourceTree = "<group>"; };
+		F9B8734E2A27159B00806327 /* DesignModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignModel.swift; sourceTree = "<group>"; };
+		F9B873532A27641300806327 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserView.swift; sourceTree = "<group>"; };
 		F9CE2FD62A1C11EA008F9E9B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +88,7 @@
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
+				F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,7 @@
 			children = (
 				F99AC41B2A1BD16000188124 /* InkWay */,
 				F99AC41A2A1BD16000188124 /* Products */,
+				F9B873502A27187E00806327 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +133,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F9B873502A27187E00806327 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F9CF267D2A1BEBC000D8F5FA /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,12 +148,14 @@
 				F9CF26832A1BF6EC00D8F5FA /* LoginHeadingView.swift */,
 				F9CE2FD32A1C03B4008F9E9B /* RegisterUserView.swift */,
 				F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */,
-				F9B8731E2A1C5ED500806327 /* UserHomeView.swift */,
 				F9B873202A1C656100806327 /* UserProfileView.swift */,
-				F9B8732C2A2509DB00806327 /* UserMapView.swift */,
-				F9B873342A254D6000806327 /* UserLocationView.swift */,
-				F9B873362A25507200806327 /* UserLocationRequestView.swift */,
-				F9B8733A2A26233C00806327 /* LocationTestView.swift */,
+				F9B8733A2A26233C00806327 /* FindArtistsView.swift */,
+				F9B873402A26DA1300806327 /* EditUserProfileView.swift */,
+				F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */,
+				F9B873462A27036200806327 /* UploadDesignView.swift */,
+				F9B8734A2A27054900806327 /* UserDesignView.swift */,
+				F9B873532A27641300806327 /* ImagePickerView.swift */,
+				F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F9B873182A1C594300806327 /* UserModel.swift */,
+				F9B8734E2A27159B00806327 /* DesignModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,9 +176,10 @@
 				F9CE2FD82A1C127A008F9E9B /* RegisterViewModel.swift */,
 				F9B8731C2A1C5BDC00806327 /* MainViewModel.swift */,
 				F9B873222A1C665600806327 /* UserProfileViewModel.swift */,
-				F9B873242A1C666600806327 /* UserHomeViewModel.swift */,
-				F9B873322A254CFE00806327 /* UserLocationViewModel.swift */,
-				F9B873382A2621D200806327 /* LocationTestViewModel.swift */,
+				F9B873382A2621D200806327 /* FindArtistsViewModel.swift */,
+				F9B873482A27037800806327 /* UploadDesignViewModel.swift */,
+				F9B8734C2A2705F200806327 /* UserDesignViewModel.swift */,
+				F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +218,7 @@
 				F99AC4312A1BD3F400188124 /* FirebaseFirestore */,
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
 				F9B8732F2A250B3500806327 /* LocationPicker */,
+				F9B873512A2718DE00806327 /* FirebaseStorage */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -257,27 +280,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
-				F9B873392A2621D200806327 /* LocationTestViewModel.swift in Sources */,
+				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
-				F9B873332A254CFF00806327 /* UserLocationViewModel.swift in Sources */,
+				F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */,
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
 				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
-				F9B8732D2A2509DB00806327 /* UserMapView.swift in Sources */,
+				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
+				F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */,
+				F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */,
+				F9B873472A27036200806327 /* UploadDesignView.swift in Sources */,
 				F9CE2FD42A1C03B4008F9E9B /* RegisterUserView.swift in Sources */,
-				F9B873372A25507200806327 /* UserLocationRequestView.swift in Sources */,
-				F9B8731F2A1C5ED500806327 /* UserHomeView.swift in Sources */,
 				F9B873212A1C656100806327 /* UserProfileView.swift in Sources */,
+				F9B873492A27037800806327 /* UploadDesignViewModel.swift in Sources */,
 				F9CF26842A1BF6EC00D8F5FA /* LoginHeadingView.swift in Sources */,
 				F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */,
-				F9B873252A1C666600806327 /* UserHomeViewModel.swift in Sources */,
 				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
 				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
+				F9B8734D2A2705F200806327 /* UserDesignViewModel.swift in Sources */,
 				F9B873192A1C594300806327 /* UserModel.swift in Sources */,
 				F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */,
-				F9B8733B2A26233C00806327 /* LocationTestView.swift in Sources */,
-				F9B873352A254D6000806327 /* UserLocationView.swift in Sources */,
+				F9B873542A27641400806327 /* ImagePickerView.swift in Sources */,
+				F9B8733B2A26233C00806327 /* FindArtistsView.swift in Sources */,
+				F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */,
 				F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */,
+				F9B8734F2A27159B00806327 /* DesignModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
@@ -413,6 +440,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us please your location for better suggestions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access for best matches.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please provide access to the photo library for uploading your image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -436,7 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
@@ -447,6 +475,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Let us please your location for better suggestions";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow location access for best matches.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please provide access to the photo library for uploading your image.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -533,6 +562,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */;
 			productName = LocationPicker;
+		};
+		F9B873512A2718DE00806327 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

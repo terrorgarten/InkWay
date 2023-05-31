@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// just a button for login/registration
 struct IWButton: View {
     
     let title: String
@@ -18,21 +19,13 @@ struct IWButton: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    //.foregroundColor(Color.gray)
                 Text(title)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.black)
                     .bold()
             }
         }
         .foregroundColor(Color.mint)
         .padding()
     }
-}
-
-struct IWButton_Previews: PreviewProvider {
-    static var previews: some View {
-        IWButton(title: "Sample titile") {
-            // call something
-        }
-    }
+    
 }

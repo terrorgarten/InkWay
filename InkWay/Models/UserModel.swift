@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+// just simple model. Codable for sending to the DB as JSON
 struct UserModel: Codable {
     let id: String
     var name: String
@@ -14,5 +16,7 @@ struct UserModel: Codable {
     var instagram: String
     let email: String
     let joined: TimeInterval
-    let role: String
+    var coord_y: Float
+    var coord_x: Float
+    var artist: Bool
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// only used on two places, needs refactoring
 enum IWError: Error {
     case LogoutError
     case LoginError

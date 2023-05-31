@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// only shows the graphics for login header
 struct LoginHeadingView: View {
     
     let title: String
@@ -27,16 +29,9 @@ struct LoginHeadingView: View {
                     .italic()
             }
             .padding()
-                
+            
         }
-                // overflow the screen
-        .frame(width: UIScreen.main.bounds.width, height: 350)
-        .offset(y: -75)
+        .frame(width: UIScreen.main.bounds.width, height: 150)
     }
-}
-
-struct LoginHeadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginHeadingView(title: "Title", subtitle: "Subtitle test test test test test  test test testtesttesttesttesttesttesttesttesttesttesttesttest")
-    }
+    
 }

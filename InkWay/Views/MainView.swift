@@ -7,36 +7,43 @@
 
 import SwiftUI
 
+
+// main view, shows the TabView and removes the artist only options on status updates
 struct MainView: View {
     
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
+        // only if the user logged and we have his id
         if viewModel.signedIn, !viewModel.currentUserId.isEmpty {
-            // user is signed in
             TabView {
-                UserHomeView()
+                // only if user is status
+                if viewModel.currentUserArtistStatus {
+                    UploadDesignView()
+                        .tabItem {
+                            Label("Upload", systemImage: "square.and.arrow.up.circle.fill")
+                        }
+                    
+                    UserDesignView(userId: viewModel.currentUserId)
+                        .tabItem {
+                            Label("My designs", systemImage: "photo.stack")
+                        }
+                }
+                
+                FindArtistsView()
                     .tabItem {
-                        Label("Home", systemImage: "house")
+                        Label("Find", systemImage: "mappin.and.ellipse")
                     }
-                UserProfileView()
+                    
+                UserProfileView(viewModel: viewModel.userProfileViewModel)
                     .tabItem {
                         Label("Me", systemImage: "person.circle")
                     }
-                LocationTestView()
-                    .tabItem{
-                        Label("Map", systemImage: "mappin.and.ellipse")
-                    }
             }
         } else {
-            // not signed in, send users to registration
+            // user isnt logged in, send him there
             LoginView()
         }
     }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
+    
 }

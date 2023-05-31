@@ -9,6 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseFirestore
 
+// MARK: Handle registration
 class RegisterViewModel: ObservableObject {
     
     @Published var name: String = ""
@@ -19,11 +20,10 @@ class RegisterViewModel: ObservableObject {
     @Published var errorMessage = ""
     
     
-    init() {
-        // 2do
-    }
+    init() { }
     
     
+    // use firebase to register a new user
     func register() {
         guard validate() else {
             return
@@ -33,12 +33,14 @@ class RegisterViewModel: ObservableObject {
                 self!.errorMessage = error?.localizedDescription ?? ""
                 return
             }
+            // save custom user record
             self?.insertUserRecord(id: userId)
         }
         print("Register called.")
     }
     
     
+    // handle user saving to document
     private func insertUserRecord(id: String){
         let createdUser = UserModel(id: id,
                                     name: name,
@@ -46,7 +48,10 @@ class RegisterViewModel: ObservableObject {
                                     instagram: "",
                                     email: email,
                                     joined: Date().timeIntervalSince1970,
-                                    role: "user")
+                                    coord_y: 0,
+                                    coord_x: 0,
+                                    artist: false)
+        
         let db = Firestore.firestore()
         db.collection("users")
             .document(id)
@@ -54,6 +59,7 @@ class RegisterViewModel: ObservableObject {
     }
     
     
+    // validate registration data
     private func validate() -> Bool {
         guard !name.trimmingCharacters(in: .whitespaces).isEmpty,
               !surename.trimmingCharacters(in: .whitespaces).isEmpty,
@@ -76,4 +82,5 @@ class RegisterViewModel: ObservableObject {
         }
     return true
     }
+    
 }

@@ -8,18 +8,25 @@
 import FirebaseAuth
 import FirebaseFirestore
 import Foundation
+import CoreLocation
 
+
+
+// MARK: Handle user profile viewing and change propagation
 class UserProfileViewModel: ObservableObject {
     
     @Published var user: UserModel? = nil
     @Published var errorMsg: String? = ""
-
+    @Published var cityName: String = ""
     
     
     init () {
         fetchCurrentUser()
     }
     
+    
+    
+    // logout with Firebase
     func logout() {
         print("logout pressed")
         
@@ -31,6 +38,8 @@ class UserProfileViewModel: ObservableObject {
         }
     }
     
+    
+    // load user information from the Firestore
     func fetchCurrentUser() {
         guard let userId = Auth.auth().currentUser?.uid else {
             return
@@ -49,13 +58,41 @@ class UserProfileViewModel: ObservableObject {
                     instagram: data["instagram"] as? String ?? "",
                     email: data["email"] as? String ?? "",
                     joined: data["joined"] as? TimeInterval ?? 0,
-                    role: "user")
+                    coord_y: data["coord_y"] as? Float ?? 0,
+                    coord_x: data["coord_x"] as? Float ?? 0,
+                    artist: data["artist"] as? Bool ?? false)
+                guard let user = self.user else {
+                    return
+                }
+                self.reverseGeocode(location: CLLocationCoordinate2D(latitude: CLLocationDegrees(user.coord_y), longitude: CLLocationDegrees(user.coord_x)))
             }
         }
     }
     
-
     
+    // change user status to artist
+    func updateUserAsArtist(_ editedArtistUser: UserModel) {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(userId)
+        
+        userRef.updateData([
+            "artist": editedArtistUser.artist,
+            "coord_y": editedArtistUser.coord_y,
+            "coord_x": editedArtistUser.coord_x,
+        ]) { error in
+            if let error = error {
+                self.errorMsg = "Failed to update user: \(error.localizedDescription)"
+            }
+        }
+        fetchCurrentUser()
+    }
+    
+    
+    // update user information
     func updateUser(_ editedUser: UserModel) {
         guard let userId = Auth.auth().currentUser?.uid else {
             return
@@ -73,6 +110,26 @@ class UserProfileViewModel: ObservableObject {
                 self.errorMsg = "Failed to update user: \(error.localizedDescription)"
             }
         }
+        //reload
         fetchCurrentUser()
     }
+    
+    
+    // get city from x y coords
+    private func reverseGeocode(location: CLLocationCoordinate2D) {
+        let geocoder = CLGeocoder()
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        
+        geocoder.reverseGeocodeLocation(clLocation) { [weak self] placemarks, error in
+            guard error == nil, let placemark = placemarks?.first else {
+                self?.cityName = ""
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.cityName = placemark.locality ?? ""
+            }
+        }
+    }
+    
 }

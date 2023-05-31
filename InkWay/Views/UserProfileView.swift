@@ -7,44 +7,73 @@
 
 import SwiftUI
 
-
+// serves the entire user view, calls artist changer and the edit sheet
 struct UserProfileView: View {
-    @StateObject var viewModel = UserProfileViewModel()
+    @StateObject var viewModel: UserProfileViewModel
     @State private var isShowingEditView = false
+    @State private var isShowingArtistView = false
+    
     
     var body: some View {
         NavigationView {
             VStack {
                 if let user = viewModel.user {
                     VStack {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 150, height: 150)
-                            .padding()
-                        
+                        if let errorMessage = viewModel.errorMsg {
+                            Text(errorMessage)
+                        }
                         VStack(alignment: .leading) {
                             List {
-                                HStack {
-                                    Text("Name:")
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                    Text(user.name)
+                                Section(header: Text("User information")) {
+                                    HStack {
+                                        Text("Name:")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                        Text(user.name)
+                                    }
+                                    HStack {
+                                        Text("Surename:")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                        Text(user.surename)
+                                    }
+                                    HStack {
+                                        Text("Instagram:")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                        Text("@")
+                                            .foregroundColor(.gray)
+                                            .offset(x: 6)
+                                        Text(user.instagram)
+                                    }
                                 }
-                                HStack {
-                                    Text("Surename:")
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                    Text(user.surename)
+                                if user.artist {
+                                    Section(header: Text("Artist information")) {
+                                        HStack {
+                                            Text("Location")
+                                                .foregroundColor(.gray)
+                                            Spacer()
+                                            Text(viewModel.cityName)
+                                        }
+                                        NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
+                                            Text("Change artist info")
+                                                .foregroundColor(.accentColor)
+                                        }
+                                    }
                                 }
-                                HStack {
-                                    Text("Instagram:")
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                    Text("@")
-                                        .foregroundColor(.gray)
-                                        .offset(x: 6)
-                                    Text(user.instagram)
+                            }
+                            if user.artist {
+                                Text("You are now in artist mode. This means that other users can find you based on location in the Find tab. Uploading your designs also became available.")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray)
+                                    .padding()
+                                Spacer()
+                            }
+                            if !user.artist {
+                                NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
+                                    Text("Are you an artist? Show yourself!")
+                                        .padding()
+                                        .foregroundColor(.accentColor)
                                 }
                             }
                             
@@ -89,7 +118,8 @@ struct UserProfileView: View {
                         .padding()
                 }
             }
-            .navigationTitle("My profile")
+            .navigationBarTitle("My profile")
+            .navigationBarItems(trailing: Image(systemName: "person.circle").scaledToFill())
             .sheet(isPresented: $isShowingEditView) {
                 if let user = viewModel.user {
                     EditUserProfileView(user: user, isShowingEditView: $isShowingEditView, viewModel: viewModel)
@@ -98,52 +128,5 @@ struct UserProfileView: View {
             .onAppear(perform: viewModel.fetchCurrentUser)
         }
     }
-}
-
-struct EditUserProfileView: View {
-    @State private var editedUser: UserModel
-    @Binding var isShowingEditView: Bool
-    let viewModel: UserProfileViewModel
     
-    init(user: UserModel, isShowingEditView: Binding<Bool>, viewModel: UserProfileViewModel) {
-        _editedUser = State(initialValue: user)
-        _isShowingEditView = isShowingEditView
-        self.viewModel = viewModel
-    }
-    
-    var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Your name")){
-                    TextField("Name", text: $editedUser.name)
-                }
-                Section(header: Text("Your name")){
-                    TextField("Name", text: $editedUser.surename)
-                }
-                Section(header: Text("Your instagram")){
-                    HStack{
-                        Text("@")
-                            .foregroundColor(.gray)
-                        TextField("Name", text: $editedUser.instagram)
-                            .autocapitalization(.none)
-                    }
-                }
-            }
-            .navigationTitle("Edit Profile")
-            .navigationBarItems(
-                leading: Button(action: {
-                    isShowingEditView = false
-                }, label: {
-                    Text("Cancel")
-                }),
-                trailing: Button(action: {
-                    viewModel.updateUser(editedUser)
-                    isShowingEditView = false
-                }, label: {
-                    Text("Save")
-                })
-            )
-        }
-    }
 }
-
