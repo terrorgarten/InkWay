@@ -6,12 +6,12 @@ v Brně pod výukou pana doktora Martina Hrubého.
 ### Demo video: https://youtu.be/TnKh-cFeBxo
 
 ## Stručný popis aplikace
-InkWay je určená k rychlému a nenáročnému vyhledávání kontaktů na tatéru 
-ve Vašem okolí kdekoli budete. Jako uživatel můžete pouze procházet a 
+InkWay je určená k rychlému a nenáročnému vyhledávání kontaktů na tatéry 
+ve Vašem okolí kdekoliv budete. Jako uživatel můžete pouze procházet, 
 kontaktovat je již musíte individuálně, zvolil jsem jako kontakt instagram 
 handle, protože mám osobně pocit, že to je pro tatéry největší konverzní 
 místo. Pokud se přepnete do pohledu umělce, respektive tatéra, tak máte 
-možnost nahrávat vlastní designy a označit si na mapě svoji lokaci a 
+možnost nahrávat vlastní designy, označit si na mapě svoji lokaci a 
 prezentovat se tak například turistům, kteří by si rádi dovezli z dovolené 
 tetování. Uživatel však uvidí pouze město, což by mohl být krok vyšší 
 online bezpečnosti. Případně by se dalo velice snadno dodělat rozcestí 
