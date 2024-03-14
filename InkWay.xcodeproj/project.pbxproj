@@ -595,6 +595,7 @@
 				24CFC7742BCE941B0022283D /* IWGoogleSignInButton.swift in Sources */,
 				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
 				F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */,
+				6690970C2BA340E1009195BB /* FeedItemView.swift in Sources */,
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
 				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
 				243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */,
