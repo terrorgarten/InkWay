@@ -10,6 +10,8 @@
 		669097082BA33934009195BB /* UserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669097072BA33934009195BB /* UserFeedView.swift */; };
 		6690970A2BA33BCF009195BB /* UserFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669097092BA33BCF009195BB /* UserFeedViewModel.swift */; };
 		6690970C2BA340E1009195BB /* FeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6690970B2BA340E1009195BB /* FeedItemView.swift */; };
+		6690970E2BA43CE6009195BB /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6690970D2BA43CE6009195BB /* PostModel.swift */; };
+		669097112BA446D9009195BB /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 669097102BA446D9009195BB /* WrappingHStack */; };
 		F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */; };
 		F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */; };
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
@@ -51,6 +53,7 @@
 		669097072BA33934009195BB /* UserFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedView.swift; sourceTree = "<group>"; };
 		669097092BA33BCF009195BB /* UserFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewModel.swift; sourceTree = "<group>"; };
 		6690970B2BA340E1009195BB /* FeedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemView.swift; sourceTree = "<group>"; };
+		6690970D2BA43CE6009195BB /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardView.swift; sourceTree = "<group>"; };
 		F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardViewModel.swift; sourceTree = "<group>"; };
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +94,7 @@
 			files = (
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
+				669097112BA446D9009195BB /* WrappingHStack in Frameworks */,
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
@@ -130,6 +134,7 @@
 				669097072BA33934009195BB /* UserFeedView.swift */,
 				669097092BA33BCF009195BB /* UserFeedViewModel.swift */,
 				6690970B2BA340E1009195BB /* FeedItemView.swift */,
+				6690970D2BA43CE6009195BB /* PostModel.swift */,
 			);
 			path = InkWay;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
 				F9B8732F2A250B3500806327 /* LocationPicker */,
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
+				669097102BA446D9009195BB /* WrappingHStack */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -260,6 +266,7 @@
 			packageReferences = (
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
+				6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -289,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
+				6690970E2BA43CE6009195BB /* PostModel.swift in Sources */,
 				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
 				F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */,
@@ -531,6 +539,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -550,6 +566,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		669097102BA446D9009195BB /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
 		F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserFeedView: View {
-    @StateObject var viewModel = UserFeedViewModel()
+    @StateObject private var viewModel = UserFeedViewModel()
     
     var body: some View {
         NavigationStack {
@@ -17,10 +17,12 @@ struct UserFeedView: View {
                 Text("Follwing")
             }
             .frame(width: 200.0)
-            List {
-                Text("Hello, World!")
-                Text("Hello, World!")
-                Text("Hello, World!")
+            ScrollView {
+                VStack {
+                    ForEach ($viewModel.posts, id: \.self) {
+                        post in FeedItemView(model: post.wrappedValue)
+                    }
+                }
             }
         }
         .listStyle(.plain)
