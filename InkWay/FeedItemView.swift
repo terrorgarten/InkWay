@@ -57,7 +57,7 @@ struct FeedItemView: View {
                         .resizable()
                         .frame(width: 50, height: 10, alignment: .center)
                     // TODO: Come with a solution how to center swiper indicator
-                    Spacer(minLength: 160)
+                    Spacer(minLength: 170)
                 }
             }
             WrappingHStack(model.tags, id: \.self) { tag in
