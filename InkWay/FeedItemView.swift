@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+import WrappingHStack
 
 struct FeedItemView: View {
-    let artistName: String
-    let tags: [String]
+    let model: PostModel
     
     var body: some View {
         // TODO: replace with the artist profile picture
@@ -19,7 +19,7 @@ struct FeedItemView: View {
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .frame(width: 40.0, height: 40.0)
-                Text(artistName)
+                Text(model.artistName)
                     .fontWeight(.semibold)
                 Spacer()
                 // TODO: add expand functionality with options
@@ -28,7 +28,7 @@ struct FeedItemView: View {
             .padding(.horizontal, 20.0)
             ZStack(alignment: .bottomLeading){
                 // TODO: replace with photo swiper
-                // TODO: fetch picture from firebase
+                // TODO: fetch images from firebase
                 AsyncImage(url: URL(string: "future.link.to.picture")){
                     image in image.resizable()
                 } placeholder: {
@@ -36,6 +36,7 @@ struct FeedItemView: View {
                 }
                 .frame(height: 400)
                 HStack {
+                    // TODO: add functionality to like/unlike post
                     Label {
                         Text("Like")
                     } icon: {
@@ -59,23 +60,28 @@ struct FeedItemView: View {
                     Spacer(minLength: 160)
                 }
             }
-            HStack {
-                ForEach(tags, id: \.self) { tag in
+            WrappingHStack(model.tags, id: \.self) { tag in
+                // TODO: make tags clickable, redirect user to posts with clicked tag
                     Text(tag)
-                        .padding(.horizontal, 7)
-                        .padding(.vertical, 3)
-                        .background(.gray)
-                        .clipShape(Capsule())
-                }
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 5)
+                        .background(Capsule().stroke())
+                        .padding(.bottom, 10)
             }
+            .padding(.bottom, 5)
             .padding(.horizontal, 5)
             Spacer()
         }
+        .padding(.bottom, 10)
     }
 }
 
 struct FeedItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedItemView(artistName: "YakuzaCustoms", tags: ["Japan", "Abstract", "Mystic"])
+        FeedItemView(model:
+                        PostModel(
+                            artistName: "YakuzaCustoms",
+                            tags: ["#Japan", "#Abstract", "#Mystic", "#Tradition", "#Tokyo"],
+                            images: []))
     }
 }

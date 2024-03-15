@@ -137,6 +137,7 @@
 			files = (
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
+				669097112BA446D9009195BB /* WrappingHStack in Frameworks */,
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
@@ -529,6 +530,7 @@
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
 				F9B8732F2A250B3500806327 /* LocationPicker */,
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
+				669097102BA446D9009195BB /* WrappingHStack */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -561,6 +563,7 @@
 			packageReferences = (
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
+				6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -589,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
+				6690970E2BA43CE6009195BB /* PostModel.swift in Sources */,
 				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
 				24CFC77F2BCEBF8D0022283D /* HomeViewModel.swift in Sources */,
@@ -860,6 +864,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -879,6 +891,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		669097102BA446D9009195BB /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
 		F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
