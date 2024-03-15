@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct FeedItemView: View {
+    let artistName: String
+    let tags: [String]
+    
     var body: some View {
         // TODO: replace with the artist profile picture
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
+                // TODO: replace with artist's profile picture
                 Image(systemName: "person.circle.fill")
                     .resizable()
                     .frame(width: 40.0, height: 40.0)
-                Text("Artist Name")
+                Text(artistName)
                     .fontWeight(.semibold)
                 Spacer()
+                // TODO: add expand functionality with options
                 Image(systemName: "ellipsis")
             }
             .padding(.horizontal, 20.0)
@@ -55,21 +60,13 @@ struct FeedItemView: View {
                 }
             }
             HStack {
-                Text("#Japan")
-                    .padding(.horizontal, 7)
-                    .padding(.vertical, 3)
-                    .background(.gray)
-                    .clipShape(Capsule())
-                Text("#Abstract")
-                    .padding(.horizontal, 7)
-                    .padding(.vertical, 3)
-                    .background(.gray)
-                    .clipShape(Capsule())
-                Text("#Fantasy")
-                    .padding(.horizontal, 7)
-                    .padding(.vertical, 3)
-                    .background(.gray)
-                    .clipShape(Capsule())
+                ForEach(tags, id: \.self) { tag in
+                    Text(tag)
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 3)
+                        .background(.gray)
+                        .clipShape(Capsule())
+                }
             }
             .padding(.horizontal, 5)
             Spacer()
@@ -79,6 +76,6 @@ struct FeedItemView: View {
 
 struct FeedItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedItemView()
+        FeedItemView(artistName: "YakuzaCustoms", tags: ["Japan", "Abstract", "Mystic"])
     }
 }
