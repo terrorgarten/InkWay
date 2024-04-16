@@ -9,9 +9,23 @@ import SwiftUI
 
 // present the login screen
 struct LoginView: View {
+    @StateObject private var viewModel: LoginViewModel = LoginViewModel()
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var errorMessage: String? = nil
+    @EnvironmentObject var router: BaseRouter
     
-    @StateObject var viewModel = LoginViewModel()
+    // Placeholder
+    func signInAction() {
+        viewModel.login()
+    }
     
+    // Placeholder
+    func navigateToRegistration() {
+        router.navigateBack()
+        router.navigate(to: .register)
+    }
+
     var body: some View {
         NavigationView {
             VStack {
