@@ -14,36 +14,12 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        // only if the user logged and we have his id
-        if viewModel.signedIn, !viewModel.currentUserId.isEmpty {
-            TabView {
-                // only if user is status
-                if viewModel.currentUserArtistStatus {
-                    UploadDesignView()
-                        .tabItem {
-                            Label("Upload", systemImage: "square.and.arrow.up.circle.fill")
-                        }
-                    
-                    UserDesignView(userId: viewModel.currentUserId)
-                        .tabItem {
-                            Label("My designs", systemImage: "photo.stack")
-                        }
-                }
-                
-                FindArtistsView()
-                    .tabItem {
-                        Label("Find", systemImage: "mappin.and.ellipse")
-                    }
-                    
-                UserProfileView(viewModel: viewModel.userProfileViewModel)
-                    .tabItem {
-                        Label("Me", systemImage: "person.circle")
-                    }
+        VStack {
+            if !viewModel.signedIn, viewModel.currentUserId.isEmpty {
+                WelcomeView()
+            } else {
+                HomeView(currentUserId: viewModel.currentUserId, currentUserArtistStatus: viewModel.currentUserArtistStatus, userViewModel: viewModel.userProfileViewModel)
             }
-        } else {
-            // user isnt logged in, send him there
-            LoginView()
         }
     }
-    
 }

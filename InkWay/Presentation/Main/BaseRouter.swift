@@ -8,16 +8,26 @@
 import Foundation
 import SwiftUI
 
-final class Router: ObservableObject {
-    
-    public enum Destination: Codable, Hashable {
-        case home
-    }
+enum Destination: Hashable {
+    case login
+    case register
+    case createTattooerProfile
+    case welcome
+    case onboarding
+    case home
+    case none
+}
+
+class BaseRouter: ObservableObject {
     
     @Published var navPath = NavigationPath()
     
     func navigate(to destination: Destination) {
-        navPath.append(destination)
+        if destination == .home {
+            navigateToRoot()
+        } else {
+            navPath.append(destination)
+        }
     }
     
     func navigateBack() {

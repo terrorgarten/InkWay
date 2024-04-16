@@ -8,24 +8,13 @@
 import SwiftUI
 import _AuthenticationServices_SwiftUI
 
-struct CreateAccountView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
-    @State private var confirmPassword: String = ""
-    @State private var isTermsAccepted: Bool = false
-    @State private var errorMessage: String? = nil
+struct RegisterView: View {
+    @ObservedObject var viewModel = RegisterViewModel()
+    @EnvironmentObject var router: BaseRouter
 
-    // Placeholder
-    func registerAction() {
-        print("Register action triggered!")
-    }
     // Placeholder
     func showTermsAndConditions() {
         print("Terms and conditions triggered!")
-    }
-    // Placeholder
-    func signIn() {
-        print("Sign in triggered!")
     }
 
     var body: some View {
@@ -37,22 +26,22 @@ struct CreateAccountView: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                IWErrorMessageBar(message: errorMessage)
+                IWErrorMessageBar(message: viewModel.errorMessage)
                 
                 // Register account form
-                IWFormInputField(placeholder: "Enter your email", value: $email, label: "Email", color: .accentColor)
+                IWFormInputField(placeholder: "Enter your email", value: $viewModel.email, label: "Email", color: .accentColor)
                 
-                IWFormInputField(placeholder: "Enter your password", value: $password, label: "Password", isSecure: true, color: .accentColor)
+                IWFormInputField(placeholder: "Enter your password", value: $viewModel.password, label: "Password", isSecure: true, color: .accentColor)
                 
-                IWFormInputField(placeholder: "Confirm your password", value: $confirmPassword, label: "Confirm Password", isSecure: true, color: .accentColor)
+                IWFormInputField(placeholder: "Confirm your password", value: $viewModel.passwordConfirm, label: "Confirm Password", isSecure: true, color: .accentColor)
                 
                 HStack {
-                    IWCheckBox(isChecked: $isTermsAccepted)
+                    IWCheckBox(isChecked: $viewModel.isTermsAccepted)
                         .padding(.trailing, 5)
 
                     Text("I agree to the")
                     Button(action: {
-                        // Handle Terms & Conditions tap here
+                        // TODO - Handle Terms & Conditions tap here
                         print("Terms & Conditions tapped")
                     }) {
                         Text("Terms & Conditions")
@@ -60,12 +49,13 @@ struct CreateAccountView: View {
                     }
                 }.padding(.bottom, -14)
 
-                IWPrimaryButton(title: "Let's go!", color: Color.accentColor, action: registerAction)
+                IWPrimaryButton(title: "Let's go!", color: Color.accentColor, action: viewModel.register)
                 
                 HStack {
                     Text("Already have an account?")
                     Button(action: {
-                        signIn()
+                        router.navigateToRoot()
+                        router.navigate(to: .login)
                     }) {
                         Text("Sign in")
                             .fontWeight(.semibold)
@@ -82,11 +72,17 @@ struct CreateAccountView: View {
                 }
             }
         }
+        .onChange(of: viewModel.navigateToPath) {
+            if let destination = viewModel.navigateToPath {
+                viewModel.navigateToPath = nil
+                router.navigate(to: destination)
+            }
+        }
     }
 }
 
 struct CreateAccountView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountView()
+        RegisterView()
     }
 }

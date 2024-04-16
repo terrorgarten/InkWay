@@ -14,10 +14,9 @@ import Combine
 // main viewmodel, handles the app routing and contect switching
 // based on the currentUserArtistStatus
 class MainViewModel: ObservableObject {
-    
     @Published var currentUserId: String = ""
     @Published var currentUserArtistStatus: Bool = false
-    
+        
     private var handler: AuthStateDidChangeListenerHandle?
     public var signedIn: Bool {
         return Auth.auth().currentUser != nil
@@ -32,7 +31,7 @@ class MainViewModel: ObservableObject {
                 self?.fetchCurrentUser()
             }
             .store(in: &cancellables)
-
+        
         self.handler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             DispatchQueue.main.async {
                 self?.currentUserId = user?.uid ?? ""
@@ -40,9 +39,6 @@ class MainViewModel: ObservableObject {
         }
         fetchCurrentUser()
     }
-    
-    
-    
     
     // loads current user artist status
     func fetchCurrentUser() {

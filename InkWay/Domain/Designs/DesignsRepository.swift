@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+// TODO - just example
+protocol DesignsRepository {
+    func uploadDesign(with input: DesignModel) async throws -> Void
+}

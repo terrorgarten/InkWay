@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO - just example
 protocol UserRepository {
-    
+    func getUser(with input: None) async throws -> UserModel
 }

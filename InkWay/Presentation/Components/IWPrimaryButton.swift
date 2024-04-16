@@ -10,6 +10,7 @@ import SwiftUI
 struct IWPrimaryButton: View {
     var title: String
     var color: Color
+    var foregroundColor: Color = .white
     var action: () -> Void
 
     var body: some View {
@@ -19,7 +20,7 @@ struct IWPrimaryButton: View {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .padding()
                 .background(color)
-                .foregroundColor(.white)
+                .foregroundColor(foregroundColor)
                 .cornerRadius(10)
                 .padding()
         }

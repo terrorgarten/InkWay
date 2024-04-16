@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CreateTattooerProfileView: View {
-    @EnvironmentObject var viewModel: CreateTattooerProfileViewModel
+    @ObservedObject var viewModel = CreateTattooerProfileViewModel()
+    @EnvironmentObject var router: BaseRouter
 
     var body: some View {
         ScrollView {
@@ -24,7 +25,7 @@ struct CreateTattooerProfileView: View {
                 
                 IWFormInputField(placeholder: "Tell others something about yourself", value: $viewModel.bio, label: "Bio", isMultiline: true, color: Color("SecondaryColor"))
 
-                IWPrimaryButton(title: "Let's go!", color: Color.accentColor, action: viewModel.createAccount)
+                IWPrimaryButton(title: "Let's go!", color: Color.accentColor, action: router.navigateToRoot)
             }
         }
     }

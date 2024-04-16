@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class OnboardingViewModel: ObservableObject {
+    @Published var navigateToPath: Destination? = nil
+    
+    func finishOnboarding() {
+        UserDefaults.standard.set(true, forKey: "showedOnboarding")
+        navigateToPath = .home
+    }
+}

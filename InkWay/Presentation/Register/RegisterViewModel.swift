@@ -12,16 +12,12 @@ import FirebaseFirestore
 // MARK: Handle registration
 class RegisterViewModel: ObservableObject {
     
-    @Published var name: String = ""
-    @Published var surename: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var passwordConfirm: String = ""
-    @Published var errorMessage = ""
-    
-    
-    init() { }
-    
+    @Published var errorMessage: String? = nil
+    @Published var isTermsAccepted: Bool = false
+    @Published var navigateToPath: Destination? = nil
     
     // use firebase to register a new user
     func register() {
@@ -33,18 +29,25 @@ class RegisterViewModel: ObservableObject {
                 self!.errorMessage = error?.localizedDescription ?? ""
                 return
             }
-            // save custom user record
             self?.insertUserRecord(id: userId)
+            if UserDefaults.standard.bool(forKey: "createTattooerProfile") {
+                self?.navigateToPath = .createTattooerProfile
+            } else {
+                if UserDefaults.standard.bool(forKey: "showedOnboarding") {
+                    self?.navigateToPath = .home
+                } else {
+                    self?.navigateToPath = .onboarding
+                }
+            }
         }
-        print("Register called.")
     }
     
     
     // handle user saving to document
     private func insertUserRecord(id: String){
         let createdUser = UserModel(id: id,
-                                    name: name,
-                                    surename: surename,
+                                    name: "",
+                                    surename: "",
                                     instagram: "",
                                     email: email,
                                     joined: Date().timeIntervalSince1970,
@@ -61,9 +64,8 @@ class RegisterViewModel: ObservableObject {
     
     // validate registration data
     private func validate() -> Bool {
-        guard !name.trimmingCharacters(in: .whitespaces).isEmpty,
-              !surename.trimmingCharacters(in: .whitespaces).isEmpty,
-              !email.trimmingCharacters(in: .whitespaces).isEmpty,
+        errorMessage = nil
+        guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty else {
             errorMessage = "Please fill in all fields."
             return false
@@ -78,6 +80,10 @@ class RegisterViewModel: ObservableObject {
         }
         guard password == passwordConfirm else {
             errorMessage = "The passwords do not match."
+            return false
+        }
+        guard isTermsAccepted else {
+            errorMessage = "Please accept Terms & Conditions"
             return false
         }
     return true

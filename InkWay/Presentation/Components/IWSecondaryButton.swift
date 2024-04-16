@@ -16,7 +16,7 @@ struct IWSecondaryButton: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .fontWeight(.medium)
+                .fontWeight(.semibold)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .padding()
                 .foregroundColor(color)

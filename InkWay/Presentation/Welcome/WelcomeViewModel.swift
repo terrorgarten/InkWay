@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class WelcomeViewModel: ObservableObject {
+    @Published var navigateToPath: Destination? = nil
+    
+    func navigateToRegistration(createTattooerProfile: Bool) {
+        UserDefaults.standard.set(createTattooerProfile, forKey: "createTattooerProfile")
+        navigateToPath = .register
+    }
+}

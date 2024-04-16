@@ -7,20 +7,20 @@
 
 import Foundation
 
-class FetchUserDataUseCase: UseCase {
-    typealias Input = Void
-    typealias Output = String
+
+// TODO - just example
+class FetchCurrentUserUseCase: UseCase {
+    typealias Input = None
+    typealias Output = UserModel
     
     let userRepository: UserRepository
-    let userID: String
     
-    init(userRepository: UserRepository, userID: String) {
+    init(userRepository: UserRepository) {
         self.userRepository = userRepository
-        self.userID = userID
     }
     
-    func execute(with input: Void) async throws -> String {
-        <#code#>
+    func execute(with input: None) async throws -> UserModel {
+        return try await userRepository.getUser(with: input)
     }
 }
 

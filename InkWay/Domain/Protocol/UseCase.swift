@@ -13,3 +13,5 @@ protocol UseCase {
     
     func execute(with input: Input) async throws -> Output
 }
+
+struct None {}
