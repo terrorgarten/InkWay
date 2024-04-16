@@ -7,13 +7,11 @@
 
 import Foundation
 
-
-// TODO - just example
 class FetchCurrentUserUseCase: UseCase {
     typealias Input = None
     typealias Output = UserModel
     
-    let userRepository: UserRepository
+    private let userRepository: UserRepository
     
     init(userRepository: UserRepository) {
         self.userRepository = userRepository

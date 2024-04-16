@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 // MARK: Login handler
 class LoginViewModel: ObservableObject {
@@ -15,22 +14,33 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var navigateToPath: Destination? = nil
     
+    private let signInUserUseCase = SignInUserUseCase(userRepository: UserRepositoryImpl())
+    
     // logint user with firebase
     func login() {
         guard validate() else {
             return
         }
-        Auth.auth().signIn(withEmail: email, password: password) { [self] authResult, error in
-            // check for sign-in success or failure
-            if let error = error {
-                // handle sign-in failure
-                self.errorMessage = "Invalid credentials."
-                print("Sign-in failed with error: \(error.localizedDescription)")
-            } else {
-                if UserDefaults.standard.bool(forKey: "showedOnboarding") {
-                    navigateToPath = .home
-                } else {
-                    navigateToPath = .onboarding
+        Task {
+            do {
+                _ = try await signInUserUseCase.execute(with: .init(email: email, password: password))
+                let showedOnboarding = UserDefaults.standard.bool(forKey: "showedOnboarding")
+                await MainActor.run {
+                    if showedOnboarding {
+                        navigateToPath = .home
+                    } else {
+                        navigateToPath = .onboarding
+                    }
+                }
+            }
+            catch(let error) {
+                await MainActor.run {
+                    switch(error) {
+                    case UserRepositoryError.loginFailed:
+                        errorMessage = "Invalid credentials."
+                    default:
+                        errorMessage = "Something went wrong, try again."
+                    }
                 }
             }
         }

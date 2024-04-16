@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import FirebaseAuth
-import FirebaseFirestore
 
 // MARK: Handle registration
 class RegisterViewModel: ObservableObject {
@@ -19,50 +17,44 @@ class RegisterViewModel: ObservableObject {
     @Published var isTermsAccepted: Bool = false
     @Published var navigateToPath: Destination? = nil
     
-    // use firebase to register a new user
+    private let registerNewUserUseCase = RegisterNewUserUseCase(userRepository: UserRepositoryImpl())
+    
     func register() {
         guard validate() else {
             return
         }
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard let userId = result?.user.uid else {
-                self!.errorMessage = error?.localizedDescription ?? ""
-                return
-            }
-            self?.insertUserRecord(id: userId)
-            if UserDefaults.standard.bool(forKey: "createTattooerProfile") {
-                self?.navigateToPath = .createTattooerProfile
-            } else {
-                if UserDefaults.standard.bool(forKey: "showedOnboarding") {
-                    self?.navigateToPath = .home
+        Task {
+            do {
+                _ = try await registerNewUserUseCase.execute(with: .init(email: email, password: password))
+                if UserDefaults.standard.bool(forKey: "createTattooerProfile") {
+                    await MainActor.run {
+                        navigateToPath = .createTattooerProfile
+                    }
                 } else {
-                    self?.navigateToPath = .onboarding
+                    if UserDefaults.standard.bool(forKey: "showedOnboarding") {
+                        await MainActor.run {
+                            navigateToPath = .home
+                        }
+                    } else {
+                        await MainActor.run {
+                            navigateToPath = .onboarding
+                        }
+                    }
+                }
+            }
+            catch(let error) {
+                await MainActor.run {
+                    switch(error) {
+                    case UserRepositoryError.registerFailed:
+                        errorMessage = "Registration failed."
+                    default:
+                        errorMessage = "Something went wrong, try again."
+                    }
                 }
             }
         }
     }
     
-    
-    // handle user saving to document
-    private func insertUserRecord(id: String){
-        let createdUser = UserModel(id: id,
-                                    name: "",
-                                    surename: "",
-                                    instagram: "",
-                                    email: email,
-                                    joined: Date().timeIntervalSince1970,
-                                    coord_y: 0,
-                                    coord_x: 0,
-                                    artist: false)
-        
-        let db = Firestore.firestore()
-        db.collection("users")
-            .document(id)
-            .setData(createdUser.asDictionary())
-    }
-    
-    
-    // validate registration data
     private func validate() -> Bool {
         errorMessage = nil
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty,

@@ -10,4 +10,6 @@ import Foundation
 // TODO - just example
 protocol UserRepository {
     func getUser(with input: None) async throws -> UserModel
+    func signIn(with email: String, password: String) async throws -> None
+    func register(with email: String, password: String) async throws -> None
 }

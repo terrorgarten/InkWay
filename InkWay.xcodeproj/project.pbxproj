@@ -15,6 +15,8 @@
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
+		2493E6532BCF3E680076BA26 /* SignInUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */; };
+		2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */; };
 		24CFC76E2BCE941B0022283D /* IWCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7622BCE941A0022283D /* IWCheckBox.swift */; };
 		24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7632BCE941A0022283D /* IWAppleSignInButton.swift */; };
 		24CFC7702BCE941B0022283D /* IWPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7642BCE941A0022283D /* IWPrimaryButton.swift */; };
@@ -77,6 +79,8 @@
 		2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileViewModel.swift; sourceTree = "<group>"; };
+		2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserUseCase.swift; sourceTree = "<group>"; };
+		2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUserUseCase.swift; sourceTree = "<group>"; };
 		24CFC7622BCE941A0022283D /* IWCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWCheckBox.swift; sourceTree = "<group>"; };
 		24CFC7632BCE941A0022283D /* IWAppleSignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWAppleSignInButton.swift; sourceTree = "<group>"; };
 		24CFC7642BCE941A0022283D /* IWPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWPrimaryButton.swift; sourceTree = "<group>"; };
@@ -197,6 +201,8 @@
 				243F77CD2B9E0BC600899AD5 /* Models */,
 				243F77C32B9E08D900899AD5 /* UsersRepository.swift */,
 				243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */,
+				2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */,
+				2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -597,6 +603,7 @@
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
+				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
 				2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */,
 				F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */,
 				243F77C22B9E08C500899AD5 /* FetchCurrentUserUseCase.swift in Sources */,
@@ -632,6 +639,7 @@
 				2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */,
 				F9B8734F2A27159B00806327 /* DesignModel.swift in Sources */,
 				24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */,
+				2493E6532BCF3E680076BA26 /* SignInUserUseCase.swift in Sources */,
 				24CFC7712BCE941B0022283D /* IWTagPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

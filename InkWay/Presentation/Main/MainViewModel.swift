@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseAuth
-import FirebaseFirestore
 import Combine
 
 
@@ -22,9 +21,10 @@ class MainViewModel: ObservableObject {
         return Auth.auth().currentUser != nil
     }
     private var cancellables = Set<AnyCancellable>()
+    private let fetchCurrentUserUseCase = FetchCurrentUserUseCase(userRepository: UserRepositoryImpl())
     public var userProfileViewModel = UserProfileViewModel()
     
-    
+    // TODO - remove listener from view model https://stackoverflow.com/questions/67139077/subscribing-to-a-user-variable-from-my-authentication-class-in-an-unrelated-view
     init() {
         userProfileViewModel.objectWillChange
             .sink { [weak self] _ in
@@ -38,21 +38,31 @@ class MainViewModel: ObservableObject {
             }
         }
         fetchCurrentUser()
+        do {
+            try Auth.auth().signOut()
+        } catch {
+        }
     }
     
     // loads current user artist status
     func fetchCurrentUser() {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let db = Firestore.firestore()
-        db.collection("users").document(userId).getDocument { snapshot, error in
-            guard let data = snapshot?.data(), error == nil else {
-                return
+        Task {
+            do {
+                let user = try await fetchCurrentUserUseCase.execute(with: None())
+                self.currentUserArtistStatus = user.artist
             }
-            
-            DispatchQueue.main.async {
-                self.currentUserArtistStatus = data["artist"] as? Bool ?? false
+            catch(let error) {
+                // TODO - handle error
+                switch(error) {
+                case UserRepositoryError.currentUserNotFound:
+                    print()
+                case UserRepositoryError.failedToFetchCurrentUser(let error):
+                    print()
+                case UserRepositoryError.userDataNotFound:
+                    print()
+                default:
+                    print()
+                }
             }
         }
     }
