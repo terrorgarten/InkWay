@@ -36,7 +36,7 @@ struct OnboardingView: View {
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 
                 
-                IWSecondaryButton(title: (selectedTab == slides.count - 1) ? "Finish" : "Skip", color: Color.white) {
+                IWSecondaryButton(title: (selectedTab == slides.count - 1) ? String(localized: "Finish") : String(localized: "Skip"), color: Color.white) {
                     viewModel.finishOnboarding()
                 }
                 .padding()
