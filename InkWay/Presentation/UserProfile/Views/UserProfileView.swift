@@ -32,6 +32,12 @@ struct UserProfileView: View {
                                         Text(user.name)
                                     }
                                     HStack {
+                                        Text("Email:")
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                        Text(user.email)
+                                    }
+                                    HStack {
                                         Text("Surename:")
                                             .foregroundColor(.gray)
                                         Spacer()

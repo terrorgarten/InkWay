@@ -471,6 +471,7 @@
 		F99AC4102A1BD15F00188124 = {
 			isa = PBXGroup;
 			children = (
+				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
 				244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */,
 				244EE9062BD190C90031B347 /* Localazy.plist */,
 				244EE9012BD18ED20031B347 /* localazy.json */,
@@ -510,7 +511,6 @@
 		F9CF26802A1BEC1400D8F5FA /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
 				F99AC41C2A1BD16000188124 /* InkWayApp.swift */,
 				F99AC4202A1BD16900188124 /* Assets.xcassets */,
 			);
