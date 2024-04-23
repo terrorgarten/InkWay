@@ -32,12 +32,12 @@ struct LoginView: View {
                 }                
                 IWErrorMessageBar(message: viewModel.errorMessage)
                 
-                IWFormInputField(placeholder: "Enter your email", value: $viewModel.email, label: "Email", color: .accentColor)
+                IWFormInputField(placeholder: String(localized: "Enter your email"), value: $viewModel.email, label: String(localized: "Email"), color: .accentColor)
                 
-                IWFormInputField(placeholder: "Enter your password", value: $viewModel.password, label: "Password", isSecure: true, color: .accentColor)
+                IWFormInputField(placeholder: String(localized: "Enter your password"), value: $viewModel.password, label: String(localized: "Password"), isSecure: true, color: .accentColor)
                 
                 
-                IWPrimaryButton(title: "Sign In", color: Color.accentColor, action: signInAction)
+                IWPrimaryButton(title: String(localized: "Sign In"), color: Color.accentColor, action: signInAction)
                 
                 OrDivider()
                 

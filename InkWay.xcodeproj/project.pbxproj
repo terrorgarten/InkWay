@@ -12,6 +12,10 @@
 		243F77C42B9E08D900899AD5 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77C32B9E08D900899AD5 /* UsersRepository.swift */; };
 		243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77DA2B9E0EFA00899AD5 /* UserRepositoryImpl.swift */; };
 		243F77DD2B9E166900899AD5 /* DesignsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77DC2B9E166900899AD5 /* DesignsRepository.swift */; };
+		244EE9022BD18ED20031B347 /* localazy.json in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9012BD18ED20031B347 /* localazy.json */; };
+		244EE9052BD190B10031B347 /* Localazy in Frameworks */ = {isa = PBXBuildFile; productRef = 244EE9042BD190B10031B347 /* Localazy */; };
+		244EE9072BD190C90031B347 /* Localazy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9062BD190C90031B347 /* Localazy.plist */; };
+		244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
@@ -76,6 +80,9 @@
 		243F77C32B9E08D900899AD5 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		243F77DA2B9E0EFA00899AD5 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
 		243F77DC2B9E166900899AD5 /* DesignsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignsRepository.swift; sourceTree = "<group>"; };
+		244EE9012BD18ED20031B347 /* localazy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localazy.json; sourceTree = "<group>"; };
+		244EE9062BD190C90031B347 /* Localazy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Localazy.plist; sourceTree = "<group>"; };
+		244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileViewModel.swift; sourceTree = "<group>"; };
@@ -137,7 +144,7 @@
 			files = (
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
-				669097112BA446D9009195BB /* WrappingHStack in Frameworks */,
+				244EE9052BD190B10031B347 /* Localazy in Frameworks */,
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
@@ -464,6 +471,10 @@
 		F99AC4102A1BD15F00188124 = {
 			isa = PBXGroup;
 			children = (
+				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
+				244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */,
+				244EE9062BD190C90031B347 /* Localazy.plist */,
+				244EE9012BD18ED20031B347 /* localazy.json */,
 				F99AC41B2A1BD16000188124 /* InkWay */,
 				F99AC41A2A1BD16000188124 /* Products */,
 				F9B873502A27187E00806327 /* Frameworks */,
@@ -500,7 +511,6 @@
 		F9CF26802A1BEC1400D8F5FA /* App */ = {
 			isa = PBXGroup;
 			children = (
-				F99AC4352A1BD89500188124 /* GoogleService-Info.plist */,
 				F99AC41C2A1BD16000188124 /* InkWayApp.swift */,
 				F99AC4202A1BD16900188124 /* Assets.xcassets */,
 			);
@@ -530,7 +540,7 @@
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
 				F9B8732F2A250B3500806327 /* LocationPicker */,
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
-				669097102BA446D9009195BB /* WrappingHStack */,
+				244EE9042BD190B10031B347 /* Localazy */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -544,7 +554,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					F99AC4182A1BD15F00188124 = {
 						CreatedOnToolsVersion = 14.2;
@@ -558,12 +568,14 @@
 			knownRegions = (
 				en,
 				Base,
+				sk,
+				cs,
 			);
 			mainGroup = F99AC4102A1BD15F00188124;
 			packageReferences = (
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
-				6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -580,7 +592,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F99AC4212A1BD16900188124 /* Assets.xcassets in Resources */,
+				244EE9022BD18ED20031B347 /* localazy.json in Resources */,
 				F99AC4362A1BD89500188124 /* GoogleService-Info.plist in Resources */,
+				244EE9072BD190C90031B347 /* Localazy.plist in Resources */,
+				244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,14 +607,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
-				6690970E2BA43CE6009195BB /* PostModel.swift in Sources */,
 				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
 				24CFC77F2BCEBF8D0022283D /* HomeViewModel.swift in Sources */,
 				24CFC7742BCE941B0022283D /* IWGoogleSignInButton.swift in Sources */,
 				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
 				F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */,
-				6690970C2BA340E1009195BB /* FeedItemView.swift in Sources */,
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
 				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
 				243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */,
@@ -656,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -688,6 +702,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -716,6 +731,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -748,6 +764,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -864,12 +881,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+		244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			repositoryURL = "https://github.com/localazy/localazy-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				minimumVersion = 0.0.3;
 			};
 		};
 		F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -891,10 +908,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		669097102BA446D9009195BB /* WrappingHStack */ = {
+		244EE9042BD190B10031B347 /* Localazy */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6690970F2BA446D9009195BB /* XCRemoteSwiftPackageReference "WrappingHStack" */;
-			productName = WrappingHStack;
+			package = 244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */;
+			productName = Localazy;
 		};
 		F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

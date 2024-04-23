@@ -38,10 +38,6 @@ class MainViewModel: ObservableObject {
             }
         }
         fetchCurrentUser()
-        do {
-            try Auth.auth().signOut()
-        } catch {
-        }
     }
     
     // loads current user artist status
@@ -56,7 +52,7 @@ class MainViewModel: ObservableObject {
                 switch(error) {
                 case UserRepositoryError.currentUserNotFound:
                     print()
-                case UserRepositoryError.failedToFetchCurrentUser(let error):
+                case UserRepositoryError.failedToFetchCurrentUser:
                     print()
                 case UserRepositoryError.userDataNotFound:
                     print()

@@ -29,11 +29,11 @@ struct RegisterView: View {
                 IWErrorMessageBar(message: viewModel.errorMessage)
                 
                 // Register account form
-                IWFormInputField(placeholder: "Enter your email", value: $viewModel.email, label: "Email", color: .accentColor)
+                IWFormInputField(placeholder: String(localized: "Enter your email"), value: $viewModel.email, label: String(localized: "Email"), color: .accentColor)
                 
-                IWFormInputField(placeholder: "Enter your password", value: $viewModel.password, label: "Password", isSecure: true, color: .accentColor)
+                IWFormInputField(placeholder: String(localized: "Enter your password"), value: $viewModel.password, label: String(localized: "Password"), isSecure: true, color: .accentColor)
                 
-                IWFormInputField(placeholder: "Confirm your password", value: $viewModel.passwordConfirm, label: "Confirm Password", isSecure: true, color: .accentColor)
+                IWFormInputField(placeholder: String(localized: "Confirm your password"), value: $viewModel.passwordConfirm, label: String(localized: "Confirm Password"), isSecure: true, color: .accentColor)
                 
                 HStack {
                     IWCheckBox(isChecked: $viewModel.isTermsAccepted)
@@ -49,7 +49,7 @@ struct RegisterView: View {
                     }
                 }.padding(.bottom, -14)
 
-                IWPrimaryButton(title: "Let's go!", color: Color.accentColor, action: viewModel.register)
+                IWPrimaryButton(title: String(localized: "Let's go!"), color: Color.accentColor, action: viewModel.register)
                 
                 HStack {
                     Text("Already have an account?")

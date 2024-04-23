@@ -35,11 +35,11 @@ struct WelcomeView: View {
                     .padding(.horizontal)
                     .multilineTextAlignment(.center)
                     .foregroundColor(Color.accentColor)
-                IWPrimaryButton(title: "Sign up as user", color: Color.accentColor, action: {
+                IWPrimaryButton(title: String(localized: "Sign up as user"), color: Color.accentColor, action: {
                     viewModel.navigateToRegistration(createTattooerProfile: false)
                 })
                 
-                IWPrimaryButton(title: "Sign up as tattoo artist", color: Color.accentColor, action: {
+                IWPrimaryButton(title: String(localized: "Sign up as tattoo artist"), color: Color.accentColor, action: {
                     viewModel.navigateToRegistration(createTattooerProfile: true)
                 })
                 

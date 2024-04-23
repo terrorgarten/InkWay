@@ -68,6 +68,7 @@ class UserRepositoryImpl: UserRepository {
                 .setData(createdUser.asDictionary())
             return None()
         } catch(let error) {
+            print(error)
             throw UserRepositoryError.registerFailed
         }
     }

@@ -1,5 +1,5 @@
 {
-  "originHash" : "cb99ce1f3de5d41c4edc4ecea2754fb861b102f5d30c26509439bfb892fbb10e",
+  "originHash" : "f30f3a3f049ccf3fadb840d4ec18708c48c721a26ca6a05f601538ae74d539cc",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/app-check.git",
       "state" : {
-        "revision" : "c218c2054299b15ae577e818bbba16084d3eabe6",
-        "version" : "10.18.2"
+        "revision" : "7d2688de038d5484866d835acb47b379722d610e",
+        "version" : "10.19.0"
       }
     },
     {
@@ -89,6 +89,15 @@
       "state" : {
         "revision" : "9d108e9112aa1d65ce508facf804674546116d9c",
         "version" : "1.22.3"
+      }
+    },
+    {
+      "identity" : "localazy-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/localazy/localazy-swift",
+      "state" : {
+        "revision" : "796b83b128cf4209709df4e845610313902ec6b9",
+        "version" : "0.1.19"
       }
     },
     {
