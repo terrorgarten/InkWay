@@ -42,8 +42,6 @@ struct WelcomeView: View {
                 IWPrimaryButton(title: String(localized: "Sign up as tattoo artist"), color: Color.accentColor, action: {
                     viewModel.navigateToRegistration(createTattooerProfile: true)
                 })
-                
-                
             }
             .padding(.top, 20)
             
@@ -59,12 +57,12 @@ struct WelcomeView: View {
             .padding(.bottom, 20)
         }
         .padding(.horizontal)
-        .onChange(of: viewModel.navigateToPath) {
-            if let destination = viewModel.navigateToPath {
-                viewModel.navigateToPath = nil
-                router.navigate(to: destination)
-            }
-        }
+//        .onChange(of: viewModel.navigateToPath) {
+//            if let destination = viewModel.navigateToPath {
+//                viewModel.navigateVToPath = nil
+//                router.navigate(to: destination)
+//            }
+//        }
     }
 }
 

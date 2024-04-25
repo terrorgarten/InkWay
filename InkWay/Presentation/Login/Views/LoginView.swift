@@ -47,10 +47,10 @@ struct LoginView: View {
                         .padding(.horizontal, 50)
                 }
                 
-
-                Spacer()
-                Spacer()
-                
+                Group{
+                    Spacer()
+                    Spacer()
+                }
                 HStack {
                     Text("Don't have an account?")
                     Button(action: {
@@ -73,12 +73,12 @@ struct LoginView: View {
             }
             .padding()
         }
-        .onChange(of: viewModel.navigateToPath) {
-            if let destination = viewModel.navigateToPath {
-                viewModel.navigateToPath = nil
-                router.navigate(to: destination)
-            }
-        }
+//        .onChange(of: viewModel.navigateToPath) {
+//            if let destination = viewModel.navigateToPath {
+//                viewModel.navigateToPath = nil
+//                router.navigate(to: destination)
+//            }
+//        }
     }
 }
 

@@ -40,6 +40,11 @@
 		24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A92BCD83FD0080069D /* RegisterView.swift */; };
 		24F029AB2BCD83FD0080069D /* CreateTattooerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A82BCD83FD0080069D /* CreateTattooerProfileView.swift */; };
 		24F029AD2BCD86B50080069D /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029AC2BCD86B50080069D /* BaseRouter.swift */; };
+		662F615B2BD9808C00BE6469 /* UserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615A2BD9808C00BE6469 /* UserFeedView.swift */; };
+		662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615C2BD980B000BE6469 /* FeedItemView.swift */; };
+		662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 662F615F2BD9815400BE6469 /* WrappingHStack */; };
+		66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66375DAD2BD97E1800FF204C /* UserFeedViewModel.swift */; };
+		6689E9D22BDA404F00ABC0F2 /* CenteredCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */; };
 		F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */; };
 		F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */; };
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
@@ -107,6 +112,9 @@
 		24F029A82BCD83FD0080069D /* CreateTattooerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileView.swift; sourceTree = "<group>"; };
 		24F029A92BCD83FD0080069D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		24F029AC2BCD86B50080069D /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		662F615A2BD9808C00BE6469 /* UserFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedView.swift; sourceTree = "<group>"; };
+		662F615C2BD980B000BE6469 /* FeedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemView.swift; sourceTree = "<group>"; };
+		66375DAD2BD97E1800FF204C /* UserFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewModel.swift; sourceTree = "<group>"; };
 		F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardView.swift; sourceTree = "<group>"; };
 		F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardViewModel.swift; sourceTree = "<group>"; };
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +153,9 @@
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
 				244EE9052BD190B10031B347 /* Localazy in Frameworks */,
+				6689E9D22BDA404F00ABC0F2 /* CenteredCollectionView in Frameworks */,
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
+				662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
 				F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */,
@@ -158,6 +168,7 @@
 		243F77B72B9E039E00899AD5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				66E3C2DE2BD97A2C00BAD6B8 /* Feed */,
 				24CFC77C2BCEBF730022283D /* Home */,
 				24CFC77A2BCEAE060022283D /* CreateTattooerProfile */,
 				2467B9D72BCDBC1E00D54E70 /* Onboarding */,
@@ -468,6 +479,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		66375DAC2BD97D9E00FF204C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				662F615A2BD9808C00BE6469 /* UserFeedView.swift */,
+				662F615C2BD980B000BE6469 /* FeedItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		66E3C2DE2BD97A2C00BAD6B8 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				66375DAC2BD97D9E00FF204C /* Views */,
+				66375DAD2BD97E1800FF204C /* UserFeedViewModel.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		F99AC4102A1BD15F00188124 = {
 			isa = PBXGroup;
 			children = (
@@ -541,6 +570,8 @@
 				F9B8732F2A250B3500806327 /* LocationPicker */,
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
 				244EE9042BD190B10031B347 /* Localazy */,
+				662F615F2BD9815400BE6469 /* WrappingHStack */,
+				6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -576,6 +607,8 @@
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 				244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */,
+				662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
+				6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -606,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				662F615B2BD9808C00BE6469 /* UserFeedView.swift in Sources */,
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
 				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
@@ -621,6 +655,7 @@
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
+				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
 				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
 				2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */,
 				F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */,
@@ -639,6 +674,7 @@
 				24CFC7732BCE941B0022283D /* IWTag.swift in Sources */,
 				F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */,
 				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
+				662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */,
 				243F77DD2B9E166900899AD5 /* DesignsRepository.swift in Sources */,
 				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
 				F9B8734D2A2705F200806327 /* UserDesignViewModel.swift in Sources */,
@@ -803,7 +839,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -825,6 +861,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"InkWay/Preview Content\"";
@@ -840,7 +877,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -848,6 +885,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "io.nourish-softworks.InkWay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -889,6 +927,22 @@
 				minimumVersion = 0.0.3;
 			};
 		};
+		662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dkk/WrappingHStack";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BenEmdon/CenteredCollectionView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -912,6 +966,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */;
 			productName = Localazy;
+		};
+		662F615F2BD9815400BE6469 /* WrappingHStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
+			productName = WrappingHStack;
+		};
+		6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */;
+			productName = CenteredCollectionView;
 		};
 		F99AC42D2A1BD3F400188124 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
