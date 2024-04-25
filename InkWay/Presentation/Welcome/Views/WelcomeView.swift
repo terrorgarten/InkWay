@@ -57,12 +57,12 @@ struct WelcomeView: View {
             .padding(.bottom, 20)
         }
         .padding(.horizontal)
-//        .onChange(of: viewModel.navigateToPath) {
-//            if let destination = viewModel.navigateToPath {
-//                viewModel.navigateVToPath = nil
-//                router.navigate(to: destination)
-//            }
-//        }
+        .onChange(of: viewModel.navigateToPath) { _ in
+            if let destination = viewModel.navigateToPath {
+                viewModel.navigateToPath = nil
+                router.navigate(to: destination)
+            }
+        }
     }
 }
 

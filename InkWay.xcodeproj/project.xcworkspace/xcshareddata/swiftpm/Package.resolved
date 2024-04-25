@@ -1,4 +1,5 @@
 {
+  "originHash" : "2ebda5c16538e50ec3aafad1dfa9e45f5bfd6afb4eced6c8980db0168c7968be",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -100,15 +101,6 @@
       }
     },
     {
-      "identity" : "localazy-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/localazy/localazy-swift",
-      "state" : {
-        "revision" : "796b83b128cf4209709df4e845610313902ec6b9",
-        "version" : "0.1.19"
-      }
-    },
-    {
       "identity" : "locationpickerforswiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alessiorubicini/LocationPickerForSwiftUI",
@@ -154,5 +146,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

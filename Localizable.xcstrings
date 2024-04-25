@@ -576,6 +576,9 @@
         }
       }
     },
+    "Feed selection" : {
+
+    },
     "Find" : {
       "localizations" : {
         "cs" : {
@@ -778,6 +781,12 @@
           }
         }
       }
+    },
+    "Like" : {
+
+    },
+    "Liked" : {
+
     },
     "Loading your profile..." : {
       "localizations" : {
@@ -1197,6 +1206,9 @@
         }
       }
     },
+    "Share" : {
+
+    },
     "Sign in" : {
       "localizations" : {
         "cs" : {
@@ -1372,6 +1384,9 @@
           }
         }
       }
+    },
+    "Unfollow" : {
+
     },
     "unknown" : {
       "localizations" : {

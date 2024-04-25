@@ -13,7 +13,6 @@
 		243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77DA2B9E0EFA00899AD5 /* UserRepositoryImpl.swift */; };
 		243F77DD2B9E166900899AD5 /* DesignsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77DC2B9E166900899AD5 /* DesignsRepository.swift */; };
 		244EE9022BD18ED20031B347 /* localazy.json in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9012BD18ED20031B347 /* localazy.json */; };
-		244EE9052BD190B10031B347 /* Localazy in Frameworks */ = {isa = PBXBuildFile; productRef = 244EE9042BD190B10031B347 /* Localazy */; };
 		244EE9072BD190C90031B347 /* Localazy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9062BD190C90031B347 /* Localazy.plist */; };
 		244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
@@ -152,7 +151,6 @@
 			files = (
 				F99AC42E2A1BD3F400188124 /* FirebaseAnalytics in Frameworks */,
 				F99AC4302A1BD3F400188124 /* FirebaseAuth in Frameworks */,
-				244EE9052BD190B10031B347 /* Localazy in Frameworks */,
 				6689E9D22BDA404F00ABC0F2 /* CenteredCollectionView in Frameworks */,
 				F9B873302A250B3500806327 /* LocationPicker in Frameworks */,
 				662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */,
@@ -569,7 +567,6 @@
 				F99AC4332A1BD3F400188124 /* FirebaseFirestoreSwift */,
 				F9B8732F2A250B3500806327 /* LocationPicker */,
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
-				244EE9042BD190B10031B347 /* Localazy */,
 				662F615F2BD9815400BE6469 /* WrappingHStack */,
 				6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */,
 			);
@@ -606,7 +603,6 @@
 			packageReferences = (
 				F99AC42C2A1BD3F400188124 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
-				244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */,
 				662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */,
 			);
@@ -919,14 +915,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/localazy/localazy-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.3;
-			};
-		};
 		662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -962,11 +950,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		244EE9042BD190B10031B347 /* Localazy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 244EE9032BD190B10031B347 /* XCRemoteSwiftPackageReference "localazy-swift" */;
-			productName = Localazy;
-		};
 		662F615F2BD9815400BE6469 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */;

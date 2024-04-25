@@ -34,7 +34,7 @@ struct HomeView: View {
                     }
             }
             
-            FindArtistsView()
+            UserFeedView()
                 .tabItem {
                     Label("Find", systemImage: "mappin.and.ellipse")
                 }
