@@ -11,12 +11,6 @@ struct LoginView: View {
     @ObservedObject var viewModel = LoginViewModel()
     @EnvironmentObject var router: BaseRouter
     
-    // Placeholder
-    func signInAction() {
-        viewModel.login()
-    }
-    
-    // Placeholder
     func navigateToRegistration() {
         router.navigate(to: .register)
     }
@@ -37,13 +31,14 @@ struct LoginView: View {
                 IWFormInputField(placeholder: String(localized: "Enter your password"), value: $viewModel.password, label: String(localized: "Password"), isSecure: true, color: .accentColor)
                 
                 
-                IWPrimaryButton(title: String(localized: "Sign In"), color: Color.accentColor, action: signInAction)
+                IWPrimaryButton(title: String(localized: "Sign In"), color: Color.accentColor, action: viewModel.login)
                 
                 OrDivider()
                 
                 VStack {
-                    IWGoogleSignInButton(action: {}) // Add action
-                    IWAppleSignInButton(onSignInCompleted: { _ in })
+                    IWGoogleSignInButton(action: viewModel.signInWithGoogle) 
+                    IWAppleSignInButton(onSignInRequest: viewModel.signInWithAppleRequest,
+                                        onSignInCompleted: viewModel.signInWithAppleCompletion)
                         .padding(.horizontal, 50)
                 }
                 
