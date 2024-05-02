@@ -67,6 +67,9 @@
         }
       }
     },
+    "%@" : {
+
+    },
     "%lf, %lf" : {
       "localizations" : {
         "cs" : {
@@ -110,6 +113,18 @@
           }
         }
       }
+    },
+    "+420678987678" : {
+
+    },
+    "🔥 Passionate Tattoo Artist 🔥\n🎨 Custom Designs | Fine Artistry | Professional Service\n📸 Follow for Daily Ink Inspiration 📸\n🎉 Bookings Open | DM for Appointments 🎉\n#TattooArtist #InkLife #TattooInspiration" : {
+
+    },
+    "0km" : {
+
+    },
+    "100km" : {
+
     },
     "Already have an account?" : {
       "localizations" : {
@@ -221,6 +236,12 @@
         }
       }
     },
+    "Artist:" : {
+
+    },
+    "Book" : {
+
+    },
     "Cancel" : {
       "localizations" : {
         "cs" : {
@@ -265,6 +286,9 @@
         }
       }
     },
+    "Choose tags" : {
+
+    },
     "Choose which account you would like to create" : {
       "localizations" : {
         "cs" : {
@@ -287,6 +311,9 @@
         }
       }
     },
+    "Chosen tags:" : {
+
+    },
     "City" : {
       "localizations" : {
         "cs" : {
@@ -308,6 +335,9 @@
           }
         }
       }
+    },
+    "Close" : {
+
     },
     "Confirm Password" : {
       "localizations" : {
@@ -374,6 +404,15 @@
           }
         }
       }
+    },
+    "Created by YakuzaCustoms, a highly skilled and experienced tattoo artist known for their meticulous attention to detail and ability to bring their clients' visions to life. With a passion for both artistry and craftsmanship, YakuzaCustoms approaches each tattoo with creativity, professionalism, and a commitment to exceeding expectations." : {
+
+    },
+    "Description:" : {
+
+    },
+    "DISTANCE" : {
+
     },
     "Don't have an account?" : {
       "localizations" : {
@@ -576,6 +615,12 @@
         }
       }
     },
+    "Estimated price: 20$" : {
+
+    },
+    "Feed filters" : {
+
+    },
     "Feed selection" : {
 
     },
@@ -622,6 +667,9 @@
           }
         }
       }
+    },
+    "Follow" : {
+
     },
     "Forgot password?" : {
       "localizations" : {
@@ -688,6 +736,9 @@
           }
         }
       }
+    },
+    "Ink and Color:" : {
+
     },
     "Instagram" : {
       "extractionState" : "stale",
@@ -781,6 +832,15 @@
           }
         }
       }
+    },
+    "Lidická Brno" : {
+
+    },
+    "lidickatattoo@example.com" : {
+
+    },
+    "LidickaTattos" : {
+
     },
     "Like" : {
 
@@ -1008,6 +1068,9 @@
         }
       }
     },
+    "No tags selected" : {
+
+    },
     "or" : {
       "localizations" : {
         "cs" : {
@@ -1095,6 +1158,12 @@
           }
         }
       }
+    },
+    "Post detail" : {
+
+    },
+    "Purr-fect Scratch" : {
+
     },
     "Register" : {
       "localizations" : {
@@ -1341,6 +1410,9 @@
         }
       }
     },
+    "TAGS" : {
+
+    },
     "Tattoo artists nearby" : {
       "localizations" : {
         "cs" : {
@@ -1384,6 +1456,12 @@
           }
         }
       }
+    },
+    "The centerpiece of the tattoo is a charmingly realistic depiction of a cat's paw with extended claws, delicately poised mid-scratch. The paw features intricate details, including soft fur textures and gently curved claws, creating a sense of depth and realism. Positioned alongside the paw is a stylized depiction of a small wound, complete with meticulously rendered droplets of 'blood' ink, adding a touch of drama and authenticity to the design." : {
+
+    },
+    "The Whisker Wound tattoo is expertly rendered using a combination of black and gray ink, masterfully shaded to create depth and dimensionality. The use of subtle gradients and highlights brings the scene to life, lending a sense of movement and realism to the tattoo. The addition of carefully applied red ink accents adds a pop of color to the wound, enhancing its visual impact without overwhelming the overall composition." : {
+
     },
     "Unfollow" : {
 
@@ -1585,6 +1663,9 @@
           }
         }
       }
+    },
+    "YakuzaCustoms" : {
+
     },
     "You are here since:" : {
       "localizations" : {

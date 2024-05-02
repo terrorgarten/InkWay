@@ -1,5 +1,5 @@
 {
-  "originHash" : "2ebda5c16538e50ec3aafad1dfa9e45f5bfd6afb4eced6c8980db0168c7968be",
+  "originHash" : "52095ad816f9c02568196f931b2f4c6ac4d72ed561b7ac1a43f53de86e952d45",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -35,6 +35,15 @@
       "state" : {
         "revision" : "42eae77a0af79e9c3f41df04a23c76f05cfdda77",
         "version" : "10.24.0"
+      }
+    },
+    {
+      "identity" : "flow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/toastersocks/Flow.git",
+      "state" : {
+        "revision" : "5c1b99acf390ace87006e065b14f9bdcdd27fdbb",
+        "version" : "1.2.3"
       }
     },
     {
@@ -83,6 +92,15 @@
       }
     },
     {
+      "identity" : "helpers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/toastersocks/Helpers.git",
+      "state" : {
+        "revision" : "ae8fe3d43f72082cd4a67a0e9791fa982aa90d54",
+        "version" : "0.6.0"
+      }
+    },
+    {
       "identity" : "interop-ios-for-google-sdks",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/interop-ios-for-google-sdks.git",
@@ -107,6 +125,15 @@
       "state" : {
         "revision" : "aeb1aea83e887676a6dc369566040748773b418d",
         "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "multipicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/toastersocks/MultiPicker",
+      "state" : {
+        "branch" : "main",
+        "revision" : "a2a150202bd64fd82f5e815c419daf5b26ead94a"
       }
     },
     {

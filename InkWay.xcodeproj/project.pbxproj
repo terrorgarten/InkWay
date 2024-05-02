@@ -15,11 +15,17 @@
 		244EE9022BD18ED20031B347 /* localazy.json in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9012BD18ED20031B347 /* localazy.json */; };
 		244EE9072BD190C90031B347 /* Localazy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9062BD190C90031B347 /* Localazy.plist */; };
 		244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */; };
+		24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */; };
+		24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 24626E982BE3FD6000DBAAE2 /* MultiPicker */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
 		2493E6532BCF3E680076BA26 /* SignInUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */; };
 		2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */; };
+		24BC21AC2BDB0C0500AE616C /* DesignDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */; };
+		24BC21AE2BDB0C1400AE616C /* DesignDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21AD2BDB0C1400AE616C /* DesignDetailView.swift */; };
+		24BC21B22BDB2FF200AE616C /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21B12BDB2FF200AE616C /* UserDetailView.swift */; };
+		24BC21B42BDB301500AE616C /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21B32BDB301500AE616C /* UserDetailViewModel.swift */; };
 		24CFC76E2BCE941B0022283D /* IWCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7622BCE941A0022283D /* IWCheckBox.swift */; };
 		24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7632BCE941A0022283D /* IWAppleSignInButton.swift */; };
 		24CFC7702BCE941B0022283D /* IWPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CFC7642BCE941A0022283D /* IWPrimaryButton.swift */; };
@@ -87,11 +93,16 @@
 		244EE9012BD18ED20031B347 /* localazy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = localazy.json; sourceTree = "<group>"; };
 		244EE9062BD190C90031B347 /* Localazy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Localazy.plist; sourceTree = "<group>"; };
 		244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileViewModel.swift; sourceTree = "<group>"; };
 		2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserUseCase.swift; sourceTree = "<group>"; };
 		2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUserUseCase.swift; sourceTree = "<group>"; };
+		24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignDetailViewModel.swift; sourceTree = "<group>"; };
+		24BC21AD2BDB0C1400AE616C /* DesignDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignDetailView.swift; sourceTree = "<group>"; };
+		24BC21B12BDB2FF200AE616C /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		24BC21B32BDB301500AE616C /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		24CFC7622BCE941A0022283D /* IWCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWCheckBox.swift; sourceTree = "<group>"; };
 		24CFC7632BCE941A0022283D /* IWAppleSignInButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWAppleSignInButton.swift; sourceTree = "<group>"; };
 		24CFC7642BCE941A0022283D /* IWPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IWPrimaryButton.swift; sourceTree = "<group>"; };
@@ -156,6 +167,7 @@
 				662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
+				24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */,
 				F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +178,8 @@
 		243F77B72B9E039E00899AD5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				24BC21AF2BDB2FD900AE616C /* UserDetail */,
+				24BC21A92BDB0BE600AE616C /* DesignDetail */,
 				66E3C2DE2BD97A2C00BAD6B8 /* Feed */,
 				24CFC77C2BCEBF730022283D /* Home */,
 				24CFC77A2BCEAE060022283D /* CreateTattooerProfile */,
@@ -426,6 +440,40 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		24BC21A92BDB0BE600AE616C /* DesignDetail */ = {
+			isa = PBXGroup;
+			children = (
+				24BC21AA2BDB0BF100AE616C /* Views */,
+				24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */,
+			);
+			path = DesignDetail;
+			sourceTree = "<group>";
+		};
+		24BC21AA2BDB0BF100AE616C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				24BC21AD2BDB0C1400AE616C /* DesignDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		24BC21AF2BDB2FD900AE616C /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				24BC21B02BDB2FE100AE616C /* Views */,
+				24BC21B32BDB301500AE616C /* UserDetailViewModel.swift */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		24BC21B02BDB2FE100AE616C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				24BC21B12BDB2FF200AE616C /* UserDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		24CFC77A2BCEAE060022283D /* CreateTattooerProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +530,7 @@
 			children = (
 				662F615A2BD9808C00BE6469 /* UserFeedView.swift */,
 				662F615C2BD980B000BE6469 /* FeedItemView.swift */,
+				24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -569,6 +618,7 @@
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
 				662F615F2BD9815400BE6469 /* WrappingHStack */,
 				6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */,
+				24626E982BE3FD6000DBAAE2 /* MultiPicker */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -605,6 +655,7 @@
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 				662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */,
+				24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -641,6 +692,7 @@
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
 				24CFC77F2BCEBF8D0022283D /* HomeViewModel.swift in Sources */,
 				24CFC7742BCE941B0022283D /* IWGoogleSignInButton.swift in Sources */,
+				24BC21B22BDB2FF200AE616C /* UserDetailView.swift in Sources */,
 				F9B8732B2A24FC4F00806327 /* IWErrors.swift in Sources */,
 				F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */,
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
@@ -669,13 +721,16 @@
 				F9B873492A27037800806327 /* UploadDesignViewModel.swift in Sources */,
 				24CFC7732BCE941B0022283D /* IWTag.swift in Sources */,
 				F9B8731B2A1C5A3700806327 /* Extensions.swift in Sources */,
+				24BC21AC2BDB0C0500AE616C /* DesignDetailViewModel.swift in Sources */,
 				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
 				662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */,
 				243F77DD2B9E166900899AD5 /* DesignsRepository.swift in Sources */,
 				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
 				F9B8734D2A2705F200806327 /* UserDesignViewModel.swift in Sources */,
 				F9B873192A1C594300806327 /* UserModel.swift in Sources */,
+				24BC21B42BDB301500AE616C /* UserDetailViewModel.swift in Sources */,
 				F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */,
+				24BC21AE2BDB0C1400AE616C /* DesignDetailView.swift in Sources */,
 				F9B873542A27641400806327 /* ImagePickerView.swift in Sources */,
 				F9B8733B2A26233C00806327 /* FindArtistsView.swift in Sources */,
 				24CFC7812BCEBF990022283D /* HomeView.swift in Sources */,
@@ -686,6 +741,7 @@
 				F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */,
 				243F77BF2B9E071E00899AD5 /* UseCase.swift in Sources */,
 				F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */,
+				24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */,
 				2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */,
 				F9B8734F2A27159B00806327 /* DesignModel.swift in Sources */,
 				24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */,
@@ -915,6 +971,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/toastersocks/MultiPicker";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -950,6 +1014,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		24626E982BE3FD6000DBAAE2 /* MultiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */;
+			productName = MultiPicker;
+		};
 		662F615F2BD9815400BE6469 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
