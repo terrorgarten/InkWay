@@ -11,24 +11,36 @@ import WrappingHStack
 struct FeedItemView: View {
     let model: PostModel
     @State private var liked: Bool = false
+    @State private var showPostDetail = false
+    @State private var showUserDetail = false
     
     var body: some View {
         // TODO: replace with the artist profile picture
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
-                Button {
-                    // TODO: go to artist profile page
-                } label: {
-                    Label{
-                        Text(model.artistName)
-                            .fontWeight(.semibold)
-                    } icon: {
-                        // TODO: replace with artist's profile picture
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .frame(width: 40.0, height: 40.0)
+                NavigationLink(
+                    destination:  UserDetailView(isPresented: $showPostDetail)
+                                    .accentColor(.mint),
+                    label: {
+                        Label{
+                            Text(model.artistName)
+                                .fontWeight(.semibold)
+                        } icon: {
+                            AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 40, height: 40)
+                                    .cornerRadius(100)
+                            } placeholder: {
+                                ProgressView()
+                                    .progressViewStyle(.circular)
+                                    .frame(width: 40, height: 40)
+                            }
+                            .frame(height: 40)
+                        }
                     }
-                }
+                )
                 .foregroundColor(.black)
                 
                 Spacer()
@@ -48,14 +60,19 @@ struct FeedItemView: View {
             
             ZStack(alignment: .bottomLeading){
                 // TODO: fetch image from firebase
-                AsyncImage(url: URL(string: model.imageURL)){
-                    image in image.resizable()
-                } placeholder: {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .frame(width: 400, height: 400)
-                }
-                .frame(height: 400)
+                NavigationLink(
+                    destination: DesignDetailView(post: model),
+                    label: {
+                        AsyncImage(url: URL(string: model.imageURL)){
+                            image in image.resizable()
+                        } placeholder: {
+                            ProgressView()
+                                .progressViewStyle(.circular)
+                                .frame(width: 400, height: 400)
+                        }
+                        .frame(height: 400)
+                    }
+                )
                 
                 HStack {
                     Button(action: {
@@ -77,14 +94,14 @@ struct FeedItemView: View {
             
             WrappingHStack(model.tags, id: \.self) { tag in
                 Button(action: {}){
-                        Text(tag)
-                            .foregroundColor(.black)
-                            .font(.system(size: 14))
-                            .padding(.vertical, 2)
-                            .padding(.horizontal, 8)
-                            .background(.gray.opacity(0.8))
-                            .clipShape(Capsule())
-                            .padding(.bottom, 10)
+                    Text(tag.text)
+                        .foregroundColor(.black)
+                        .font(.system(size: 14))
+                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .background(.gray.opacity(0.5))
+                        .clipShape(Capsule())
+                        .padding(.bottom, 10)
                 }
                     
             }
@@ -101,7 +118,7 @@ struct FeedItemView_Previews: PreviewProvider {
         FeedItemView(model:
                         PostModel(
                             artistName: "YakuzaCustoms",
-                            tags: ["#Japan", "#Tokyo", "#Abstract", "#Mystic", "#Traditional"],
+                            tags: sampleTags,
                             imageURL: "https://as1.ftcdn.net/v2/jpg/05/64/67/48/1000_F_564674884_1bTiQkVe09psYrFIrGzMGXHzSXRKwXn1.jpg"))
     }
 }
