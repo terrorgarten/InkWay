@@ -8,6 +8,9 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import CryptoKit
+import GoogleSignIn
+
 
 // TODO - just example
 class UserRepositoryImpl: UserRepository {
@@ -72,6 +75,33 @@ class UserRepositoryImpl: UserRepository {
             throw UserRepositoryError.registerFailed
         }
     }
+    
+    func signInWithApple(with IDToken: String, rawNonce: String, fullName: PersonNameComponents?) async throws -> None {
+        // Initialize a Firebase credential, including the user's full name.
+        let credential = OAuthProvider.appleCredential(withIDToken: IDToken, rawNonce: rawNonce, fullName: fullName)
+        print("Signing in")
+        do {
+            let _ = try await auth.signIn(with: credential)
+            return None()
+        } catch(let error) {
+            print(error)
+            throw UserRepositoryError.appleSignInFailed
+        }
+    }
+
+    func signInWithGoogle(with IDTokenString: String, accessTokenString: String) async throws -> None {
+        do {
+            let credential = GoogleAuthProvider.credential(withIDToken: IDTokenString, accessToken: accessTokenString)
+            
+            let result = try await auth.signIn(with: credential)
+            let fbuser = result.user
+            print("\(fbuser.uid) connected with mail \(fbuser.email ?? "unknown")")
+            return None()
+        } catch {
+            print(error.localizedDescription)
+            throw UserRepositoryError.googleSignInFailed
+        } 
+    }
 }
 
 enum UserRepositoryError: Error {
@@ -80,4 +110,6 @@ enum UserRepositoryError: Error {
     case failedToFetchCurrentUser(Error)
     case loginFailed
     case registerFailed
+    case appleSignInFailed
+    case googleSignInFailed
 }

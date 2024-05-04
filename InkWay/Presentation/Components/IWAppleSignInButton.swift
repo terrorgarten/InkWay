@@ -9,11 +9,12 @@ import SwiftUI
 import AuthenticationServices
 
 struct IWAppleSignInButton: View {
+    var onSignInRequest: (ASAuthorizationAppleIDRequest) -> Void
     var onSignInCompleted: (Result<ASAuthorization, Error>) -> Void
 
     var body: some View {
         SignInWithAppleButton(.continue) { request in
-            request.requestedScopes = [.fullName, .email]
+            onSignInRequest(request)
         } onCompletion: { result in
             onSignInCompleted(result)
         }
@@ -28,7 +29,7 @@ struct IWAppleSignInButton: View {
 
 struct IWAppleSignInButton_Previews: PreviewProvider {
     static var previews: some View {
-        IWAppleSignInButton(onSignInCompleted: {_ in })
+        IWAppleSignInButton(onSignInRequest: {_ in }, onSignInCompleted: {_ in })
             .padding()
     }
 }
