@@ -16,7 +16,6 @@
 		244EE9072BD190C90031B347 /* Localazy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9062BD190C90031B347 /* Localazy.plist */; };
 		244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */; };
 		24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */; };
-		24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 24626E982BE3FD6000DBAAE2 /* MultiPicker */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
@@ -167,7 +166,6 @@
 				662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
-				24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */,
 				F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,7 +616,6 @@
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
 				662F615F2BD9815400BE6469 /* WrappingHStack */,
 				6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */,
-				24626E982BE3FD6000DBAAE2 /* MultiPicker */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -655,7 +652,6 @@
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 				662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */,
-				24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -971,14 +967,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/toastersocks/MultiPicker";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -1014,11 +1002,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		24626E982BE3FD6000DBAAE2 /* MultiPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */;
-			productName = MultiPicker;
-		};
 		662F615F2BD9815400BE6469 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */;
