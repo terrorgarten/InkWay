@@ -5,6 +5,10 @@
 ## User settings
 xcuserdata/
 
+# Ignore the .DS_Store macos fodler detail file, it's annoying as fuck and 
+MacOS just adds it all the time...
+.DS_Store
+
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
