@@ -65,9 +65,6 @@ struct RegisterView: View {
                 // OAuth section
                 OrDivider().padding(.top, 8)
                 VStack{
-                    IWAppleSignInButton(onSignInCompleted: { _ in })
-                        .padding(.horizontal, 85)
-                        .padding(.bottom, 10)
                     IWGoogleSignInButton(action: {})
                 }
             }
