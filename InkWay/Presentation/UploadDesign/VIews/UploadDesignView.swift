@@ -6,73 +6,113 @@
 //
 
 import SwiftUI
+import PhotosUI
+import WrappingHStack
 
-
-
-// Present just few buttons and then call the custom image picker
 struct UploadDesignView: View {
-    
     @StateObject private var viewModel = UploadDesignViewModel()
-    @State private var showImagePicker = false
-    @State private var selectedImage: UIImage?
-    
-    
+    @State private var options: [Tag] = sampleTags
+    @EnvironmentObject var router: BaseRouter
+
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Please note that only the first image is viewed on your profile when people find you!")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                    .padding()
-                Spacer()
+        NavigationStack {
+            Form {
+                Section(header: Text("Descritpion"), content: {
+                    TextField("Type something...", text: $viewModel.description, axis: .vertical)
+                        .lineLimit(5, reservesSpace: true)
+                })
+
+                Section(header: Text("Image"), content: {
+                    VStack(alignment: .center){
+                        PhotosPicker(selection: $viewModel.imageSelection,
+                                     matching: .images,
+                                     photoLibrary: .shared()){
+                                Label("Select image", systemImage: "photo")
+                                    .labelStyle(.titleAndIcon)
+                                    .frame(width: 315)
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        DesignImage(imageState: viewModel.imageState)
+                    }
+                        
+                })
                 
-                if let designImage = selectedImage {
-                    Image(uiImage: designImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding()
-                } else {
-                    Text("No image selected")
-                }
-                
-                Button("Select Image") {
-                    showImagePicker = true
-                }
-                .padding()
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePickerView(selectedImage: $selectedImage)
-                }
-                
-                Button("Upload Image") {
-                    if let image = selectedImage {
-                        viewModel.designImage = image
-                        viewModel.uploadDesignImage()
+                Section(header: Text("Tags"), content: {
+                    NavigationLink {
+                        MultiSelectPickerView(sourceItems: options, selectedItems: $viewModel.tagsSelection)
+                    } label: {
+                        Text("Choose tags")
+                    }
+                    HStack {
+                        VStack(alignment: .leading){
+                            Text("Chosen tags:")
+                            if $viewModel.tagsSelection.isEmpty {
+                                Text("No tags selected")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(.footnote))
+                            } else {
+                                WrappingHStack($viewModel.tagsSelection, id: \.self) { tag in
+                                    Button(action: {}){
+                                        IWTag(text: tag.text.wrappedValue)
+                                            .padding(.vertical, 2)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }).frame(maxHeight: .infinity)
+            }
+            .navigationTitle("Upload design")
+            .toolbar(){
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button("Cancel"){
+                        viewModel.navigateToHome()
                     }
                 }
-                .padding()
-                // live update the button status
-                .disabled(selectedImage == nil || viewModel.isUploading)
-                
-                if viewModel.isUploading {
-                    ProgressView("Uploading", value: viewModel.uploadProgress, total: 1.0)
-                        .padding()
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("Upload"){
+                        viewModel.uploadDesignImage()
+                        viewModel.navigateToHome()
+                    }.fontWeight(.bold)
                 }
-                
-                if let error = viewModel.uploadError {
-                    Text("Error during the image upload: \(error.localizedDescription) Try again please.")
-                        .foregroundColor(.red)
-                        .padding()
+            }
+            .onChange(of: viewModel.navigateToPath) { _ in
+                if let destination = viewModel.navigateToPath {
+                    viewModel.navigateToPath = nil
+                    router.navigate(to: destination)
                 }
-                
-                if viewModel.designUploaded {
-                    Text("Image Uploaded Successfully!")
-                        .foregroundColor(.green)
-                        .padding()
-                }
-                Spacer()
             }
         }
-        .navigationBarTitle("Upload design")
     }
     
+}
+
+struct DesignImage: View {
+    let imageState: UploadDesignViewModel.ImageState
+    
+    var body: some View{
+        switch imageState {
+        case .success(let image):
+            image.resizable()
+                .scaledToFill()
+                .frame(width: 335, height: 330)
+                .cornerRadius(8)
+                .clipped()
+        case .loading:
+            ProgressView()
+        case .empty:
+            EmptyView()
+        case .failure:
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 40))
+                .foregroundColor(.white)
+        }
+    }
+}
+
+struct UploadDesign_Previews: PreviewProvider {
+    static var previews: some View {
+        UploadDesignView()
+    }
 }

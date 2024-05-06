@@ -12,10 +12,14 @@ struct DesignModel: Identifiable, Codable {
     let id: UUID
     let designURL: URL
     let userId: String
+    let description: String
+    let tags: [String]
     
-    init(designId: UUID = UUID(), designURL: URL, userId: String) {
+    init(designId: UUID = UUID(), designURL: URL, userId: String, description: String, tags: [String]) {
         self.id = designId
         self.designURL = designURL
         self.userId = userId
+        self.description = description
+        self.tags = tags
     }
 }
