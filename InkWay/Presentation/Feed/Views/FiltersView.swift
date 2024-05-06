@@ -7,7 +7,6 @@
 
 import Foundation
 import SwiftUI
-import MultiPicker
 import WrappingHStack
 
 struct FiltersView: View {
