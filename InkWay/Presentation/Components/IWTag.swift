@@ -37,7 +37,7 @@ struct IWTag: View {
 
 struct Tag: Identifiable, Hashable {
     let id = UUID()
-    let text: String
+    var text: String
 }
 
 let sampleTags: [Tag] = [
