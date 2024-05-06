@@ -18,7 +18,11 @@ class UploadDesignViewModel: ObservableObject {
     @Published var designImage: UIImage?
     @Published var description: String = ""
     @Published var tagsSelection: [Tag] = []
-    
+    @Published var uploadError: Error?
+    @Published var isUploading: Bool = false
+    @Published var uploadProgress: Double = 0.0
+    @Published var designUploaded: Bool = false
+
     enum ImageState {
         case empty
         case loading(Progress)
@@ -77,6 +81,48 @@ class UploadDesignViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    // decodes and stores the image in Firebase Storage in the designs/
+    // use the observe aproach
+    func uploadDesignImage() {
+        guard let designImage = designImage,
+              let imageData = designImage.jpegData(compressionQuality: 0.8) else {
+            return
+        }
+        let designUUID = UUID()
+        let designImageRef = storageReference.child("designs/\(designUUID.uuidString).jpg")
+        let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
+            if let error = error {
+                self.uploadError = error
+                return
+            }
+            // url path from the Storage
+            designImageRef.downloadURL { url, error in
+                if let error = error {
+                    self.uploadError = error
+                    return
+                }
+                // save the record about image to db
+                if let cleanUrl = url {
+                    self.saveUserRelation(designUUID: designUUID, designURL: cleanUrl)
+                    DispatchQueue.main.async {
+                        self.designUploaded = true
+                    }
+                }
+            }
+        }
+        // loading
+        uploadTask.observe(.progress) { snapshot in
+            guard let progress = snapshot.progress else { return }
+            self.uploadProgress = Double(progress.completedUnitCount) / Double(progress.totalUnitCount)
+        }
+        
+        uploadTask.observe(.success) { _ in
+            self.isUploading = false
+        }
+        
+        isUploading = true
     }
     
     // saves the record about user-design relation
