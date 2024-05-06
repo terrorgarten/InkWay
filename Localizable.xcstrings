@@ -71,6 +71,7 @@
 
     },
     "%lf, %lf" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -114,9 +115,6 @@
         }
       }
     },
-    "+420678987678" : {
-
-    },
     "🔥 Passionate Tattoo Artist 🔥\n🎨 Custom Designs | Fine Artistry | Professional Service\n📸 Follow for Daily Ink Inspiration 📸\n🎉 Bookings Open | DM for Appointments 🎉\n#TattooArtist #InkLife #TattooInspiration" : {
 
     },
@@ -149,6 +147,7 @@
       }
     },
     "Are you an artist? Show yourself!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -170,7 +169,14 @@
         }
       }
     },
+    "Are you sure you want to log out?" : {
+
+    },
+    "Are you sure you want to unfollow this user?" : {
+
+    },
     "Artist information" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -193,6 +199,7 @@
       }
     },
     "Artist location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -215,6 +222,7 @@
       }
     },
     "Artist mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -235,6 +243,9 @@
           }
         }
       }
+    },
+    "ARTIST SETTINGS" : {
+
     },
     "Artist:" : {
 
@@ -265,6 +276,7 @@
       }
     },
     "Change artist info" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -285,6 +297,9 @@
           }
         }
       }
+    },
+    "Change your location" : {
+
     },
     "Choose tags" : {
 
@@ -383,6 +398,9 @@
         }
       }
     },
+    "CONTENT" : {
+
+    },
     "Create an account" : {
       "localizations" : {
         "cs" : {
@@ -437,6 +455,7 @@
       }
     },
     "Edit" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -502,10 +521,8 @@
         }
       }
     },
-    "Email:" : {
-
-    },
     "Enable artist mode" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -618,6 +635,9 @@
     "Estimated price: 20$" : {
 
     },
+    "Feed" : {
+
+    },
     "Feed filters" : {
 
     },
@@ -669,6 +689,15 @@
       }
     },
     "Follow" : {
+
+    },
+    "Followed artists" : {
+
+    },
+    "Followers" : {
+
+    },
+    "Followers: 32" : {
 
     },
     "Forgot password?" : {
@@ -737,9 +766,6 @@
         }
       }
     },
-    "Ink and Color:" : {
-
-    },
     "Instagram" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -790,6 +816,7 @@
       }
     },
     "Instagram:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -833,19 +860,13 @@
         }
       }
     },
-    "Lidická Brno" : {
-
-    },
-    "lidickatattoo@example.com" : {
-
-    },
-    "LidickaTattos" : {
-
-    },
     "Like" : {
 
     },
     "Liked" : {
+
+    },
+    "Liked posts" : {
 
     },
     "Loading your profile..." : {
@@ -871,6 +892,7 @@
       }
     },
     "Location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -915,6 +937,7 @@
       }
     },
     "Log me out" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -935,6 +958,9 @@
           }
         }
       }
+    },
+    "Log out" : {
+
     },
     "Me" : {
       "localizations" : {
@@ -1025,6 +1051,7 @@
       }
     },
     "Name:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1045,6 +1072,9 @@
           }
         }
       }
+    },
+    "No" : {
+
     },
     "No image selected" : {
       "localizations" : {
@@ -1187,6 +1217,9 @@
         }
       }
     },
+    "Reset" : {
+
+    },
     "Save" : {
       "localizations" : {
         "cs" : {
@@ -1208,6 +1241,9 @@
           }
         }
       }
+    },
+    "Saved designs" : {
+
     },
     "Select Image" : {
       "localizations" : {
@@ -1232,6 +1268,7 @@
       }
     },
     "Select your location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1389,6 +1426,7 @@
       }
     },
     "Surename:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1458,9 +1496,6 @@
       }
     },
     "The centerpiece of the tattoo is a charmingly realistic depiction of a cat's paw with extended claws, delicately poised mid-scratch. The paw features intricate details, including soft fur textures and gently curved claws, creating a sense of depth and realism. Positioned alongside the paw is a stylized depiction of a small wound, complete with meticulously rendered droplets of 'blood' ink, adding a touch of drama and authenticity to the design." : {
-
-    },
-    "The Whisker Wound tattoo is expertly rendered using a combination of black and gray ink, masterfully shaded to create depth and dimensionality. The use of subtle gradients and highlights brings the scene to life, lending a sense of movement and realism to the tattoo. The addition of carefully applied red ink accents adds a pop of color to the wound, enhancing its visual impact without overwhelming the overall composition." : {
 
     },
     "Unfollow" : {
@@ -1577,6 +1612,7 @@
       }
     },
     "User information" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1667,6 +1703,9 @@
     "YakuzaCustoms" : {
 
     },
+    "Yes" : {
+
+    },
     "You are here since:" : {
       "localizations" : {
         "cs" : {
@@ -1690,6 +1729,7 @@
       }
     },
     "You are now in artist mode. This means that other users can find you based on location in the Find tab. Uploading your designs also became available." : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1734,6 +1774,7 @@
       }
     },
     "Your location" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

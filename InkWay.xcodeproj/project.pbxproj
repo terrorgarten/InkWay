@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240EA4692BE6CAB3005A1C79 /* LikedPostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA4682BE6CAB3005A1C79 /* LikedPostsView.swift */; };
+		240EA46B2BE6E05C005A1C79 /* ArtitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240EA46A2BE6E05C005A1C79 /* ArtitsListView.swift */; };
+		243428572BE7E1EB00578BBA /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243428562BE7E1EB00578BBA /* EditDesignView.swift */; };
 		243F77BF2B9E071E00899AD5 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77BE2B9E071D00899AD5 /* UseCase.swift */; };
 		243F77C22B9E08C500899AD5 /* FetchCurrentUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */; };
 		243F77C42B9E08D900899AD5 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77C32B9E08D900899AD5 /* UsersRepository.swift */; };
@@ -16,7 +19,6 @@
 		244EE9072BD190C90031B347 /* Localazy.plist in Resources */ = {isa = PBXBuildFile; fileRef = 244EE9062BD190C90031B347 /* Localazy.plist */; };
 		244EE91F2BD1B3F70031B347 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 244EE91E2BD1B3F70031B347 /* Localizable.xcstrings */; };
 		24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */; };
-		24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 24626E982BE3FD6000DBAAE2 /* MultiPicker */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
@@ -70,7 +72,6 @@
 		F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873382A2621D200806327 /* FindArtistsViewModel.swift */; };
 		F9B8733B2A26233C00806327 /* FindArtistsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8733A2A26233C00806327 /* FindArtistsView.swift */; };
 		F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873402A26DA1300806327 /* EditUserProfileView.swift */; };
-		F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */; };
 		F9B873472A27036200806327 /* UploadDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873462A27036200806327 /* UploadDesignView.swift */; };
 		F9B873492A27037800806327 /* UploadDesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B873482A27037800806327 /* UploadDesignViewModel.swift */; };
 		F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B8734A2A27054900806327 /* UserDesignView.swift */; };
@@ -85,6 +86,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		240EA4682BE6CAB3005A1C79 /* LikedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostsView.swift; sourceTree = "<group>"; };
+		240EA46A2BE6E05C005A1C79 /* ArtitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtitsListView.swift; sourceTree = "<group>"; };
+		243428562BE7E1EB00578BBA /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
 		243F77BE2B9E071D00899AD5 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrentUserUseCase.swift; sourceTree = "<group>"; };
 		243F77C32B9E08D900899AD5 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
@@ -142,7 +146,6 @@
 		F9B873382A2621D200806327 /* FindArtistsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindArtistsViewModel.swift; sourceTree = "<group>"; };
 		F9B8733A2A26233C00806327 /* FindArtistsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindArtistsView.swift; sourceTree = "<group>"; };
 		F9B873402A26DA1300806327 /* EditUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserProfileView.swift; sourceTree = "<group>"; };
-		F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivateArtistModeView.swift; sourceTree = "<group>"; };
 		F9B873462A27036200806327 /* UploadDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDesignView.swift; sourceTree = "<group>"; };
 		F9B873482A27037800806327 /* UploadDesignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDesignViewModel.swift; sourceTree = "<group>"; };
 		F9B8734A2A27054900806327 /* UserDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDesignView.swift; sourceTree = "<group>"; };
@@ -167,7 +170,6 @@
 				662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */,
 				F99AC4322A1BD3F400188124 /* FirebaseFirestore in Frameworks */,
 				F99AC4342A1BD3F400188124 /* FirebaseFirestoreSwift in Frameworks */,
-				24626E992BE3FD6000DBAAE2 /* MultiPicker in Frameworks */,
 				F9B873522A2718DE00806327 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				F9CE2FDA2A1C17E6008F9E9B /* IWButton.swift */,
-				F9B873402A26DA1300806327 /* EditUserProfileView.swift */,
-				F9B873422A26DA6E00806327 /* ActivateArtistModeView.swift */,
 				F9B873532A27641300806327 /* ImagePickerView.swift */,
 				24CFC7632BCE941A0022283D /* IWAppleSignInButton.swift */,
 				24CFC7622BCE941A0022283D /* IWCheckBox.swift */,
@@ -350,7 +350,10 @@
 		243F77D12B9E0D8A00899AD5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F9B873402A26DA1300806327 /* EditUserProfileView.swift */,
 				F9B873202A1C656100806327 /* UserProfileView.swift */,
+				240EA4682BE6CAB3005A1C79 /* LikedPostsView.swift */,
+				240EA46A2BE6E05C005A1C79 /* ArtitsListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				F9B8734A2A27054900806327 /* UserDesignView.swift */,
+				243428562BE7E1EB00578BBA /* EditDesignView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -618,7 +622,6 @@
 				F9B873512A2718DE00806327 /* FirebaseStorage */,
 				662F615F2BD9815400BE6469 /* WrappingHStack */,
 				6689E9D12BDA404F00ABC0F2 /* CenteredCollectionView */,
-				24626E982BE3FD6000DBAAE2 /* MultiPicker */,
 			);
 			productName = InkWay;
 			productReference = F99AC4192A1BD16000188124 /* InkWay.app */;
@@ -655,7 +658,6 @@
 				F9B8732E2A250B3500806327 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 				662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */,
 				6689E9D02BDA404F00ABC0F2 /* XCRemoteSwiftPackageReference "CenteredCollectionView" */,
-				24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */,
 			);
 			productRefGroup = F99AC41A2A1BD16000188124 /* Products */;
 			projectDirPath = "";
@@ -701,11 +703,11 @@
 				2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */,
 				24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */,
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
-				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
 				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
 				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
 				2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */,
+				240EA46B2BE6E05C005A1C79 /* ArtitsListView.swift in Sources */,
 				F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */,
 				243F77C22B9E08C500899AD5 /* FetchCurrentUserUseCase.swift in Sources */,
 				24F029AD2BCD86B50080069D /* BaseRouter.swift in Sources */,
@@ -738,10 +740,12 @@
 				24CFC7702BCE941B0022283D /* IWPrimaryButton.swift in Sources */,
 				24CFC7772BCE941B0022283D /* IWSecondaryButton.swift in Sources */,
 				24F0298B2BCD773F0080069D /* WelcomeView.swift in Sources */,
+				243428572BE7E1EB00578BBA /* EditDesignView.swift in Sources */,
 				F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */,
 				243F77BF2B9E071E00899AD5 /* UseCase.swift in Sources */,
 				F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */,
 				24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */,
+				240EA4692BE6CAB3005A1C79 /* LikedPostsView.swift in Sources */,
 				2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */,
 				F9B8734F2A27159B00806327 /* DesignModel.swift in Sources */,
 				24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */,
@@ -971,14 +975,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/toastersocks/MultiPicker";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dkk/WrappingHStack";
@@ -1014,11 +1010,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		24626E982BE3FD6000DBAAE2 /* MultiPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 24626E972BE3FD6000DBAAE2 /* XCRemoteSwiftPackageReference "MultiPicker" */;
-			productName = MultiPicker;
-		};
 		662F615F2BD9815400BE6469 /* WrappingHStack */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 662F615E2BD9815400BE6469 /* XCRemoteSwiftPackageReference "WrappingHStack" */;

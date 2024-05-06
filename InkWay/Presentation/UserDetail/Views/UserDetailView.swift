@@ -9,104 +9,91 @@ import Foundation
 import SwiftUI
 
 struct UserDetailView: View {
-    @StateObject var viewModel = UserDetailViewModel()
+    @StateObject var viewModel: UserDetailViewModel
     @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: 3)
     @State private var isFollowing: Bool = false
-    @Binding var isPresented: Bool
     
     var body: some View {
             ScrollView {
-                VStack(alignment: .center) {
-                    Text("LidickaTattos")
-                        .fontWeight(.bold)
-                        .padding(.top)
-                        .font(.system(size: 20))
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading) {
-                            AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 90, height: 90)
-                                    .cornerRadius(100)
-                            } placeholder: {
-                                ProgressView()
-                                    .progressViewStyle(.circular)
-                                    .frame(width: 90, height: 90)
-                            }
-                            .frame(height: 90)
-                    
-                        }
-                        .padding(.top)
-                        Spacer()
-                        VStack(alignment: .leading) {
-                            if isFollowing {
-                                IWPrimaryButton(title: String(localized: "Unfollow"), color: Color.gray, action: {
-                                    isFollowing = false
-                                })
-                                    .frame(maxWidth: 180)
-                            } else {
-                                IWPrimaryButton(title: String(localized: "Follow"), color: Color.accentColor, action: {
-                                    isFollowing = true
-                                })
-                                    .frame(maxWidth: 180)
-                            }
-                            
-                            Label{
-                                Text("Lidická Brno")
-                                    .font(.system(size: 13))
-                            } icon: {
-                                Image(systemName: "house")
-                                    .font(.system(size: 13))
-                            }
-                            .padding(.leading)
-                            Label{
-                                Text("+420678987678")
-                                    .font(.system(size: 13))
-                            } icon: {
-                                Image(systemName: "phone")
-                                    .font(.system(size: 13))
-                            }
-                            .padding(.leading)
-                            Label{
-                                Text("lidickatattoo@example.com")
-                                    .font(.system(size: 13))
-                            } icon: {
-                                Image(systemName: "envelope")
-                                    .font(.system(size: 13))
-                            }
-                            .padding(.leading)
-                        }
-                    }
-                    .padding(.horizontal)
-                    Text("""
-                        🔥 Passionate Tattoo Artist 🔥
-                        🎨 Custom Designs | Fine Artistry | Professional Service
-                        📸 Follow for Daily Ink Inspiration 📸
-                        🎉 Bookings Open | DM for Appointments 🎉
-                        #TattooArtist #InkLife #TattooInspiration
-                        """)
-                        .font(.system(size: 13))
-                        .padding()
-                    Divider()
-                    
-                    ScrollView {
-                        LazyVGrid(columns: gridColumns) {
-                            ForEach(viewModel.followingPosts) { item in
-                                GeometryReader { geo in
-                                    NavigationLink(destination: DesignDetailView(post: item)) {
-                                        GridItemView(size: geo.size.width, item: item)
-                                    }
+                if let user = viewModel.user, let designs = viewModel.designs {
+                    VStack(alignment: .center) {
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading) {
+                                AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 90, height: 90)
+                                        .cornerRadius(100)
+                                } placeholder: {
+                                    ProgressView()
+                                        .progressViewStyle(.circular)
+                                        .frame(width: 90, height: 90)
                                 }
-                                .aspectRatio(1, contentMode: .fit)
-                                .padding(.bottom)
+                                .frame(height: 90)
+                        
+                            }
+                            .padding(.top)
+                            Spacer()
+                            VStack(alignment: .center) {
+                                if isFollowing {
+                                    IWPrimaryButton(title: String(localized: "Unfollow"), color: Color.gray, action: {
+                                        isFollowing = false
+                                        viewModel.handleFollowAction(following: isFollowing)
+                                    })
+                                        .frame(maxWidth: 180)
+                                } else {
+                                    IWPrimaryButton(title: String(localized: "Follow"), color: Color.accentColor, action: {
+                                        isFollowing = true
+                                        viewModel.handleFollowAction(following: isFollowing)
+                                    })
+                                        .frame(maxWidth: 180)
+                                }
+                                Text("Followers: 32")
+                                    .font(.system(.headline))
                             }
                         }
-                        .padding()
-                   }
+                        .padding(.horizontal)
+                        Text("""
+                            🔥 Passionate Tattoo Artist 🔥
+                            🎨 Custom Designs | Fine Artistry | Professional Service
+                            📸 Follow for Daily Ink Inspiration 📸
+                            🎉 Bookings Open | DM for Appointments 🎉
+                            #TattooArtist #InkLife #TattooInspiration
+                            """)
+                            .font(.system(size: 13))
+                            .padding()
+                        Divider()
+                        ScrollView {
+                            LazyVGrid(columns: gridColumns) {
+                                ForEach(designs) { item in
+                                    GeometryReader { geo in
+                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(designId: ""))) {
+                                            GridItemView(size: geo.size.width, item: item)
+                                        }
+                                    }
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .padding(.bottom)
+                                }
+                            }
+                            .padding()
+                       }
+
+                    }
+                    .navigationBarTitle(user.name)
+                } else {
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                        Spacer()
+                    }
+                    .frame(maxHeight: .infinity)
                 }
             }
-        
+            .onAppear {
+                viewModel.fetchUser()
+            }
     }
 }
 
@@ -120,13 +107,15 @@ struct GridItemView: View {
             AsyncImage(url:  URL(string: item.imageURL)) { image in
                 image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
                     .frame(width: size, height: size)
+                    .aspectRatio(contentMode: .fill)
+                   
             } placeholder: {
                 ProgressView()
             }
             .frame(width: size, height: size)
         }
+        .frame(width: size, height: size)
     }
 }
 

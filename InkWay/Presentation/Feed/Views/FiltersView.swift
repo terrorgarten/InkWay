@@ -33,6 +33,7 @@ struct FiltersView: View {
                     Section(header: Text("TAGS"), content: {
                         NavigationLink {
                             MultiSelectPickerView(sourceItems: options, selectedItems: $selection)
+                        
                         } label: {
                             Text("Choose tags")
                         }
@@ -49,6 +50,9 @@ struct FiltersView: View {
                                             IWTag(text: tag.text)
                                                 .padding(.vertical, 2)
                                         }
+                                    }
+                                    Button(action:  { selection = [] }) {
+                                        Text("Reset")
                                     }
                                 }
                             }
@@ -79,28 +83,29 @@ struct MultiSelectPickerView: View {
             Form {
                 List {
                     ForEach(searchResults) { item in
-                               Button(action: {
-                                   withAnimation {
-                                       if self.selectedItems.contains(item) {
-                                           self.selectedItems.removeAll(where: { $0 == item })
-                                       } else {
-                                           self.selectedItems.append(item)
-                                       }
-                                   }
-                               }) {
-                                   HStack {
-                                       Image(systemName: "checkmark")
-                                           .opacity(self.selectedItems.contains(item) ? 1.0 : 0.0)
-                                       Text("\(item.text)")
-                                   }
-                               }
-                               .foregroundColor(.primary)
-                           }
-                       }
-                   }
-                   .listStyle(GroupedListStyle())
+                        Button(action: {
+                            withAnimation {
+                                if self.selectedItems.contains(item) {
+                                    self.selectedItems.removeAll(where: { $0 == item })
+                                } else {
+                                    self.selectedItems.append(item)
+                                }
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "checkmark")
+                                    .opacity(self.selectedItems.contains(item) ? 1.0 : 0.0)
+                                Text("\(item.text)")
+                            }
+                        }
+                        .foregroundColor(.primary)
+                    }
+                }
+            }
+            .listStyle(GroupedListStyle())
         }
         .navigationBarTitle("Choose tags")
+        .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $searchText)
     }
     

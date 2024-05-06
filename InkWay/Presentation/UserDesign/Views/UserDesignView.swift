@@ -12,7 +12,7 @@ import SwiftUI
 struct UserDesignView: View {
     
     @StateObject private var viewModel = UserDesignViewModel()
-    
+    @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: 3)
     private let userId: String
     
     
@@ -23,64 +23,33 @@ struct UserDesignView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.designs.isEmpty {
-                Text("Why not add some designs?")
-                    .padding()
-                    .foregroundColor(.accentColor)
-            } else {
-                VStack {
-                Text("Please note that only the first image is viewed on your profile when people find you!")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
-                    .padding()
-                Spacer()
-                List {
-                    ForEach(viewModel.designs.indices, id: \.self) { index in
-                        let design = viewModel.designs[index]
-                        
-                        VStack(alignment: .leading) {
-                            AsyncImage(url: design.designURL) { phase in
-                                switch phase {
-                                case .empty:
-                                    ProgressView()
-                                        .scaledToFill()
-                                        .foregroundColor(.accentColor)
-                                case .success(let image):
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                        .padding()
-                                case .failure:
-                                    Image(systemName: "exclamationmark.icloud")
-                                        .font(.largeTitle)
-                                        .foregroundColor(.red)
-                                @unknown default:
-                                    EmptyView()
-                                }
-                            }
-                            
-                            HStack {
-                                Spacer()
-                                Button(action: {
-                                    viewModel.deleteDesign(withID: design.id)
-                                }) {
-                                    Image(systemName: "trash")
-                                        .foregroundColor(.red)
-                                        .padding()
-                                }
-                                Spacer()
-                            }
-                        }
+            VStack {
+                if viewModel.posts.isEmpty {
+                    Text("Why not add some designs?")
                         .padding()
-                        .background(index == 0 ? Color.mint.opacity(0.5) : Color.clear)
-                        .listRowInsets(EdgeInsets())
+                        .foregroundColor(.accentColor)
+                } else {
+                    VStack {
+                    Spacer()
+                        ScrollView {
+                            LazyVGrid(columns: gridColumns) {
+                                ForEach(viewModel.posts) { item in
+                                    GeometryReader { geo in
+                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(designId: ""))) {
+                                            GridItemView(size: geo.size.width, item: item)
+                                        }
+                                    }
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .padding(.bottom)
+                                }
+                            }
+                            .padding()
                         }
                     }
                 }
             }
+            .navigationBarTitle("My designs")
         }
-        .navigationBarTitle("My designs")
         .onAppear {
             viewModel.fetchUserDesigns(for: userId)
         }

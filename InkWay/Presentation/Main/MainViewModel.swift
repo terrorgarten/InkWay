@@ -24,7 +24,7 @@ class MainViewModel: ObservableObject {
     private let fetchCurrentUserUseCase = FetchCurrentUserUseCase(userRepository: UserRepositoryImpl())
     public var userProfileViewModel = UserProfileViewModel()
     
-    // TODO - remove listener from view model https://stackoverflow.com/questions/67139077/subscribing-to-a-user-variable-from-my-authentication-class-in-an-unrelated-view
+ 
     init() {
         userProfileViewModel.objectWillChange
             .sink { [weak self] _ in
@@ -45,7 +45,9 @@ class MainViewModel: ObservableObject {
         Task {
             do {
                 let user = try await fetchCurrentUserUseCase.execute(with: None())
-                self.currentUserArtistStatus = user.artist
+                DispatchQueue.main.async {
+                    self.currentUserArtistStatus = user.artist
+                }
             }
             catch(let error) {
                 // TODO - handle error

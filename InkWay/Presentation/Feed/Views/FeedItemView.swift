@@ -13,18 +13,20 @@ struct FeedItemView: View {
     @State private var liked: Bool = false
     @State private var showPostDetail = false
     @State private var showUserDetail = false
+    @State private var showingUnfollowAlert = false
     
     var body: some View {
         // TODO: replace with the artist profile picture
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 NavigationLink(
-                    destination:  UserDetailView(isPresented: $showPostDetail)
+                    destination:  UserDetailView()
                                     .accentColor(.mint),
                     label: {
                         Label{
                             Text(model.artistName)
                                 .fontWeight(.semibold)
+                                .font(.subheadline)
                         } icon: {
                             AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
                                 image
@@ -46,14 +48,22 @@ struct FeedItemView: View {
                 Spacer()
                 
                 Menu {
-                    Button("Save", action: {})
-                    Button("Share", action: {})
-                    Button("Unfollow", action: {})
+                    HStack {
+                        ShareLink(item: URL(string: "https://apps.apple.com/us/app/light-speedometer/id6447198696")!) {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Share")
+                        }
+                    }
+                    HStack {
+                        Button(action: { showingUnfollowAlert = true }) {
+                            Image(systemName: "person.slash")
+                            Text("Unfollow")
+                        }
+                    }
                 } label: {
                     Image(systemName: "ellipsis")
-                        .resizable()
-                        .frame(width: 30, height: 7)
                         .foregroundColor(.black)
+                        .font(.headline)
                 }
             }
             .padding(.horizontal, 20.0)
@@ -61,7 +71,7 @@ struct FeedItemView: View {
             ZStack(alignment: .bottomLeading){
                 // TODO: fetch image from firebase
                 NavigationLink(
-                    destination: DesignDetailView(post: model),
+                    destination:  DesignDetailView(viewModel: DesignDetailViewModel(designId: "")),
                     label: {
                         AsyncImage(url: URL(string: model.imageURL)){
                             image in image.resizable()
@@ -93,23 +103,28 @@ struct FeedItemView: View {
             .frame(alignment: .center)
             
             WrappingHStack(model.tags, id: \.self) { tag in
-                Button(action: {}){
-                    Text(tag.text)
-                        .foregroundColor(.black)
-                        .font(.system(size: 14))
-                        .padding(.vertical, 2)
-                        .padding(.horizontal, 8)
-                        .background(.gray.opacity(0.5))
-                        .clipShape(Capsule())
-                        .padding(.bottom, 10)
-                }
-                    
+                IWTag(text: tag.text)
+                    .padding(.vertical, 2)
             }
             .padding(.bottom, 5)
             .padding(.horizontal, 5)
             Spacer()
         }
         .padding(.bottom, 10)
+        .alert(isPresented: $showingUnfollowAlert) {
+                Alert(
+                    title: Text("Unfollow"),
+                    message: Text("Are you sure you want to unfollow this user?"),
+                    primaryButton: .default(
+                        Text("Yes"),
+                        action: {}
+                    ),
+                    secondaryButton: .destructive(
+                        Text("No"),
+                        action: { showingUnfollowAlert = false }
+                    )
+                )
+            }
     }
 }
 

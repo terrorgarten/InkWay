@@ -43,14 +43,18 @@ struct UserFeedView: View {
                 FiltersView(distatnce: $viewModel.distance, isPresented: $showFilters, selection: $selection)
                     .accentColor(.mint)
             }
-            .navigationBarItems(trailing:
-                Button(action: {
-                    showFilters = true
-                }) {
-                    Image(systemName: "gear")
-                        .padding()
+            .navigationTitle("Feed")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showFilters = true
+                    }) {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                            .padding()
+                    }
                 }
-            )
+            }
             .onChange(of: selection) { _ in
                 viewModel.filterPostsByFlags(selectedTags: selection)
             }

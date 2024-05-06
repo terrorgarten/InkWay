@@ -10,6 +10,49 @@ import FirebaseFirestore
 import Foundation
 import CoreLocation
 
+let us  =  UserModel (
+    id: "1",
+    name: "Name",
+    surename: "Surname",
+    instagram: "ig",
+    email: "",
+    joined: 0,
+    coord_y:  0,
+    coord_x:  0,
+    artist:  true)
+
+let us2  =  UserModel (
+    id: "2",
+    name: "Name",
+    surename: "Surname",
+    instagram: "ig",
+    email: "",
+    joined: 0,
+    coord_y:  0,
+    coord_x:  0,
+    artist:  true)
+
+let us3  =  UserModel (
+    id: "3",
+    name: "Name",
+    surename: "Surname",
+    instagram: "ig",
+    email: "",
+    joined: 0,
+    coord_y:  0,
+    coord_x:  0,
+    artist:  true)
+
+let us4  =  UserModel (
+    id: "4",
+    name: "Name",
+    surename: "Surname",
+    instagram: "ig",
+    email: "",
+    joined: 0,
+    coord_y:  0,
+    coord_x:  0,
+    artist:  true)
 
 
 // MARK: Handle user profile viewing and change propagation
@@ -18,7 +61,9 @@ class UserProfileViewModel: ObservableObject {
     @Published var user: UserModel? = nil
     @Published var errorMsg: String? = ""
     @Published var cityName: String = ""
-    
+    @Published var likedPosts: [PostModel] = posts1
+    @Published var follwoedArtits: [UserModel] = [us2,us3,us4,us]
+    @Published var followingArtists: [UserModel] = [us,us2,us3,us4]
     
     init () {
         fetchCurrentUser()
