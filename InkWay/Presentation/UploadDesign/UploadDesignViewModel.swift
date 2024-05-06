@@ -85,7 +85,7 @@ class UploadDesignViewModel: ObservableObject {
             return
         }
         
-        let uploadedDesign = DesignModel(designId: designUUID, designURL: designURL, userId: userId)
+        let uploadedDesign = DesignModel(designId: designUUID, designURL: designURL, userId: userId, description: description, tags: tagsSelection.map{$0.text})
         
         let db = Firestore.firestore()
         db.collection("designs")
