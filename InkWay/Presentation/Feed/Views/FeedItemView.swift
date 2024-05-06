@@ -20,7 +20,7 @@ struct FeedItemView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 NavigationLink(
-                    destination:  UserDetailView()
+                    destination:  UserDetailView(viewModel: UserDetailViewModel(userId: ""))
                                     .accentColor(.mint),
                     label: {
                         Label{

@@ -13,7 +13,7 @@ import FirebaseStorage
 // MARK: handles the user uploaded designs
 class UserDesignViewModel: ObservableObject {
     
-    @Published var designs: [DesignModel] = [DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: ""), DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: ""), DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: ""), DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: ""), DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: ""), DesignModel(designURL: URL(string: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg")!, userId: "")]
+    @Published var designs: [DesignModel] = []
     @Published var posts: [PostModel] = posts2
     private var userId: String = ""
     private var listener: ListenerRegistration?  // for live updates

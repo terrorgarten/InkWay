@@ -22,7 +22,7 @@ struct ArtistsListView: View {
         ScrollView {
             ForEach (users, id: \.id) { user in
                 NavigationLink {
-                   UserDetailView()
+                   UserDetailView(viewModel: UserDetailViewModel(userId: ""))
                 } label: {
                     HStack {
                         AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
