@@ -7,62 +7,71 @@
 
 import SwiftUI
 import PhotosUI
+import WrappingHStack
 
-
-// Present just few buttons and then call the custom image picker
 struct UploadDesignView: View {
-    
     @StateObject private var viewModel = UploadDesignViewModel()
-    @State private var showImagePicker = false
+    @State private var options: [Tag] = sampleTags
     
     var body: some View {
         NavigationStack {
-            VStack(){
-                TextField("Description...", text: $viewModel.description, axis: .vertical)
-                    .textFieldStyle(.roundedBorder)
-                    .lineLimit(5, reservesSpace: true)
-                    .padding()
-                                
-                PhotosPicker(selection: $viewModel.imageSelection,
-                             matching: .images,
-                             photoLibrary: .shared()){
-                        Label("Select image", systemImage: "photo")
-                            .labelStyle(.titleAndIcon)
-                            .frame(width: 335)
-                }
-                .buttonStyle(.bordered)
-                .padding([.horizontal, .bottom])
-                
-                DesignImage(imageState: viewModel.imageState)
+            Form {
+                Section(header: Text("Descritpion"), content: {
+                    TextField("Type something...", text: $viewModel.description, axis: .vertical)
+                        .lineLimit(5, reservesSpace: true)
+                })
 
-                if viewModel.isUploading {
-                    ProgressView("Uploading", value: viewModel.uploadProgress, total: 1.0)
-                        .padding()
-                }
+                Section(header: Text("Image"), content: {
+                    VStack(alignment: .center){
+                        PhotosPicker(selection: $viewModel.imageSelection,
+                                     matching: .images,
+                                     photoLibrary: .shared()){
+                                Label("Select image", systemImage: "photo")
+                                    .labelStyle(.titleAndIcon)
+                                    .frame(width: 315)
+                        }
+                        .buttonStyle(.bordered)
+                        
+                        DesignImage(imageState: viewModel.imageState)
+                    }
+                        
+                })
                 
-                if let error = viewModel.uploadError {
-                    Text("Error during the image upload: \(error.localizedDescription) Try again please.")
-                        .foregroundColor(.red)
-                        .padding()
-                }
-                
-                if viewModel.designUploaded {
-                    Text("Image Uploaded Successfully!")
-                        .foregroundColor(.green)
-                        .padding()
-                }
-                Spacer()
+                Section(header: Text("Tags"), content: {
+                    NavigationLink {
+                        MultiSelectPickerView(sourceItems: options, selectedItems: $viewModel.tagsSelection)
+                    } label: {
+                        Text("Choose tags")
+                    }
+                    HStack {
+                        VStack(alignment: .leading){
+                            Text("Chosen tags:")
+                            if $viewModel.tagsSelection.isEmpty {
+                                Text("No tags selected")
+                                    .multilineTextAlignment(.center)
+                                    .font(.system(.footnote))
+                            } else {
+                                WrappingHStack($viewModel.tagsSelection, id: \.self) { tag in
+                                    Button(action: {}){
+                                        IWTag(text: tag.text.wrappedValue)
+                                            .padding(.vertical, 2)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }).frame(maxHeight: .infinity)
             }
             .navigationTitle("Upload design")
             .toolbar(){
                 ToolbarItem(placement: .navigationBarLeading){
                     Button("Cancel"){
-                        
+//                        viewModel.navigateToHome()
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Upload"){
-                        
+                        // TODO: save to firestore and return home
                     }.fontWeight(.bold)
                 }
             }
@@ -79,7 +88,8 @@ struct DesignImage: View {
         case .success(let image):
             image.resizable()
                 .scaledToFill()
-                .frame(width: 350, height: 350)
+                .frame(width: 335, height: 330)
+                .cornerRadius(8)
                 .clipped()
         case .loading:
             ProgressView()
