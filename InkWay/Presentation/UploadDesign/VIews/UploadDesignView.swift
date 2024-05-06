@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import PhotosUI
 
 
 // Present just few buttons and then call the custom image picker
@@ -14,45 +14,27 @@ struct UploadDesignView: View {
     
     @StateObject private var viewModel = UploadDesignViewModel()
     @State private var showImagePicker = false
-    @State private var selectedImage: UIImage?
-    
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Please note that only the first image is viewed on your profile when people find you!")
-                    .foregroundColor(.gray)
-                    .font(.system(size: 14))
+        NavigationStack {
+            VStack(){
+                TextField("Description...", text: $viewModel.description, axis: .vertical)
+                    .textFieldStyle(.roundedBorder)
+                    .lineLimit(5, reservesSpace: true)
                     .padding()
-                Spacer()
-                
-                if let designImage = selectedImage {
-                    Image(uiImage: designImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding()
-                } else {
-                    Text("No image selected")
+                                
+                PhotosPicker(selection: $viewModel.imageSelection,
+                             matching: .images,
+                             photoLibrary: .shared()){
+                        Label("Select image", systemImage: "photo")
+                            .labelStyle(.titleAndIcon)
+                            .frame(width: 335)
                 }
+                .buttonStyle(.bordered)
+                .padding([.horizontal, .bottom])
                 
-                Button("Select Image") {
-                    showImagePicker = true
-                }
-                .padding()
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePickerView(selectedImage: $selectedImage)
-                }
-                
-                Button("Upload Image") {
-                    if let image = selectedImage {
-                        viewModel.designImage = image
-                        viewModel.uploadDesignImage()
-                    }
-                }
-                .padding()
-                // live update the button status
-                .disabled(selectedImage == nil || viewModel.isUploading)
-                
+                DesignImage(imageState: viewModel.imageState)
+
                 if viewModel.isUploading {
                     ProgressView("Uploading", value: viewModel.uploadProgress, total: 1.0)
                         .padding()
@@ -71,8 +53,48 @@ struct UploadDesignView: View {
                 }
                 Spacer()
             }
+            .navigationTitle("Upload design")
+            .toolbar(){
+                ToolbarItem(placement: .navigationBarLeading){
+                    Button("Cancel"){
+                        
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("Upload"){
+                        
+                    }.fontWeight(.bold)
+                }
+            }
         }
-        .navigationBarTitle("Upload design")
     }
     
+}
+
+struct DesignImage: View {
+    let imageState: UploadDesignViewModel.ImageState
+    
+    var body: some View{
+        switch imageState {
+        case .success(let image):
+            image.resizable()
+                .scaledToFill()
+                .frame(width: 350, height: 350)
+                .clipped()
+        case .loading:
+            ProgressView()
+        case .empty:
+            EmptyView()
+        case .failure:
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.system(size: 40))
+                .foregroundColor(.white)
+        }
+    }
+}
+
+struct UploadDesign_Previews: PreviewProvider {
+    static var previews: some View {
+        UploadDesignView()
+    }
 }
