@@ -12,7 +12,8 @@ import WrappingHStack
 struct UploadDesignView: View {
     @StateObject private var viewModel = UploadDesignViewModel()
     @State private var options: [Tag] = sampleTags
-    
+    @EnvironmentObject var router: BaseRouter
+
     var body: some View {
         NavigationStack {
             Form {
@@ -66,13 +67,20 @@ struct UploadDesignView: View {
             .toolbar(){
                 ToolbarItem(placement: .navigationBarLeading){
                     Button("Cancel"){
-//                        viewModel.navigateToHome()
+                        viewModel.navigateToHome()
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Upload"){
-                        // TODO: save to firestore and return home
+                        viewModel.uploadDesignImage()
+                        viewModel.navigateToHome()
                     }.fontWeight(.bold)
+                }
+            }
+            .onChange(of: viewModel.navigateToPath) { _ in
+                if let destination = viewModel.navigateToPath {
+                    viewModel.navigateToPath = nil
+                    router.navigate(to: destination)
                 }
             }
         }
