@@ -116,7 +116,9 @@ struct EditDesignView: View {
                 }
             }
             .onAppear {
-                viewModel.loadDesign()
+                if !viewModel.isDesignLoaded {
+                    viewModel.loadDesign()
+                }
             }
         }
     }

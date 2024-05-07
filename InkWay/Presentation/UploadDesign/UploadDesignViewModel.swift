@@ -145,8 +145,10 @@ class UploadDesignViewModel: ObservableObject {
                 designUploaded = true
             }
         } catch(let err) {
-            uploadError = err
-            designUploaded = false
+            await MainActor.run {
+                uploadError = err
+                designUploaded = false
+            }
         }
     }
     

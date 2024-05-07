@@ -10,7 +10,6 @@ import SwiftUI
 import PhotosUI
 
 class EditDesignViewModel: ObservableObject {
-    @Published var navigateToPath: Destination? = nil
     @Published private(set) var imageState: ImageState = .empty
     
     @Published var designImage: UIImage?
@@ -19,9 +18,8 @@ class EditDesignViewModel: ObservableObject {
     @Published var designPrice: Int = 0
     @Published var designTagsSelection: [Tag] = []
     
-    
-    @Published var uploadError: Error?
     @Published var isLoading: Bool = false
+    @Published var isDesignLoaded: Bool = false
     @Published var designUploaded: Bool = false
     @Published var designError: String? = nil
     @Published var updatedDesign: DesignModel? = nil
@@ -108,12 +106,12 @@ class EditDesignViewModel: ObservableObject {
             
             let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
                 if let error = error {
-                    self.uploadError = error
+                    self.designError = "Something went wrong"
                     return
                 }
                 designImageRef.downloadURL { url, error in
                     if let error = error {
-                        self.uploadError = error
+                        self.designError = "Something went wrong"
                         return
                     }
                     if let cleanUrl = url {
@@ -136,13 +134,17 @@ class EditDesignViewModel: ObservableObject {
     func saveUserRelation(designUUID: UUID, designURL: String) async {
         do {
             let newDesign: DesignModel = .init(designId: designUUID, designURL: designURL, userId: designModel.userId, description: designDescription, tags: designTagsSelection.map{$0.text}, name: designName, price: designPrice)
-            updatedDesign = newDesign
+            
+            await MainActor.run {
+                updatedDesign = newDesign
+            }
+            
             let _ = try await updateDesignUseCase.execute(with: newDesign)
             await MainActor.run {
                 designUploaded = true
             }
         } catch(let err) {
-            uploadError = err
+            designError = "Something went wrong"
             designUploaded = false
         }
     }
@@ -161,16 +163,20 @@ class EditDesignViewModel: ObservableObject {
                         designTagsSelection = designModel.tags.map({ text in
                             Tag(text: text)
                         })
+                        isDesignLoaded = true
                         isLoading = false
                     }
                 } else {
-                    isLoading = false
+                    await MainActor.run {
+                        isLoading = false
+                    }
                 }
             } else {
-                isLoading = false
+                await MainActor.run {
+                    isLoading = false
+                }
             }
         }
-    
     }
 }
 
