@@ -9,8 +9,9 @@ import SwiftUI
 import WrappingHStack
 
 struct FeedItemView: View {
-    let model: PostModel
-    @State private var liked: Bool = false
+    @StateObject var viewModel: UserFeedViewModel
+    var postModel: PostModel
+    @State private var isLiked = false
     @State private var showPostDetail = false
     @State private var showUserDetail = false
     @State private var showingUnfollowAlert = false
@@ -20,15 +21,15 @@ struct FeedItemView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 NavigationLink(
-                    destination:  UserDetailView(viewModel: UserDetailViewModel(userId: ""))
+                    destination: UserDetailView(viewModel: UserDetailViewModel(userModel: postModel.artist))
                                     .accentColor(.mint),
                     label: {
                         Label{
-                            Text(model.artistName)
+                            Text(postModel.artist.name)
                                 .fontWeight(.semibold)
                                 .font(.subheadline)
                         } icon: {
-                            AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
+                            AsyncImage(url: postModel.artist.profilePictureURL){ image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -49,7 +50,7 @@ struct FeedItemView: View {
                 
                 Menu {
                     HStack {
-                        ShareLink(item: URL(string: "https://apps.apple.com/us/app/light-speedometer/id6447198696")!) {
+                        ShareLink(item: postModel.design.designURL) {
                             Image(systemName: "square.and.arrow.up")
                             Text("Share")
                         }
@@ -71,9 +72,9 @@ struct FeedItemView: View {
             ZStack(alignment: .bottomLeading){
                 // TODO: fetch image from firebase
                 NavigationLink(
-                    destination:  DesignDetailView(viewModel: DesignDetailViewModel(designId: "")),
+                    destination:  DesignDetailView(viewModel: DesignDetailViewModel(postModel: postModel)),
                     label: {
-                        AsyncImage(url: URL(string: model.imageURL)){
+                        AsyncImage(url:postModel.design.designURL){
                             image in image.resizable()
                         } placeholder: {
                             ProgressView()
@@ -86,15 +87,15 @@ struct FeedItemView: View {
                 
                 HStack {
                     Button(action: {
-                        self.liked = !self.liked
+                        isLiked.toggle()
                     }
                     ){
-                        Label (liked ? "Liked" : "Like",
-                               systemImage: liked ? "heart.fill" : "heart")
+                        Label (isLiked ? "Liked" : "Like",
+                               systemImage: isLiked ? "heart.fill" : "heart")
                         .font(.system(size: 16))
-                        .foregroundColor(liked ? Color.red : Color.white)
+                        .foregroundColor(isLiked ? Color.red : Color.white)
                         .padding(5)
-                        .background(liked ? .white : .gray.opacity(0.5))
+                        .background(isLiked ? .white : .gray.opacity(0.5))
                         .clipShape(Capsule().scale(1.15))
                         .padding(10)
                     }
@@ -102,8 +103,8 @@ struct FeedItemView: View {
             }
             .frame(alignment: .center)
             
-            WrappingHStack(model.tags, id: \.self) { tag in
-                IWTag(text: tag.text)
+            WrappingHStack(postModel.design.tags, id: \.self) { tag in
+                IWTag(text: tag)
                     .padding(.vertical, 2)
             }
             .padding(.bottom, 5)
@@ -128,14 +129,11 @@ struct FeedItemView: View {
     }
 }
 
-struct FeedItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedItemView(model:
-                        PostModel(
-                            artistName: "YakuzaCustoms",
-                            tags: sampleTags,
-                            imageURL: "https://as1.ftcdn.net/v2/jpg/05/64/67/48/1000_F_564674884_1bTiQkVe09psYrFIrGzMGXHzSXRKwXn1.jpg"))
-    }
-}
+//struct FeedItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FeedItemView(model:
+//                        PostModel(design: DesignModel(designURL: <#T##URL#>, userId: <#T##String#>, description: <#T##String#>, tags: <#T##[String]#>, name: <#T##String#>, price: <#T##Int#>), artist: <#T##UserModel#>))
+//    }
+//}
 
 

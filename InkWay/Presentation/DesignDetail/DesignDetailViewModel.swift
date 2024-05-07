@@ -8,15 +8,10 @@
 import Foundation
 
 class DesignDetailViewModel : ObservableObject {
-    @Published var design: PostModel? = nil
-    private let designId: String
+    @Published var post: PostModel
     
-    init(designId: String) {
-        self.designId = designId
-    }
-    
-    func fetchDesign() {
-        // TODO - fetch design
+    init(postModel: PostModel) {
+        self.post = postModel
     }
     
     func handleLikeAction(isLiked: Bool) {

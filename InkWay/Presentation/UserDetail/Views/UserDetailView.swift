@@ -15,11 +15,11 @@ struct UserDetailView: View {
     
     var body: some View {
             ScrollView {
-                if let user = viewModel.user, let designs = viewModel.designs {
+                if let designs = viewModel.designs {
                     VStack(alignment: .center) {
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
-                                AsyncImage(url: URL(string: "https://www.mensjournal.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1280/MTk2MTM2NTcwNDMxMjg0NzQx/man-taking-selfie.webp")){ image in
+                                AsyncImage(url: viewModel.user.profilePictureURL){ image in
                                     image
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
@@ -66,9 +66,9 @@ struct UserDetailView: View {
                         Divider()
                         ScrollView {
                             LazyVGrid(columns: gridColumns) {
-                                ForEach(designs) { item in
+                                ForEach(designs, id: \.design.id) { item in
                                     GeometryReader { geo in
-                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(designId: ""))) {
+                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(postModel: item))) {
                                             GridItemView(size: geo.size.width, item: item)
                                         }
                                     }
@@ -80,7 +80,7 @@ struct UserDetailView: View {
                        }
 
                     }
-                    .navigationBarTitle(user.name)
+                    .navigationBarTitle(viewModel.user.name)
                 } else {
                     VStack {
                         Spacer()
@@ -90,9 +90,6 @@ struct UserDetailView: View {
                     }
                     .frame(maxHeight: .infinity)
                 }
-            }
-            .onAppear {
-                viewModel.fetchUser()
             }
     }
 }
@@ -104,7 +101,7 @@ struct GridItemView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            AsyncImage(url:  URL(string: item.imageURL)) { image in
+            AsyncImage(url: item.design.designURL) { image in
                 image
                     .resizable()
                     .frame(width: size, height: size)

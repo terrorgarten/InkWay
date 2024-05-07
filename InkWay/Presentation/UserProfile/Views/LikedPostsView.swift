@@ -15,9 +15,9 @@ struct LikedPostsView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: gridColumns) {
-                ForEach(posts) { item in
+                ForEach(posts, id: \.design.id) { item in
                     GeometryReader { geo in
-                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(designId: ""))) {
+                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(postModel: item))) {
                             GridItemView(size: geo.size.width, item: item)
                         }
                     }

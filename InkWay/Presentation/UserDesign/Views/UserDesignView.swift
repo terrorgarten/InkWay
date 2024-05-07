@@ -24,18 +24,26 @@ struct UserDesignView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.posts.isEmpty {
-                    Text("Why not add some designs?")
-                        .padding()
-                        .foregroundColor(.accentColor)
+                if viewModel.isLoading {
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                            .progressViewStyle(CircularProgressViewStyle())
+                        Spacer()
+                    }
+                    .frame(maxHeight: .infinity)
+                } else if viewModel.posts.isEmpty {
+                    Text("You have no designs yet. Go to My designs tab and add some.")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
                 } else {
                     VStack {
                     Spacer()
                         ScrollView {
                             LazyVGrid(columns: gridColumns) {
-                                ForEach(viewModel.posts) { item in
+                                ForEach(viewModel.posts, id: \.design.id) { item in
                                     GeometryReader { geo in
-                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(designId: ""))) {
+                                        NavigationLink(destination: DesignDetailView(viewModel: DesignDetailViewModel(postModel: item))) {
                                             GridItemView(size: geo.size.width, item: item)
                                         }
                                     }

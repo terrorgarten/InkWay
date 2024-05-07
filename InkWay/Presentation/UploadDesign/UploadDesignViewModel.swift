@@ -6,27 +6,32 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseStorage
 import SwiftUI
 import PhotosUI
-
 
 // disclaimer: generic approach, taken from the internet
 class UploadDesignViewModel: ObservableObject {
     @Published var navigateToPath: Destination? = nil
+    @Published private(set) var imageState: ImageState = .empty
+    
     @Published var designImage: UIImage?
-    @Published var description: String = ""
-    @Published var tagsSelection: [Tag] = []
+    @Published var designDescription: String = ""
+    @Published var designName: String = ""
+    @Published var designPrice: Int = 0
+    @Published var designTagsSelection: [Tag] = []
+    
+    
     @Published var uploadError: Error?
     @Published var isUploading: Bool = false
-    @Published var uploadProgress: Double = 0.0
     @Published var designUploaded: Bool = false
+    @Published var designError: String? = nil
+    
+    private let uploadDesignUseCase = UploadDesignUseCase(designsRepository: DesignRepositoryImpl())
 
     enum ImageState {
         case empty
         case loading(Progress)
-        case success(Image)
+        case success(UIImage)
         case failure(Error)
     }
     
@@ -35,7 +40,7 @@ class UploadDesignViewModel: ObservableObject {
     }
     
     struct DesignImage: Transferable {
-        let image: Image
+        let image: UIImage
         
         static var transferRepresentation: some TransferRepresentation {
             DataRepresentation(importedContentType: .image) { data in
@@ -43,15 +48,10 @@ class UploadDesignViewModel: ObservableObject {
                 guard let uiImage = UIImage(data: data) else {
                     throw TransferError.importFailed
                 }
-                let image = Image(uiImage: uiImage)
-                return DesignImage(image: image)
+                return DesignImage(image: uiImage)
             }
         }
     }
-    
-    @Published private(set) var imageState: ImageState = .empty
-    private let storage = Storage.storage()
-    private let storageReference = Storage.storage().reference()
     
     @Published var imageSelection: PhotosPickerItem? = nil {
         didSet {
@@ -83,60 +83,69 @@ class UploadDesignViewModel: ObservableObject {
         }
     }
     
-    // decodes and stores the image in Firebase Storage in the designs/
-    // use the observe aproach
-    func uploadDesignImage() {
-        guard let designImage = designImage,
-              let imageData = designImage.jpegData(compressionQuality: 0.8) else {
+    func uploadDesign() {
+        designError = nil
+        if designName.count < 5 {
+            designError = "Name needs to have at least 5 characters"
+            designUploaded = false
             return
         }
-        let designUUID = UUID()
-        let designImageRef = storageReference.child("designs/\(designUUID.uuidString).jpg")
-        let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
-            if let error = error {
-                self.uploadError = error
+        
+        switch imageState {
+        case .success(let image):
+            isUploading = true
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
                 return
             }
-            // url path from the Storage
-            designImageRef.downloadURL { url, error in
+            let designUUID = UUID()
+            let designImageRef = uploadDesignUseCase.createDesignStorageReference(uuid: designUUID, image: image)
+            
+            let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
                 if let error = error {
                     self.uploadError = error
                     return
                 }
-                // save the record about image to db
-                if let cleanUrl = url {
-                    self.saveUserRelation(designUUID: designUUID, designURL: cleanUrl)
-                    DispatchQueue.main.async {
-                        self.designUploaded = true
+                designImageRef.downloadURL { url, error in
+                    if let error = error {
+                        self.uploadError = error
+                        return
+                    }
+                    if let cleanUrl = url {
+                        Task {
+                            await self.saveUserRelation(designUUID: designUUID, designURL: cleanUrl)
+                        }
                     }
                 }
             }
+            uploadTask.observe(.success) { _ in
+                self.isUploading = false
+            }
+        default:
+            designUploaded = false
+            designError = "Image cant be empty"
         }
-        // loading
-        uploadTask.observe(.progress) { snapshot in
-            guard let progress = snapshot.progress else { return }
-            self.uploadProgress = Double(progress.completedUnitCount) / Double(progress.totalUnitCount)
-        }
-        
-        uploadTask.observe(.success) { _ in
-            self.isUploading = false
-        }
-        
-        isUploading = true
+
     }
     
-    // saves the record about user-design relation
-    func saveUserRelation(designUUID: UUID, designURL: URL){
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
+    func saveUserRelation(designUUID: UUID, designURL: URL) async {
+        do {
+            let _ = try await uploadDesignUseCase.execute(with: .init(id: designUUID, imageUrl: designURL, description: designDescription, tags: designTagsSelection.map{$0.text}, name: designName, price: designPrice))
+            await MainActor.run {
+                clearInputs()
+                designUploaded = true
+            }
+        } catch(let err) {
+            uploadError = err
+            designUploaded = false
         }
-        
-        let uploadedDesign = DesignModel(designId: designUUID, designURL: designURL, userId: userId, description: description, tags: tagsSelection.map{$0.text})
-        
-        let db = Firestore.firestore()
-        db.collection("designs")
-            .document(uploadedDesign.id.uuidString)
-            .setData(uploadedDesign.asDictionary())
+    }
+    
+    func clearInputs() {
+        designDescription = ""
+        designTagsSelection = []
+        designName = ""
+        designPrice = 0
+        imageState = .empty
     }
     
     func navigateToHome() {

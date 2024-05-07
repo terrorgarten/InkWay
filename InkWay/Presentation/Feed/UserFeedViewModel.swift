@@ -12,29 +12,37 @@ class UserFeedViewModel : ObservableObject {
     @Published var searchText: String = ""
     @Published var selectedFeed = 0
     @Published var distance: Double = 0
-    @Published var followingPosts: [PostModel]
-    @Published var nearmePosts: [PostModel]
+    @Published var followingPosts: [PostModel] = []
+    @Published var nearmePosts: [PostModel] = []
+    @Published var isLoading: Bool = false
     
-    init() {
-        followingPosts = followingPostsInitValue
-        nearmePosts = nearmePostsInitValue
-    }
+    private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
+    private let getAllPostsUseCase = GetAllPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
     
+    var followingPostsInitValue: [PostModel] = []
+    var nearmePostsInitValue: [PostModel] = []
     let feedTypes: [String] = ["Near me", "Following"]
-    let followingPostsInitValue: [PostModel] = posts1
-    let nearmePostsInitValue: [PostModel] = posts2
     
-    var posts: [PostModel] {
-        return selectedFeed == 0 ? nearmePosts : followingPosts
-    }
-    var filteredPosts: [PostModel] {
-        guard !searchText.isEmpty else { return posts }
-        
-        return posts.filter {
-            post in post.artistName.lowercased().contains(searchText.lowercased()) ||
-            !post.tags.filter{
-                tag in tag.text.lowercased().contains(searchText.lowercased())
-            }.isEmpty
+    func fetchPosts() {
+    isLoading = true
+        Task {
+            do {
+                let resultDesigns = try await getAllDesignsUseCase.execute(with: None())
+                let resultPosts = try await getAllPostsUseCase.execute(with: resultDesigns)
+                await MainActor.run {
+                    // TODO filter following and near by posts
+                    followingPosts = resultPosts
+                    followingPostsInitValue = resultPosts
+                    nearmePosts = resultPosts
+                    nearmePostsInitValue = resultPosts
+                    isLoading = false
+                }
+            }
+            catch {
+                await MainActor.run {
+                    isLoading = false
+                }
+            }
         }
     }
     
@@ -45,66 +53,15 @@ class UserFeedViewModel : ObservableObject {
             return
         }
         followingPosts = followingPostsInitValue.filter { post in
-            post.tags.contains { tag in
-                selectedTags.contains { $0.text == tag.text }
+            post.design.tags.contains { tag in
+                selectedTags.contains { $0.text == tag }
             }
         }
         nearmePosts = nearmePostsInitValue.filter { post in
-            post.tags.contains { tag in
-                selectedTags.contains { $0.text == tag.text }
+            post.design.tags.contains { tag in
+                selectedTags.contains { $0.text == tag }
             }
         }
     }
     
-}
-
-let posts1 = [
-    PostModel(artistName: "YakuzaCustoms", tags: [Tag(text: "Traditional"),
-              Tag(text: "Neo Traditional"),
-              Tag(text: "Realism"),
-              Tag(text: "Watercolor"),
-              Tag(text: "Tribal"),
-              Tag(text: "New School")], imageURL: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/CYMm3b2sFbK-png__700.jpg"),
-    PostModel(artistName: "YakuzaCustoms", tags: [Tag(text: "Tribal"),
-                                                  Tag(text: "New School"),
-                                                  Tag(text: "Japanese"),
-                                                  Tag(text: "Dotwork"),
-                                                  Tag(text: "Geometric")], imageURL: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/63becfd2419ed_minimalist-tattoos-part-3.jpg"),
-    PostModel(artistName: "Triad Ink.", tags: [Tag(text: "Traditional"),
-              Tag(text: "Neo Traditional"),
-              Tag(text: "Realism")], imageURL: "https://as1.ftcdn.net/v2/jpg/00/27/18/70/1000_F_27187033_0eNuwjRitZRmOn0bhLDdy5falnAeGlO6.jpg"),
-    PostModel(artistName: "TattooBar", tags: [Tag(text: "Traditional"),
-              Tag(text: "Neo Traditional"),
-              Tag(text: "Tribal"),
-              Tag(text: "New School")], imageURL: "https://as1.ftcdn.net/v2/jpg/01/04/09/24/1000_F_104092478_sXDzWd9BYZqMrHAf6RPKXFWNnphVPAA8.jpg"),
-    PostModel(artistName: "InkSpired", tags: [Tag(text: "Geometric"),
-                                              Tag(text: "Abstract"),
-                                              Tag(text: "Portraiture"),
-                                              Tag(text: "Blackwork")], imageURL: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/63becc8a3600e_minimalist-tattoos-part-3.jpg"),
-]
-
-let posts2 = [
-    PostModel(artistName: "DragonTattoo", tags: [Tag(text: "Tribal"),
-                                                 Tag(text: "New School"),
-                                                 Tag(text: "Japanese")], imageURL: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/63bed23ddbd42_minimalist-tattoos-part-3.jpg"),
-    PostModel(artistName: "TattooBar", tags: [Tag(text: "Traditional"),
-              Tag(text: "Neo Traditional"),
-              Tag(text: "Tribal"),
-              Tag(text: "New School")], imageURL: "https://as1.ftcdn.net/v2/jpg/01/04/09/24/1000_F_104092478_sXDzWd9BYZqMrHAf6RPKXFWNnphVPAA8.jpg"),
-    PostModel(artistName: "InkSpired", tags: [Tag(text: "Geometric"),
-                                              Tag(text: "Abstract"),
-                                              Tag(text: "Portraiture"),
-                                              Tag(text: "Blackwork")], imageURL: "https://www.boredpanda.com/blog/wp-content/uploads/2023/01/63becc8a3600e_minimalist-tattoos-part-3.jpg"),
-    PostModel(artistName: "DragonTattoo", tags: [Tag(text: "Geometric"),
-                                                 Tag(text: "Abstract"),
-                                                 Tag(text: "Portraiture"),
-                                                 Tag(text: "Blackwork")], imageURL: "https://as1.ftcdn.net/v2/jpg/04/95/09/36/1000_F_495093660_dXmdyUVKyOMn3Kah2L5WAbnQgramXjyh.jpg")
-]
-
-
-struct PostModel : Hashable, Identifiable {
-    var id = UUID()
-    let artistName: String
-    let tags: [Tag]
-    let imageURL: String
 }

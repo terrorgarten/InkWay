@@ -61,9 +61,9 @@ class UserProfileViewModel: ObservableObject {
     @Published var user: UserModel? = nil
     @Published var errorMsg: String? = ""
     @Published var cityName: String = ""
-    @Published var likedPosts: [PostModel] = posts1
-    @Published var follwoedArtits: [UserModel] = [us2,us3,us4,us]
-    @Published var followingArtists: [UserModel] = [us,us2,us3,us4]
+    @Published var likedPosts: [PostModel] = []
+    @Published var follwoedArtits: [UserModel] = []
+    @Published var followingArtists: [UserModel] = []
     
     init () {
         fetchCurrentUser()

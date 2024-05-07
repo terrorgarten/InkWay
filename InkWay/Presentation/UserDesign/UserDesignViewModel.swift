@@ -12,17 +12,33 @@ import FirebaseStorage
 
 // MARK: handles the user uploaded designs
 class UserDesignViewModel: ObservableObject {
-    
-    @Published var designs: [DesignModel] = []
-    @Published var posts: [PostModel] = posts2
+    @Published var posts: [PostModel] = []
+    @Published var isLoading = false
     private var userId: String = ""
     private var listener: ListenerRegistration?  // for live updates
     
-    
-    
-    // fetch current user info
+    private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
+    private let getAllPostsUseCase = GetAllPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+
     func fetchUserDesigns(for userId: String) {
-        
+        isLoading = true
+        Task {
+            do {
+                let resultDesigns = try await getAllDesignsUseCase.execute(with: None())
+                let resultPosts = try await getAllPostsUseCase.execute(with: resultDesigns)
+                print("Your posts")
+                print(resultPosts)
+                await MainActor.run {
+                    posts = resultPosts
+                    isLoading = false
+                }
+            }
+            catch {
+                await MainActor.run {
+                    isLoading = false
+                }
+            }
+        }
     }
     
     
@@ -39,7 +55,7 @@ class UserDesignViewModel: ObservableObject {
                         print("Error: Can't delete from database: \(error.localizedDescription)")
                     } else {
                         DispatchQueue.main.async {
-                            self.designs.removeAll(where: { $0.id == designID })
+                            self.posts.removeAll(where: { $0.design.id == designID })
                         }
                     }
                 }

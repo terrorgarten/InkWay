@@ -25,14 +25,23 @@ struct UserFeedView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width: 200.0)
                 VStack {
-                    ScrollView{
-                        ForEach (viewModel.filteredPosts, id: \.self) { post in
-                            FeedItemView(model: post)
-                            Divider()
+                    if viewModel.isLoading {
+                        VStack {
+                            Spacer()
+                            ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle())
+                            Spacer()
                         }
-                        .listRowSeparator(.hidden, edges: .all)
-                        // TODO: scroll to top on feed type (near/follow) change
-                    }.id(viewModel.selectedFeed)
+                        .frame(maxHeight: .infinity)
+                    } else {
+                        ScrollView{
+                            ForEach (viewModel.selectedFeed == 0 ? viewModel.nearmePosts : viewModel.followingPosts, id: \.design.id) { post in
+                                FeedItemView(viewModel: viewModel, postModel: post)
+                                Divider()
+                            }
+                            .listRowSeparator(.hidden, edges: .all)
+                        }.id(viewModel.selectedFeed)
+                    }
                 }
                 .listStyle(.plain)
             
@@ -57,6 +66,9 @@ struct UserFeedView: View {
             }
             .onChange(of: selection) { _ in
                 viewModel.filterPostsByFlags(selectedTags: selection)
+            }
+            .onAppear {
+                viewModel.fetchPosts()
             }
         }
     }

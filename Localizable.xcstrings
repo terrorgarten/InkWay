@@ -432,6 +432,9 @@
     "Descritpion" : {
 
     },
+    "Design successfully uploaded" : {
+
+    },
     "DISTANCE" : {
 
     },
@@ -613,6 +616,9 @@
         }
       }
     },
+    "Enter your price" : {
+
+    },
     "Error during the image upload: %@ Try again please." : {
       "extractionState" : "stale",
       "localizations" : {
@@ -635,9 +641,6 @@
           }
         }
       }
-    },
-    "Estimated price: 20$" : {
-
     },
     "Feed" : {
 
@@ -1110,6 +1113,9 @@
     "No tags selected" : {
 
     },
+    "OK" : {
+
+    },
     "or" : {
       "localizations" : {
         "cs" : {
@@ -1202,7 +1208,7 @@
     "Post detail" : {
 
     },
-    "Purr-fect Scratch" : {
+    "Price" : {
 
     },
     "Register" : {
@@ -1512,7 +1518,7 @@
         }
       }
     },
-    "The centerpiece of the tattoo is a charmingly realistic depiction of a cat's paw with extended claws, delicately poised mid-scratch. The paw features intricate details, including soft fur textures and gently curved claws, creating a sense of depth and realism. Positioned alongside the paw is a stylized depiction of a small wound, complete with meticulously rendered droplets of 'blood' ink, adding a touch of drama and authenticity to the design." : {
+    "Type name..." : {
 
     },
     "Type something..." : {
@@ -1656,6 +1662,9 @@
         }
       }
     },
+    "We are uploading your design. Please wait a few seconds..." : {
+
+    },
     "Welcome back!" : {
       "localizations" : {
         "cs" : {
@@ -1701,6 +1710,7 @@
       }
     },
     "Why not add some designs?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1721,9 +1731,6 @@
           }
         }
       }
-    },
-    "YakuzaCustoms" : {
-
     },
     "Yes" : {
 
@@ -1772,6 +1779,9 @@
           }
         }
       }
+    },
+    "You have no designs yet. Go to My designs tab and add some." : {
+
     },
     "Your instagram" : {
       "localizations" : {

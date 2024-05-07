@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 // TODO - just example
 protocol DesignsRepository {
-    func uploadDesign(with input: DesignModel) async throws -> Void
+    func uploadDesign(with input: UploadDesignUseCase.Params) async throws -> None
+    func getAllDesigns() async throws -> [DesignModel]
+    func getMineDesigns() async throws -> [DesignModel]
 }

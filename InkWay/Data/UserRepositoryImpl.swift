@@ -14,7 +14,6 @@ import GoogleSignIn
 
 // TODO - just example
 class UserRepositoryImpl: UserRepository {
-    
     private let db = Firestore.firestore()
     private let auth =  Auth.auth()
     private var userId: String? = nil
@@ -24,22 +23,7 @@ class UserRepositoryImpl: UserRepository {
             throw UserRepositoryError.currentUserNotFound
         }
         do {
-            let documentSnapshot = try await db.collection("users").document(userId).getDocument()
-            guard let data = documentSnapshot.data() else {
-                throw UserRepositoryError.userDataNotFound
-            }
-            let user = UserModel (
-                id: data ["id"] as? String ?? "",
-                name: data["name"] as? String ?? "",
-                surename: data["surename"] as? String ?? "",
-                instagram: data["instagram"] as? String ?? "",
-                email: data["email"] as? String ?? "",
-                joined: data["joined"] as? TimeInterval ?? 0,
-                coord_y: data["coord_y"] as? Float ?? 0,
-                coord_x: data["coord_x"] as? Float ?? 0,
-                artist: data["artist"] as? Bool ?? false)
-            
-            return user
+            return try await fetchUserWithId(with: userId)
         } catch {
             throw UserRepositoryError.failedToFetchCurrentUser(error)
         }
@@ -65,7 +49,7 @@ class UserRepositoryImpl: UserRepository {
                                         joined: Date().timeIntervalSince1970,
                                         coord_y: 0,
                                         coord_x: 0,
-                                        artist: false)
+                                        artist: true)
             try await db.collection("users")
                 .document(result.user.uid)
                 .setData(createdUser.asDictionary())
@@ -102,6 +86,31 @@ class UserRepositoryImpl: UserRepository {
             throw UserRepositoryError.googleSignInFailed
         } 
     }
+    
+    func fetchUserWithId(with id: String) async throws -> UserModel {
+        do {
+            let documentSnapshot = try await db.collection("users").document(id).getDocument()
+            guard let data = documentSnapshot.data() else {
+                throw UserRepositoryError.userDataNotFound
+            }
+            let user = UserModel (
+                id: data ["id"] as? String ?? "",
+                name: data["name"] as? String ?? "",
+                surename: data["surename"] as? String ?? "",
+                instagram: data["instagram"] as? String ?? "",
+                email: data["email"] as? String ?? "",
+                joined: data["joined"] as? TimeInterval ?? 0,
+                coord_y: data["coord_y"] as? Float ?? 0,
+                coord_x: data["coord_x"] as? Float ?? 0,
+                artist: data["artist"] as? Bool ?? false)
+            
+            return user
+        }
+        catch {
+            print(error.localizedDescription)
+            throw UserRepositoryError.failedToFetchUserWithProvidedId
+        }
+    }
 }
 
 enum UserRepositoryError: Error {
@@ -112,4 +121,5 @@ enum UserRepositoryError: Error {
     case registerFailed
     case appleSignInFailed
     case googleSignInFailed
+    case failedToFetchUserWithProvidedId
 }
