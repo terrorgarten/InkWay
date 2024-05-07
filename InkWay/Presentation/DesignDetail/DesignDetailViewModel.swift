@@ -15,7 +15,6 @@ class DesignDetailViewModel : ObservableObject {
     }
     
     func handleLikeAction(isLiked: Bool) {
-        
     }
 
 }

@@ -103,7 +103,7 @@ struct UserProfileView: View {
                             NavigationLink(destination: LikedPostsView(posts: $viewModel.likedPosts)) {
                                 HStack{
                                     Image(systemName: "heart")
-                                    Text("Saved designs")
+                                    Text("Liked designs")
                                 }
                             }
                             

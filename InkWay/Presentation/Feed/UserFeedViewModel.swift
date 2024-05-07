@@ -17,7 +17,7 @@ class UserFeedViewModel : ObservableObject {
     @Published var isLoading: Bool = false
     
     private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
-    private let getAllPostsUseCase = GetAllPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+    private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
     
     var followingPostsInitValue: [PostModel] = []
     var nearmePostsInitValue: [PostModel] = []

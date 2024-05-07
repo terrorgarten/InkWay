@@ -14,10 +14,11 @@ import FirebaseAuth
 class DesignRepositoryImpl: DesignsRepository {
     private let storage = Storage.storage()
     private let storageReference = Storage.storage().reference()
-    let db = Firestore.firestore()
+    private let db = Firestore.firestore()
+    private let auth = Auth.auth()
     
     func uploadDesign(with input: UploadDesignUseCase.Params) async throws -> None {
-        guard let userId = Auth.auth().currentUser?.uid else {
+        guard let userId = auth.currentUser?.uid else {
             throw DesignRepositoryError.failedToLoadCurrentUser
         }
         
@@ -59,9 +60,13 @@ class DesignRepositoryImpl: DesignsRepository {
     }
     
     func getMineDesigns() async throws -> [DesignModel] {
-        guard let userId = Auth.auth().currentUser?.uid else {
+        guard let userId = auth.currentUser?.uid else {
             throw DesignRepositoryError.failedToLoadCurrentUser
         }
+        return try await getUserDesigns(userId: userId)
+    }
+    
+    func getUserDesigns(userId: String) async throws -> [DesignModel] {
         do {
             let snapshot = try await db.collection("designs").whereField("userId", isEqualTo: userId).getDocuments()
             let designs = snapshot.documents.compactMap { queryDocumentSnapshot -> DesignModel? in

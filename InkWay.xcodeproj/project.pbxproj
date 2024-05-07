@@ -40,8 +40,9 @@
 		243772A22BEA309C001455D8 /* GetAllDesignsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A12BEA309C001455D8 /* GetAllDesignsUseCase.swift */; };
 		243772A42BEA3212001455D8 /* FetchUserWithIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A32BEA3212001455D8 /* FetchUserWithIdUseCase.swift */; };
 		243772A62BEA37A7001455D8 /* GetMineDesignsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */; };
-		243772A82BEA3A77001455D8 /* GetAllPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A72BEA3A77001455D8 /* GetAllPostsUseCase.swift */; };
+		243772A82BEA3A77001455D8 /* GetPostsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A72BEA3A77001455D8 /* GetPostsUseCase.swift */; };
 		243772AA2BEA4CE1001455D8 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A92BEA4CE1001455D8 /* PostModel.swift */; };
+		243772AC2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772AB2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift */; };
 		243F77BF2B9E071E00899AD5 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77BE2B9E071D00899AD5 /* UseCase.swift */; };
 		243F77C22B9E08C500899AD5 /* FetchCurrentUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */; };
 		243F77C42B9E08D900899AD5 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F77C32B9E08D900899AD5 /* UsersRepository.swift */; };
@@ -125,8 +126,9 @@
 		243772A12BEA309C001455D8 /* GetAllDesignsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllDesignsUseCase.swift; sourceTree = "<group>"; };
 		243772A32BEA3212001455D8 /* FetchUserWithIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserWithIdUseCase.swift; sourceTree = "<group>"; };
 		243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMineDesignsUseCase.swift; sourceTree = "<group>"; };
-		243772A72BEA3A77001455D8 /* GetAllPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostsUseCase.swift; sourceTree = "<group>"; };
+		243772A72BEA3A77001455D8 /* GetPostsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostsUseCase.swift; sourceTree = "<group>"; };
 		243772A92BEA4CE1001455D8 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		243772AB2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetArtistDesignsUseCase.swift; sourceTree = "<group>"; };
 		243F77BE2B9E071D00899AD5 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCurrentUserUseCase.swift; sourceTree = "<group>"; };
 		243F77C32B9E08D900899AD5 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
@@ -400,7 +402,8 @@
 				24FEA83A2BE94D1800DB772D /* UploadDesignUseCase.swift */,
 				243772A12BEA309C001455D8 /* GetAllDesignsUseCase.swift */,
 				243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */,
-				243772A72BEA3A77001455D8 /* GetAllPostsUseCase.swift */,
+				243772A72BEA3A77001455D8 /* GetPostsUseCase.swift */,
+				243772AB2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -809,10 +812,11 @@
 				243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */,
 				2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */,
 				24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */,
+				243772AC2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift in Sources */,
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
 				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
-				243772A82BEA3A77001455D8 /* GetAllPostsUseCase.swift in Sources */,
+				243772A82BEA3A77001455D8 /* GetPostsUseCase.swift in Sources */,
 				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
 				2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */,
 				240EA46B2BE6E05C005A1C79 /* ArtitsListView.swift in Sources */,

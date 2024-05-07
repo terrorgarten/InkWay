@@ -68,24 +68,24 @@ struct DesignDetailView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     .bold()
                                 HStack(alignment: .top) {
-                                    AsyncImage(url: viewModel.post.artist.profilePictureURL){ image in
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                            .frame(width: 70, height: 70)
-                                            .cornerRadius(100)
-                                    } placeholder: {
-                                        ProgressView()
-                                            .progressViewStyle(.circular)
-                                            .frame(width: 70, height: 70)
+                                    NavigationLink(destination: UserDetailView(viewModel: UserDetailViewModel(userModel: viewModel.post.artist))) {
+                                        AsyncImage(url: viewModel.post.artist.profilePictureURL){ image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                                .frame(width: 70, height: 70)
+                                                .cornerRadius(100)
+                                        } placeholder: {
+                                            ProgressView()
+                                                .progressViewStyle(.circular)
+                                                .frame(width: 70, height: 70)
+                                        }
+                                        .frame(height: 70)
+                                        Text(viewModel.post.artist.name)
+                                            .font(.system(size: 20))
                                     }
-                                    .frame(height: 70)
-                                    Text(viewModel.post.artist.name)
-                                        .font(.system(size: 20))
+                                    .foregroundColor(.black)
                                 }
-                                Text("Created by YakuzaCustoms, a highly skilled and experienced tattoo artist known for their meticulous attention to detail and ability to bring their clients' visions to life. With a passion for both artistry and craftsmanship, YakuzaCustoms approaches each tattoo with creativity, professionalism, and a commitment to exceeding expectations.")
-                                    .font(.system(size: 15))
-                                    .frame(maxWidth: .infinity, alignment: .leading)
                                 
                                 Text("Description:")
                                     .frame(maxWidth: .infinity, alignment: .leading)

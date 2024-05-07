@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GetAllPostsUseCase: UseCase {
+class GetPostsUseCase: UseCase {
     typealias Input = [DesignModel]
     typealias Output = [PostModel]
     

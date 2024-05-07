@@ -111,7 +111,7 @@ struct FeedItemView: View {
             .padding(.horizontal, 5)
             Spacer()
         }
-        .padding(.bottom, 10)
+        .padding(.bottom, 2)
         .alert(isPresented: $showingUnfollowAlert) {
                 Alert(
                     title: Text("Unfollow"),

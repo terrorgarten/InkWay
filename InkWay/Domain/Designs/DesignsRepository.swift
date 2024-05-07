@@ -13,4 +13,5 @@ protocol DesignsRepository {
     func uploadDesign(with input: UploadDesignUseCase.Params) async throws -> None
     func getAllDesigns() async throws -> [DesignModel]
     func getMineDesigns() async throws -> [DesignModel]
+    func getUserDesigns(userId: String) async throws -> [DesignModel]
 }

@@ -18,7 +18,7 @@ class UserDesignViewModel: ObservableObject {
     private var listener: ListenerRegistration?  // for live updates
     
     private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
-    private let getAllPostsUseCase = GetAllPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+    private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
 
     func fetchUserDesigns(for userId: String) {
         isLoading = true

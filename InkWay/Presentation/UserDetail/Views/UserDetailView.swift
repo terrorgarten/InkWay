@@ -15,7 +15,7 @@ struct UserDetailView: View {
     
     var body: some View {
             ScrollView {
-                if let designs = viewModel.designs {
+                if let designs = viewModel.posts {
                     VStack(alignment: .center) {
                         HStack(alignment: .top) {
                             VStack(alignment: .leading) {
@@ -90,6 +90,9 @@ struct UserDetailView: View {
                     }
                     .frame(maxHeight: .infinity)
                 }
+            }
+            .onAppear {
+                viewModel.fetchUserInfo()
             }
     }
 }
