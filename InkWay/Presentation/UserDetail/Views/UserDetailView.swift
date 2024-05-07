@@ -104,7 +104,7 @@ struct GridItemView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            AsyncImage(url: item.design.designURL) { image in
+            AsyncImage(url: URL(string: item.design.designURL)!) { image in
                 image
                     .resizable()
                     .frame(width: size, height: size)

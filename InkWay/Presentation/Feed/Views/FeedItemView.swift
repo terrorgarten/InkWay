@@ -70,11 +70,10 @@ struct FeedItemView: View {
             .padding(.horizontal, 20.0)
             
             ZStack(alignment: .bottomLeading){
-                // TODO: fetch image from firebase
                 NavigationLink(
                     destination:  DesignDetailView(viewModel: DesignDetailViewModel(postModel: postModel)),
                     label: {
-                        AsyncImage(url:postModel.design.designURL){
+                        AsyncImage(url: URL(string: postModel.design.designURL)!){
                             image in image.resizable()
                         } placeholder: {
                             ProgressView()

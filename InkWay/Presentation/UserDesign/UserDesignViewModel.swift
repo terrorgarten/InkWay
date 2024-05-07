@@ -10,21 +10,20 @@ import FirebaseFirestoreSwift
 import FirebaseStorage
 
 
-// MARK: handles the user uploaded designs
 class UserDesignViewModel: ObservableObject {
     @Published var posts: [PostModel] = []
     @Published var isLoading = false
-    private var userId: String = ""
-    private var listener: ListenerRegistration?  // for live updates
+    @Published var chosenPost: PostModel? = nil
     
-    private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
+    private var userId: String = ""
+    private let getMineDesignsUseCase = GetMineDesignsUseCase(designsRepository: DesignRepositoryImpl())
     private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
 
     func fetchUserDesigns(for userId: String) {
         isLoading = true
         Task {
             do {
-                let resultDesigns = try await getAllDesignsUseCase.execute(with: None())
+                let resultDesigns = try await getMineDesignsUseCase.execute(with: None())
                 let resultPosts = try await getAllPostsUseCase.execute(with: resultDesigns)
                 print("Your posts")
                 print(resultPosts)
@@ -41,8 +40,6 @@ class UserDesignViewModel: ObservableObject {
         }
     }
     
-    
-    // deleting design - we must delete the relation and the file itself from storage
     func deleteDesign(withID designID: UUID) {
         let storageRef = Storage.storage().reference().child("designs/\(designID).jpg")
         storageRef.delete { error in
@@ -61,12 +58,6 @@ class UserDesignViewModel: ObservableObject {
                 }
             }
         }
+        posts = posts.filter{ $0.design.id != designID }
     }
-    
-    
-    // just remove listening
-    func stopListening() {
-        listener?.remove()
-    }
-    
 }

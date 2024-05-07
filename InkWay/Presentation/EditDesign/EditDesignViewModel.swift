@@ -1,46 +1,44 @@
 //
-//  UploadDesignViewModel.swift
+//  EditDesignViewModel.swift
 //  InkWay
 //
-//  Created by terrorgarten on 31.05.2023.
+//  Created by Oliver Bajus on 07.05.2024.
 //
 
 import Foundation
 import SwiftUI
 import PhotosUI
 
-enum ImageState {
-    case empty
-    case loading(Progress)
-    case success(UIImage)
-    case failure(Error)
-}
-
-class UploadDesignViewModel: ObservableObject {
+class EditDesignViewModel: ObservableObject {
+    @Published var navigateToPath: Destination? = nil
+    @Published private(set) var imageState: ImageState = .empty
+    
     @Published var designImage: UIImage?
     @Published var designDescription: String = ""
     @Published var designName: String = ""
     @Published var designPrice: Int = 0
     @Published var designTagsSelection: [Tag] = []
     
-    @Published private(set) var imageState: ImageState = .empty
+    
     @Published var uploadError: Error?
-    @Published var isUploading: Bool = false
+    @Published var isLoading: Bool = false
     @Published var designUploaded: Bool = false
     @Published var designError: String? = nil
-
-    var uploadedPost: PostModel? = nil
+    @Published var updatedDesign: DesignModel? = nil
+    
+    let postModel: PostModel
+    private let designModel: DesignModel
     
     private let designRepository: DesignsRepository
-    private let uploadDesignUseCase: UploadDesignUseCase
+    private let updateDesignUseCase: UpdateDesignUseCase
     private let createDesignStorageReferenceUseCase: CreateDesignStorageReferenceUseCase
-    private let fetchUserWithIdUseCase: FetchUserWithIdUseCase
     
-    init() {
+    init(postModel: PostModel) {
+        self.postModel = postModel
+        self.designModel = postModel.design
         designRepository = DesignRepositoryImpl()
-        uploadDesignUseCase = UploadDesignUseCase(designsRepository: designRepository)
+        updateDesignUseCase = UpdateDesignUseCase(designsRepository: designRepository)
         createDesignStorageReferenceUseCase = CreateDesignStorageReferenceUseCase(designsRepository: designRepository)
-        fetchUserWithIdUseCase = FetchUserWithIdUseCase(userRepository: UserRepositoryImpl())
     }
     
     enum TransferError: Error {
@@ -101,11 +99,11 @@ class UploadDesignViewModel: ObservableObject {
         
         switch imageState {
         case .success(let image):
-            isUploading = true
+            isLoading = true
             guard let imageData = image.jpegData(compressionQuality: 0.8) else {
                 return
             }
-            let designUUID = UUID()
+            let designUUID = designModel.id
             let designImageRef = createDesignStorageReferenceUseCase.execute(with: designUUID.uuidString)
             
             let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
@@ -126,7 +124,7 @@ class UploadDesignViewModel: ObservableObject {
                 }
             }
             uploadTask.observe(.success) { _ in
-                self.isUploading = false
+                self.isLoading = false
             }
         default:
             designUploaded = false
@@ -137,11 +135,10 @@ class UploadDesignViewModel: ObservableObject {
     
     func saveUserRelation(designUUID: UUID, designURL: String) async {
         do {
-            let designModel = try await uploadDesignUseCase.execute(with: .init(id: designUUID, imageUrl: designURL, description: designDescription, tags: designTagsSelection.map{$0.text}, name: designName, price: designPrice))
-            let user = try await fetchUserWithIdUseCase.execute(with: designModel.userId)
-            uploadedPost = PostModel(design: designModel, artist: user)
+            let newDesign: DesignModel = .init(designId: designUUID, designURL: designURL, userId: designModel.userId, description: designDescription, tags: designTagsSelection.map{$0.text}, name: designName, price: designPrice)
+            updatedDesign = newDesign
+            let _ = try await updateDesignUseCase.execute(with: newDesign)
             await MainActor.run {
-                clearInputs()
                 designUploaded = true
             }
         } catch(let err) {
@@ -149,12 +146,31 @@ class UploadDesignViewModel: ObservableObject {
             designUploaded = false
         }
     }
+
+    func loadDesign() {
+        isLoading = true
+        Task {
+            if let data = try? Data(contentsOf: URL(string: designModel.designURL)!) {
+                if let image = UIImage(data: data) {
+                    await MainActor.run {
+                        imageState = .success(image)
+                        designImage = image
+                        designName = designModel.name
+                        designDescription = designModel.description
+                        designPrice = designModel.price
+                        designTagsSelection = designModel.tags.map({ text in
+                            Tag(text: text)
+                        })
+                        isLoading = false
+                    }
+                } else {
+                    isLoading = false
+                }
+            } else {
+                isLoading = false
+            }
+        }
     
-    func clearInputs() {
-        designDescription = ""
-        designTagsSelection = []
-        designName = ""
-        designPrice = 0
-        imageState = .empty
     }
 }
+

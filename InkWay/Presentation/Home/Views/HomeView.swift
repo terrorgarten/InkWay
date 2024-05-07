@@ -23,11 +23,6 @@ struct HomeView: View {
         TabView {
             // only if user is status
             if viewModel.currentUserArtistStatus {
-                UploadDesignView()
-                    .tabItem {
-                        Label("Upload", systemImage: "square.and.arrow.up.circle.fill")
-                    }
-                
                 UserDesignView(userId: viewModel.currentUserId)
                     .tabItem {
                         Label("My designs", systemImage: "photo.stack")
@@ -36,12 +31,12 @@ struct HomeView: View {
             
             UserFeedView()
                 .tabItem {
-                    Label("Find", systemImage: "mappin.and.ellipse")
+                    Label("Feed", systemImage: "mappin.and.ellipse")
                 }
             
             UserProfileView(viewModel: userViewModel)
                 .tabItem {
-                    Label("Me", systemImage: "person.circle")
+                    Label("My profile", systemImage: "person.circle")
                 }
         }
     }

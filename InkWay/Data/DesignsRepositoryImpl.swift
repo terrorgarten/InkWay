@@ -17,7 +17,7 @@ class DesignRepositoryImpl: DesignsRepository {
     private let db = Firestore.firestore()
     private let auth = Auth.auth()
     
-    func uploadDesign(with input: UploadDesignUseCase.Params) async throws -> None {
+    func uploadDesign(with input: UploadDesignUseCase.Params) async throws -> DesignModel {
         guard let userId = auth.currentUser?.uid else {
             throw DesignRepositoryError.failedToLoadCurrentUser
         }
@@ -42,7 +42,7 @@ class DesignRepositoryImpl: DesignsRepository {
             throw DesignRepositoryError.designUploadingFailed
         }
        
-        return None()
+        return uploadedDesign
     }
     
     func getAllDesigns() async throws -> [DesignModel] {
@@ -79,6 +79,28 @@ class DesignRepositoryImpl: DesignsRepository {
             throw DesignRepositoryError.failedToGetMineDesigns
         }
     }
+    
+    func updateDesign(designModel: DesignModel) async throws -> DesignModel {
+        do {
+            let designRef = db.collection("designs").document(designModel.id.uuidString)
+            try await designRef.updateData([
+                "name": designModel.name,
+                "designURL": designModel.designURL,
+                "tags": designModel.tags,
+                "description": designModel.description,
+                "price": designModel.price
+            ])
+            return designModel
+        }
+        catch(let error) {
+            print(error.localizedDescription)
+            throw DesignRepositoryError.failedToUpdateDesign
+        }
+    }
+    
+    func createDesignStorageReference(uuid: String) -> StorageReference {
+        return storageReference.child("designs/\(uuid).jpg")
+    }
 }
 
 enum DesignRepositoryError: Error {
@@ -86,4 +108,5 @@ enum DesignRepositoryError: Error {
     case failedToGetAllDesigns
     case failedToLoadCurrentUser
     case failedToGetMineDesigns
+    case failedToUpdateDesign
 }

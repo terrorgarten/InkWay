@@ -11,7 +11,7 @@ import FirebaseStorage
 
 class UploadDesignUseCase: UseCase {
     typealias Input = Params
-    typealias Output = None
+    typealias Output = DesignModel
     
     private let designsRepository: DesignsRepository
     
@@ -19,17 +19,13 @@ class UploadDesignUseCase: UseCase {
         self.designsRepository = designsRepository
     }
     
-    func execute(with input: Params) async throws -> None {
+    func execute(with input: Params) async throws -> DesignModel {
         return try await designsRepository.uploadDesign(with: input)
-    }
-    
-    func createDesignStorageReference(uuid: UUID, image: UIImage) -> StorageReference {
-        return Storage.storage().reference().child("designs/\(uuid.uuidString).jpg")
     }
     
     struct Params {
         let id: UUID
-        let imageUrl: URL
+        let imageUrl: String
         let description: String
         let tags: [String]
         let name: String

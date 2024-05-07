@@ -18,7 +18,7 @@ struct DesignDetailView: View {
                 ScrollView {
                     VStack(alignment: .center) {
                         ZStack(alignment: .topLeading) {
-                            AsyncImage(url: viewModel.post.design.designURL){
+                            AsyncImage(url: URL(string: viewModel.post.design.designURL)!){
                                 image in image.resizable()
                             } placeholder: {
                                 ProgressView()

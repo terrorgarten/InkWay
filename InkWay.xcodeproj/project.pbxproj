@@ -36,7 +36,6 @@
 		242D83C22BE95CE600736F1F /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 242D83C12BE95CE600736F1F /* FirebaseRemoteConfigSwift */; };
 		242D83C42BE95CE600736F1F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 242D83C32BE95CE600736F1F /* FirebaseStorage */; };
 		242D83C62BE95CE600736F1F /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 242D83C52BE95CE600736F1F /* FirebaseStorageCombine-Community */; };
-		243428572BE7E1EB00578BBA /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243428562BE7E1EB00578BBA /* EditDesignView.swift */; };
 		243772A22BEA309C001455D8 /* GetAllDesignsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A12BEA309C001455D8 /* GetAllDesignsUseCase.swift */; };
 		243772A42BEA3212001455D8 /* FetchUserWithIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A32BEA3212001455D8 /* FetchUserWithIdUseCase.swift */; };
 		243772A62BEA37A7001455D8 /* GetMineDesignsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */; };
@@ -55,6 +54,10 @@
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
 		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
+		247F333E2BEA6FFB008826F2 /* EditDesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F333D2BEA6FFB008826F2 /* EditDesignViewModel.swift */; };
+		247F33412BEA700C008826F2 /* EditDesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F33402BEA700C008826F2 /* EditDesignView.swift */; };
+		247F33432BEA7802008826F2 /* UpdateDesignUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F33422BEA7802008826F2 /* UpdateDesignUseCase.swift */; };
+		247F33452BEA7AB0008826F2 /* CreateDesignStorageReferenceUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247F33442BEA7AB0008826F2 /* CreateDesignStorageReferenceUseCase.swift */; };
 		2493E6532BCF3E680076BA26 /* SignInUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */; };
 		2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */; };
 		24BC21AC2BDB0C0500AE616C /* DesignDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */; };
@@ -122,7 +125,6 @@
 /* Begin PBXFileReference section */
 		240EA4682BE6CAB3005A1C79 /* LikedPostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedPostsView.swift; sourceTree = "<group>"; };
 		240EA46A2BE6E05C005A1C79 /* ArtitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtitsListView.swift; sourceTree = "<group>"; };
-		243428562BE7E1EB00578BBA /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
 		243772A12BEA309C001455D8 /* GetAllDesignsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllDesignsUseCase.swift; sourceTree = "<group>"; };
 		243772A32BEA3212001455D8 /* FetchUserWithIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserWithIdUseCase.swift; sourceTree = "<group>"; };
 		243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMineDesignsUseCase.swift; sourceTree = "<group>"; };
@@ -141,6 +143,10 @@
 		2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileViewModel.swift; sourceTree = "<group>"; };
+		247F333D2BEA6FFB008826F2 /* EditDesignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignViewModel.swift; sourceTree = "<group>"; };
+		247F33402BEA700C008826F2 /* EditDesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignView.swift; sourceTree = "<group>"; };
+		247F33422BEA7802008826F2 /* UpdateDesignUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDesignUseCase.swift; sourceTree = "<group>"; };
+		247F33442BEA7AB0008826F2 /* CreateDesignStorageReferenceUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDesignStorageReferenceUseCase.swift; sourceTree = "<group>"; };
 		2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserUseCase.swift; sourceTree = "<group>"; };
 		2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUserUseCase.swift; sourceTree = "<group>"; };
 		24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignDetailViewModel.swift; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 		243F77B72B9E039E00899AD5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				247F333C2BEA6FE6008826F2 /* EditDesign */,
 				24BC21AF2BDB2FD900AE616C /* UserDetail */,
 				24BC21A92BDB0BE600AE616C /* DesignDetail */,
 				66E3C2DE2BD97A2C00BAD6B8 /* Feed */,
@@ -404,6 +411,8 @@
 				243772A52BEA37A7001455D8 /* GetMineDesignsUseCase.swift */,
 				243772A72BEA3A77001455D8 /* GetPostsUseCase.swift */,
 				243772AB2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift */,
+				247F33422BEA7802008826F2 /* UpdateDesignUseCase.swift */,
+				247F33442BEA7AB0008826F2 /* CreateDesignStorageReferenceUseCase.swift */,
 			);
 			path = Designs;
 			sourceTree = "<group>";
@@ -484,7 +493,6 @@
 			isa = PBXGroup;
 			children = (
 				F9B8734A2A27054900806327 /* UserDesignView.swift */,
-				243428562BE7E1EB00578BBA /* EditDesignView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +527,23 @@
 			isa = PBXGroup;
 			children = (
 				2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		247F333C2BEA6FE6008826F2 /* EditDesign */ = {
+			isa = PBXGroup;
+			children = (
+				247F333F2BEA6FFE008826F2 /* Views */,
+				247F333D2BEA6FFB008826F2 /* EditDesignViewModel.swift */,
+			);
+			path = EditDesign;
+			sourceTree = "<group>";
+		};
+		247F333F2BEA6FFE008826F2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				247F33402BEA700C008826F2 /* EditDesignView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -800,6 +825,7 @@
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
 				F9B873392A2621D200806327 /* FindArtistsViewModel.swift in Sources */,
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
+				247F33452BEA7AB0008826F2 /* CreateDesignStorageReferenceUseCase.swift in Sources */,
 				24CFC77F2BCEBF8D0022283D /* HomeViewModel.swift in Sources */,
 				24CFC7742BCE941B0022283D /* IWGoogleSignInButton.swift in Sources */,
 				24BC21B22BDB2FF200AE616C /* UserDetailView.swift in Sources */,
@@ -813,6 +839,7 @@
 				2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */,
 				24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */,
 				243772AC2BEA5BCD001455D8 /* GetArtistDesignsUseCase.swift in Sources */,
+				247F33432BEA7802008826F2 /* UpdateDesignUseCase.swift in Sources */,
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
 				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
@@ -855,10 +882,11 @@
 				24CFC7772BCE941B0022283D /* IWSecondaryButton.swift in Sources */,
 				F93906452BE6B734001E3FBD /* SignInWithGoogleUserUseCase.swift in Sources */,
 				24F0298B2BCD773F0080069D /* WelcomeView.swift in Sources */,
-				243428572BE7E1EB00578BBA /* EditDesignView.swift in Sources */,
 				F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */,
 				243F77BF2B9E071E00899AD5 /* UseCase.swift in Sources */,
 				F9B8731D2A1C5BDC00806327 /* MainViewModel.swift in Sources */,
+				247F333E2BEA6FFB008826F2 /* EditDesignViewModel.swift in Sources */,
+				247F33412BEA700C008826F2 /* EditDesignView.swift in Sources */,
 				24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */,
 				240EA4692BE6CAB3005A1C79 /* LikedPostsView.swift in Sources */,
 				2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */,

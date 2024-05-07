@@ -1,29 +1,29 @@
 //
-//  UploadDesignView.swift
+//  EditDesignView.swift
 //  InkWay
 //
-//  Created by terrorgarten on 31.05.2023.
+//  Created by Oliver Bajus on 07.05.2024.
 //
 
 import SwiftUI
 import PhotosUI
 import WrappingHStack
 
-struct UploadDesignView: View {
-    @StateObject private var viewModel = UploadDesignViewModel()
+struct EditDesignView: View {
+    @StateObject var viewModel: EditDesignViewModel
     @State private var options: [Tag] = sampleTags
     @Binding var isViewShowing: Bool
-    @Binding var posts: [PostModel] 
+    @Binding var posts: [PostModel]
     
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isUploading {
+                if viewModel.isLoading {
                     VStack {
                         Spacer()
                         ProgressView()
                             .progressViewStyle(CircularProgressViewStyle())
-                        Text("We are uploading your design. Please wait a few seconds...")
+                        Text("Loading. Please wait a few seconds...")
                             .font(.footnote)
                             .foregroundColor(.gray)
                         Spacer()
@@ -90,59 +90,35 @@ struct UploadDesignView: View {
                     }
                 }
             }
-            .navigationTitle("Upload design")
+            .navigationTitle("Edit design")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar(){
+                ToolbarItem(placement: .navigationBarTrailing){
+                    Button("Save"){
+                        viewModel.uploadDesign()
+                    }.fontWeight(.bold)
+                    .disabled(viewModel.isLoading)
+                }
                 ToolbarItem(placement: .navigationBarLeading){
                     Button("Cancel"){
                         isViewShowing = false
-                    }
-                    .disabled(viewModel.isUploading)
-                }
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button("Upload"){
-                        viewModel.uploadDesign()
                     }.fontWeight(.bold)
-                    .disabled(viewModel.isUploading)
+                    .disabled(viewModel.isLoading)
                 }
             }
-            .alert("Design successfully uploaded", isPresented: $viewModel.designUploaded) {
-                Button("OK", role: .cancel) { 
-                    if let post = viewModel.uploadedPost {
-                        posts.append(.init(design: post.design, artist: post.artist, isLiked: post.isLiked))
+            .alert("Design successfully edited", isPresented: $viewModel.designUploaded) {
+                Button("OK", role: .cancel) {
+                    if let design = viewModel.updatedDesign {
+                        posts = posts.filter{ $0.design.id != design.id }
+                        posts.append(.init(design: design, artist: viewModel.postModel.artist, isLiked: viewModel.postModel.isLiked))
+                        isViewShowing = false
                     }
-                    isViewShowing = false
                 }
+            }
+            .onAppear {
+                viewModel.loadDesign()
             }
         }
     }
     
-}
-
-struct DesignImage: View {
-    let imageState: ImageState
-    
-    var body: some View{
-        switch imageState {
-        case .success(let image):
-            Image(uiImage: image).resizable()
-                .scaledToFill()
-                .frame(width: 335, height: 330)
-                .cornerRadius(8)
-                .clipped()
-        case .loading:
-            ProgressView()
-        case .empty:
-            EmptyView()
-        case .failure:
-            Image(systemName: "exclamationmark.triangle.fill")
-                .font(.system(size: 40))
-                .foregroundColor(.white)
-        }
-    }
-}
-
-struct UploadDesign_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadDesignView(isViewShowing: .constant(true), posts: .constant([]))
-    }
 }
