@@ -18,7 +18,7 @@
 		24626E962BE3EF3D00DBAAE2 /* FiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */; };
 		2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */; };
 		2467B9DC2BCDBC4500D54E70 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */; };
-		2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */; };
+		2467B9DE2BCDC94600D54E70 /* CreateArtistProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2467B9DD2BCDC94600D54E70 /* CreateArtistProfileViewModel.swift */; };
 		2493E6532BCF3E680076BA26 /* SignInUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */; };
 		2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */; };
 		24BC21AC2BDB0C0500AE616C /* DesignDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */; };
@@ -42,7 +42,7 @@
 		24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029882BCD76750080069D /* WelcomeViewModel.swift */; };
 		24F0298B2BCD773F0080069D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F0298A2BCD773F0080069D /* WelcomeView.swift */; };
 		24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A92BCD83FD0080069D /* RegisterView.swift */; };
-		24F029AB2BCD83FD0080069D /* CreateTattooerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A82BCD83FD0080069D /* CreateTattooerProfileView.swift */; };
+		24F029AB2BCD83FD0080069D /* CreateArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A82BCD83FD0080069D /* CreateArtistProfileView.swift */; };
 		24F029AD2BCD86B50080069D /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029AC2BCD86B50080069D /* BaseRouter.swift */; };
 		662F615B2BD9808C00BE6469 /* UserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615A2BD9808C00BE6469 /* UserFeedView.swift */; };
 		662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615C2BD980B000BE6469 /* FeedItemView.swift */; };
@@ -53,6 +53,7 @@
 		F93906422BE6B596001E3FBD /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F93906412BE6B596001E3FBD /* GoogleSignInSwift */; };
 		F93906452BE6B734001E3FBD /* SignInWithGoogleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93906432BE6B733001E3FBD /* SignInWithGoogleUserUseCase.swift */; };
 		F93906462BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F93906442BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift */; };
+		F9664BAA2BE7B14700E90622 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9664BA92BE7B14700E90622 /* ArtistModel.swift */; };
 		F9674BCB2A27B0DA00143D3C /* ArtistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */; };
 		F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */; };
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
@@ -99,7 +100,7 @@
 		24626E952BE3EF3D00DBAAE2 /* FiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersView.swift; sourceTree = "<group>"; };
 		2467B9D92BCDBC3900D54E70 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		2467B9DB2BCDBC4500D54E70 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileViewModel.swift; sourceTree = "<group>"; };
+		2467B9DD2BCDC94600D54E70 /* CreateArtistProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArtistProfileViewModel.swift; sourceTree = "<group>"; };
 		2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUserUseCase.swift; sourceTree = "<group>"; };
 		2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUserUseCase.swift; sourceTree = "<group>"; };
 		24BC21AB2BDB0C0500AE616C /* DesignDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignDetailViewModel.swift; sourceTree = "<group>"; };
@@ -122,7 +123,7 @@
 		24CFC7802BCEBF990022283D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		24F029882BCD76750080069D /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		24F0298A2BCD773F0080069D /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		24F029A82BCD83FD0080069D /* CreateTattooerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTattooerProfileView.swift; sourceTree = "<group>"; };
+		24F029A82BCD83FD0080069D /* CreateArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArtistProfileView.swift; sourceTree = "<group>"; };
 		24F029A92BCD83FD0080069D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		24F029AC2BCD86B50080069D /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		662F615A2BD9808C00BE6469 /* UserFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedView.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		F93616EB2BE7A62800220EC9 /* InkWay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InkWay.entitlements; sourceTree = "<group>"; };
 		F93906432BE6B733001E3FBD /* SignInWithGoogleUserUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithGoogleUserUseCase.swift; sourceTree = "<group>"; };
 		F93906442BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInWithAppleUserUseCase.swift; sourceTree = "<group>"; };
+		F9664BA92BE7B14700E90622 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		F9674BCA2A27B0DA00143D3C /* ArtistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardView.swift; sourceTree = "<group>"; };
 		F9674BCC2A27B0ED00143D3C /* ArtistCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCardViewModel.swift; sourceTree = "<group>"; };
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,11 +187,12 @@
 		243F77B72B9E039E00899AD5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				F9664BA62BE7B04200E90622 /* CreateUserProfile */,
 				24BC21AF2BDB2FD900AE616C /* UserDetail */,
 				24BC21A92BDB0BE600AE616C /* DesignDetail */,
 				66E3C2DE2BD97A2C00BAD6B8 /* Feed */,
 				24CFC77C2BCEBF730022283D /* Home */,
-				24CFC77A2BCEAE060022283D /* CreateTattooerProfile */,
+				24CFC77A2BCEAE060022283D /* CreateArtistProfile */,
 				2467B9D72BCDBC1E00D54E70 /* Onboarding */,
 				24F029832BCD76190080069D /* Welcome */,
 				243F77D82B9E0E4300899AD5 /* UploadDesign */,
@@ -208,6 +211,7 @@
 		243F77B82B9E03A900899AD5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				F9664BA72BE7B11200E90622 /* Artists */,
 				F9B8732A2A24FC4F00806327 /* IWErrors.swift */,
 				F9B8731A2A1C5A3700806327 /* Extensions.swift */,
 				243F77BD2B9E070E00899AD5 /* Protocol */,
@@ -236,12 +240,12 @@
 		243F77C02B9E089300899AD5 /* Users */ = {
 			isa = PBXGroup;
 			children = (
-				F93906442BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift */,
-				F93906432BE6B733001E3FBD /* SignInWithGoogleUserUseCase.swift */,
 				243F77CD2B9E0BC600899AD5 /* Models */,
 				243F77C32B9E08D900899AD5 /* UsersRepository.swift */,
 				243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */,
 				2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */,
+				F93906442BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift */,
+				F93906432BE6B733001E3FBD /* SignInWithGoogleUserUseCase.swift */,
 				2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */,
 			);
 			path = Users;
@@ -483,19 +487,19 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		24CFC77A2BCEAE060022283D /* CreateTattooerProfile */ = {
+		24CFC77A2BCEAE060022283D /* CreateArtistProfile */ = {
 			isa = PBXGroup;
 			children = (
 				24CFC77B2BCEAE170022283D /* Views */,
-				2467B9DD2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift */,
+				2467B9DD2BCDC94600D54E70 /* CreateArtistProfileViewModel.swift */,
 			);
-			path = CreateTattooerProfile;
+			path = CreateArtistProfile;
 			sourceTree = "<group>";
 		};
 		24CFC77B2BCEAE170022283D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				24F029A82BCD83FD0080069D /* CreateTattooerProfileView.swift */,
+				24F029A82BCD83FD0080069D /* CreateArtistProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -551,6 +555,29 @@
 				66375DAD2BD97E1800FF204C /* UserFeedViewModel.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		F9664BA62BE7B04200E90622 /* CreateUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateUserProfile;
+			sourceTree = "<group>";
+		};
+		F9664BA72BE7B11200E90622 /* Artists */ = {
+			isa = PBXGroup;
+			children = (
+				F9664BA82BE7B13600E90622 /* Models */,
+			);
+			path = Artists;
+			sourceTree = "<group>";
+		};
+		F9664BA82BE7B13600E90622 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F9664BA92BE7B14700E90622 /* ArtistModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F99AC4102A1BD15F00188124 = {
@@ -710,13 +737,14 @@
 				F9CE2FD72A1C11EA008F9E9B /* LoginViewModel.swift in Sources */,
 				F9CE2FD92A1C127A008F9E9B /* RegisterViewModel.swift in Sources */,
 				243F77DB2B9E0EFA00899AD5 /* UserRepositoryImpl.swift in Sources */,
-				2467B9DE2BCDC94600D54E70 /* CreateTattooerProfileViewModel.swift in Sources */,
+				2467B9DE2BCDC94600D54E70 /* CreateArtistProfileViewModel.swift in Sources */,
 				24CFC76F2BCE941B0022283D /* IWAppleSignInButton.swift in Sources */,
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
 				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
 				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
+				F9664BAA2BE7B14700E90622 /* ArtistModel.swift in Sources */,
 				2467B9DA2BCDBC3900D54E70 /* OnboardingViewModel.swift in Sources */,
 				F9B873412A26DA1300806327 /* EditUserProfileView.swift in Sources */,
 				243F77C22B9E08C500899AD5 /* FetchCurrentUserUseCase.swift in Sources */,
@@ -727,7 +755,7 @@
 				24CFC7792BCE941B0022283D /* IWFormInputField.swift in Sources */,
 				24CFC7752BCE941B0022283D /* IWProfilePicturePicker.swift in Sources */,
 				F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */,
-				24F029AB2BCD83FD0080069D /* CreateTattooerProfileView.swift in Sources */,
+				24F029AB2BCD83FD0080069D /* CreateArtistProfileView.swift in Sources */,
 				F9B873472A27036200806327 /* UploadDesignView.swift in Sources */,
 				F9B873212A1C656100806327 /* UserProfileView.swift in Sources */,
 				F9B873492A27037800806327 /* UploadDesignViewModel.swift in Sources */,

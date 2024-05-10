@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CreateTattooerProfileView: View {
-    @ObservedObject var viewModel = CreateTattooerProfileViewModel()
+struct CreateArtistProfileView: View {
+    @ObservedObject var viewModel = CreateArtistProfileViewModel()
     @EnvironmentObject var router: BaseRouter
 
     var body: some View {
@@ -33,6 +33,6 @@ struct CreateTattooerProfileView: View {
 
 struct CreateUserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateTattooerProfileView()
+        CreateArtistProfileView()
     }
 }

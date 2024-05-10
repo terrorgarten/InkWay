@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CreateTattooerProfileViewModel: ObservableObject {
+class CreateArtistProfileViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var bio: String = ""
     @Published var profilePictureURL: URL? = nil

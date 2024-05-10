@@ -35,7 +35,7 @@ struct InkWay: App {
                         case .register:
                             RegisterView()
                         case .createTattooerProfile:
-                            CreateTattooerProfileView()
+                            CreateArtistProfileView()
                         case .welcome:
                             WelcomeView()
                         case .onboarding:

@@ -10,13 +10,12 @@ import Foundation
 
 // just simple model. Codable for sending to the DB as JSON
 struct UserModel: Codable {
-    let id: String
+    let id: String // Firebase Auth (or OAuth) generated OID
     var name: String
     var surename: String
     var instagram: String
     let email: String
     let joined: TimeInterval
-    var coord_y: Float
-    var coord_x: Float
+    var likedDesigns: [String] // List of design OIDs
     var artist: Bool
 }
