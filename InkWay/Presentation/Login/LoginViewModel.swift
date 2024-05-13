@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import CryptoKit
 import AuthenticationServices
 import GoogleSignIn
+
 
 // MARK: Login handler
 class LoginViewModel: ObservableObject {
@@ -97,9 +97,9 @@ class LoginViewModel: ObservableObject {
     // Prepares the request, sets the hashed nonce
     func signInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) -> Void {
         request.requestedScopes = [.fullName, .email]
-        let nonce = randomNonceString()
+        let nonce = randomNonceString() // From IW CryptoUtils
         currentNonce = nonce
-        request.nonce = sha256(nonce)
+        request.nonce = sha256(nonce) // From IW CryptoUtils
     }
     
     // Called on completion
@@ -147,40 +147,6 @@ class LoginViewModel: ObservableObject {
                 
             }
         }
-    }
-    
-    // Security functionality from https://firebase.google.com/docs/auth/ios/apple
-    private func randomNonceString(length: Int = 32) -> String {
-      precondition(length > 0)
-      var randomBytes = [UInt8](repeating: 0, count: length)
-      let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
-      if errorCode != errSecSuccess {
-        fatalError(
-          "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
-        )
-      }
-
-      let charset: [Character] =
-        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
-
-      let nonce = randomBytes.map { byte in
-        // Pick a random character from the set, wrapping around if needed.
-        charset[Int(byte) % charset.count]
-      }
-
-      return String(nonce)
-    }
-    
-    // Security functionality from https://firebase.google.com/docs/auth/ios/apple
-    @available(iOS 13, *)
-    private func sha256(_ input: String) -> String {
-      let inputData = Data(input.utf8)
-      let hashedData = SHA256.hash(data: inputData)
-      let hashString = hashedData.compactMap {
-        String(format: "%02x", $0)
-      }.joined()
-
-      return hashString
     }
     
     // run entry checks

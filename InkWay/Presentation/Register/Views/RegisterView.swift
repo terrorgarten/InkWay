@@ -49,7 +49,30 @@ struct RegisterView: View {
                     }
                 }.padding(.bottom, -14)
 
-                IWPrimaryButton(title: String(localized: "Let's go!"), color: Color.accentColor, action: viewModel.register)
+                IWPrimaryButton(title: String(localized: "Let's go!"), color: Color.accentColor, action: viewModel.registerWithEmail)
+                
+                
+                
+                // OAuth section
+                OrDivider().padding(.top, -16)
+                VStack{
+                    IWGoogleSignInButton(action: viewModel.signInWithGoogle)
+                    
+
+                    IWAppleSignInButton(onSignInRequest: { request in
+                        // Configure request here
+                    }, onSignInCompleted: { (result: Result<ASAuthorization, Error>) in
+                        switch result {
+                        case .success(let auth):
+                            // Extract token and nonce and call
+                            viewModel.signInWithApple(IDToken: "extracted_IDToken", rawNonce: "nonce_used", fullName: auth.credential.fullName)
+                        case .failure(let error):
+                            viewModel.errorMessage = "Apple Sign In failed: \(error.localizedDescription)"
+                        }
+                    })
+                        .frame(width: 228, height: 44)
+                        .padding(.vertical, 10)
+                }
                 
                 HStack {
                     Text("Already have an account?")
@@ -60,12 +83,6 @@ struct RegisterView: View {
                         Text("Sign in")
                             .fontWeight(.semibold)
                     }
-                }.padding(-12)
-                
-                // OAuth section
-                OrDivider().padding(.top, 8)
-                VStack{
-                    IWGoogleSignInButton(action: {})
                 }
             }
         }
@@ -78,7 +95,7 @@ struct RegisterView: View {
     }
 }
 
-struct CreateAccountView_Previews: PreviewProvider {
+struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
         RegisterView()
     }

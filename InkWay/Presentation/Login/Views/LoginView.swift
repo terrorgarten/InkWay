@@ -39,7 +39,8 @@ struct LoginView: View {
                     IWGoogleSignInButton(action: viewModel.signInWithGoogle) 
                     IWAppleSignInButton(onSignInRequest: viewModel.signInWithAppleRequest,
                                         onSignInCompleted: viewModel.signInWithAppleCompletion)
-                        .padding(.horizontal, 50)
+                        .frame(width: 228, height: 44)
+                        .padding(.vertical, 10)
                 }
                 
                 Group{
@@ -68,12 +69,12 @@ struct LoginView: View {
             }
             .padding()
         }
-//        .onChange(of: viewModel.navigateToPath) {
-//            if let destination = viewModel.navigateToPath {
-//                viewModel.navigateToPath = nil
-//                router.navigate(to: destination)
-//            }
-//        }
+        .onChange(of: viewModel.navigateToPath) { destination in
+            if let safeDestination = destination {
+                viewModel.navigateToPath = nil
+                router.navigate(to: safeDestination)
+            }
+        }
     }
 }
 

@@ -61,10 +61,10 @@ struct UserProfileView: View {
                                             Spacer()
                                             Text(viewModel.cityName)
                                         }
-                                        NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
-                                            Text("Change artist info")
-                                                .foregroundColor(.accentColor)
-                                        }
+//                                        NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
+//                                            Text("Change artist info")
+//                                                .foregroundColor(.accentColor)
+//                                        }
                                     }
                                 }
                             }
@@ -76,11 +76,11 @@ struct UserProfileView: View {
                                 Spacer()
                             }
                             if !user.artist {
-                                NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
+                                // NavigationLink(destination: ActivateArtistModeView(user: user, viewModel: viewModel)) {
                                     Text("Are you an artist? Show yourself!")
                                         .padding()
                                         .foregroundColor(.accentColor)
-                                }
+                                // }
                             }
                             
                             HStack {

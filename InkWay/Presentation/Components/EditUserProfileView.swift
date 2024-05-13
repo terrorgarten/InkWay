@@ -55,7 +55,7 @@ struct EditUserProfileView: View {
                 }),
                 trailing: Button(action: {
                     // update call here, explicit
-                    viewModel.updateUser(editedUser)
+                    // TODO viewModel.updateUser(editedUser)
                     isShowingEditView = false
                 }, label: {
                     Text("Save")

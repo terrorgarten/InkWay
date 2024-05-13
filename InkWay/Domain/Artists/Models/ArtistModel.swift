@@ -8,10 +8,18 @@
 import Foundation
 
 struct ArtistModel: Codable {
+    
+    var artistName: String
     var bio: String
+    
     var coord_y: Float
     var coord_x: Float
+    
     var followers: [String] // User OIDs
     var followerCount: Int
+    
     var designs: [String] // Design OIDs
+    var designCount: Int
+    
+    var userModel: UserModel
 }

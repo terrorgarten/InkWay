@@ -38,7 +38,7 @@ extension TimeInterval {
 
 // assigns the location to our user from CLLocationCoordinate2D
 // only changes the type of CLLocationDegree, which is a Float typecast
-extension UserModel {
+extension ArtistModel {
     mutating func saveCLLocation(location: CLLocationCoordinate2D) {
         self.coord_y = Float(location.latitude)
         self.coord_x = Float(location.longitude)

@@ -39,10 +39,17 @@ struct HomeView: View {
                     Label("Find", systemImage: "mappin.and.ellipse")
                 }
             
-            UserProfileView(viewModel: userViewModel)
-                .tabItem {
-                    Label("Me", systemImage: "person.circle")
-                }
+            if viewModel.currentUserArtistStatus {
+                //                ArtistProfileView()
+                //                    .tabItem {
+                //                        Label("Profile", systemImage: "person.circle")
+                //                    }
+            } else {
+                UserProfileView(viewModel: userViewModel)
+                    .tabItem {
+                        Label("Me", systemImage: "person.circle")
+                    }
+            }
         }
     }
 }

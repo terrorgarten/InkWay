@@ -31,7 +31,7 @@ struct CreateArtistProfileView: View {
     }
 }
 
-struct CreateUserProfileView_Previews: PreviewProvider {
+struct CreateAserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         CreateArtistProfileView()
     }

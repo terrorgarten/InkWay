@@ -18,7 +18,7 @@ class FetchCurrentUserUseCase: UseCase {
     }
     
     func execute(with input: None) async throws -> UserModel {
-        return try await userRepository.getUser(with: input)
+        return try await userRepository.getUser()
     }
 }
 
