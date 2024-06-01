@@ -10,7 +10,7 @@ import UIKit
 
 class SignInWithGoogleUserUseCase: UseCase {
     typealias Input = Params
-    typealias Output = None
+    typealias Output = (Bool, UserModel?)
     
     private let userRepository: UserRepository
     
@@ -18,7 +18,7 @@ class SignInWithGoogleUserUseCase: UseCase {
         self.userRepository = userRepository
     }
     
-    func execute(with input: Params) async throws -> None {
+    func execute(with input: Params) async throws -> Output {
         return try await userRepository.signInWithGoogle(with: input.IDTokenString, accessTokenString: input.acessTokenString)
     }
     

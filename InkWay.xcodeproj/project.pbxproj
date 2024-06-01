@@ -44,6 +44,13 @@
 		24F029AA2BCD83FD0080069D /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A92BCD83FD0080069D /* RegisterView.swift */; };
 		24F029AB2BCD83FD0080069D /* CreateArtistProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029A82BCD83FD0080069D /* CreateArtistProfileView.swift */; };
 		24F029AD2BCD86B50080069D /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F029AC2BCD86B50080069D /* BaseRouter.swift */; };
+		3A48045A2BF2DCC300D7E697 /* SignUpWithAppleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4804592BF2DCC300D7E697 /* SignUpWithAppleUserUseCase.swift */; };
+		3A48045C2BF2DD0800D7E697 /* SignUpWithGoogleUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48045B2BF2DD0800D7E697 /* SignUpWithGoogleUserUseCase.swift */; };
+		3A48045E2BF2DDBF00D7E697 /* AddLikedDesignUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48045D2BF2DDBF00D7E697 /* AddLikedDesignUserUseCase.swift */; };
+		3A4804602BF2DE5C00D7E697 /* RemoveLikedDesignUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A48045F2BF2DE5C00D7E697 /* RemoveLikedDesignUserUseCase.swift */; };
+		3A4804622BF2DF9200D7E697 /* UpdateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4804612BF2DF9200D7E697 /* UpdateUserUseCase.swift */; };
+		3A4804642BF2E3A100D7E697 /* UploadProfilePhotoUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4804632BF2E3A100D7E697 /* UploadProfilePhotoUserUseCase.swift */; };
+		3A4804662BF2E55900D7E697 /* DeleteProfilePhotoUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4804652BF2E55900D7E697 /* DeleteProfilePhotoUserUseCase.swift */; };
 		662F615B2BD9808C00BE6469 /* UserFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615A2BD9808C00BE6469 /* UserFeedView.swift */; };
 		662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F615C2BD980B000BE6469 /* FeedItemView.swift */; };
 		662F61602BD9815400BE6469 /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = 662F615F2BD9815400BE6469 /* WrappingHStack */; };
@@ -60,7 +67,6 @@
 		F99409312BEECA720017314F /* CreateUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99409302BEECA720017314F /* CreateUserProfileView.swift */; };
 		F99409332BEECD520017314F /* LogOutCurrentUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99409322BEECD520017314F /* LogOutCurrentUserUseCase.swift */; };
 		F99409362BEEE1F20017314F /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99409352BEEE1F20017314F /* CryptoUtils.swift */; };
-		F99409392BEEE3DE0017314F /* CryptoUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99409382BEEE3DC0017314F /* CryptoUtils.swift */; };
 		F994093B2BEEE7A50017314F /* IWProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F994093A2BEEE7A50017314F /* IWProfilePictureView.swift */; };
 		F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41C2A1BD16000188124 /* InkWayApp.swift */; };
 		F99AC41F2A1BD16000188124 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99AC41E2A1BD16000188124 /* MainView.swift */; };
@@ -130,6 +136,13 @@
 		24F029A82BCD83FD0080069D /* CreateArtistProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateArtistProfileView.swift; sourceTree = "<group>"; };
 		24F029A92BCD83FD0080069D /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		24F029AC2BCD86B50080069D /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		3A4804592BF2DCC300D7E697 /* SignUpWithAppleUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithAppleUserUseCase.swift; sourceTree = "<group>"; };
+		3A48045B2BF2DD0800D7E697 /* SignUpWithGoogleUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpWithGoogleUserUseCase.swift; sourceTree = "<group>"; };
+		3A48045D2BF2DDBF00D7E697 /* AddLikedDesignUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLikedDesignUserUseCase.swift; sourceTree = "<group>"; };
+		3A48045F2BF2DE5C00D7E697 /* RemoveLikedDesignUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveLikedDesignUserUseCase.swift; sourceTree = "<group>"; };
+		3A4804612BF2DF9200D7E697 /* UpdateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserUseCase.swift; sourceTree = "<group>"; };
+		3A4804632BF2E3A100D7E697 /* UploadProfilePhotoUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadProfilePhotoUserUseCase.swift; sourceTree = "<group>"; };
+		3A4804652BF2E55900D7E697 /* DeleteProfilePhotoUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProfilePhotoUserUseCase.swift; sourceTree = "<group>"; };
 		662F615A2BD9808C00BE6469 /* UserFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedView.swift; sourceTree = "<group>"; };
 		662F615C2BD980B000BE6469 /* FeedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemView.swift; sourceTree = "<group>"; };
 		66375DAD2BD97E1800FF204C /* UserFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedViewModel.swift; sourceTree = "<group>"; };
@@ -143,7 +156,6 @@
 		F99409302BEECA720017314F /* CreateUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserProfileView.swift; sourceTree = "<group>"; };
 		F99409322BEECD520017314F /* LogOutCurrentUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCurrentUserUseCase.swift; sourceTree = "<group>"; };
 		F99409352BEEE1F20017314F /* CryptoUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
-		F99409382BEEE3DC0017314F /* CryptoUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoUtils.swift; sourceTree = "<group>"; };
 		F994093A2BEEE7A50017314F /* IWProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWProfilePictureView.swift; sourceTree = "<group>"; };
 		F99AC4192A1BD16000188124 /* InkWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InkWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99AC41C2A1BD16000188124 /* InkWayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InkWayApp.swift; sourceTree = "<group>"; };
@@ -253,9 +265,16 @@
 				243F77C12B9E08C500899AD5 /* FetchCurrentUserUseCase.swift */,
 				2493E6522BCF3E680076BA26 /* SignInUserUseCase.swift */,
 				F93906442BE6B734001E3FBD /* SignInWithAppleUserUseCase.swift */,
+				3A4804592BF2DCC300D7E697 /* SignUpWithAppleUserUseCase.swift */,
 				F93906432BE6B733001E3FBD /* SignInWithGoogleUserUseCase.swift */,
+				3A48045B2BF2DD0800D7E697 /* SignUpWithGoogleUserUseCase.swift */,
 				2493E6542BCF43340076BA26 /* RegisterNewUserUseCase.swift */,
 				F99409322BEECD520017314F /* LogOutCurrentUserUseCase.swift */,
+				3A48045D2BF2DDBF00D7E697 /* AddLikedDesignUserUseCase.swift */,
+				3A48045F2BF2DE5C00D7E697 /* RemoveLikedDesignUserUseCase.swift */,
+				3A4804612BF2DF9200D7E697 /* UpdateUserUseCase.swift */,
+				3A4804632BF2E3A100D7E697 /* UploadProfilePhotoUserUseCase.swift */,
+				3A4804652BF2E55900D7E697 /* DeleteProfilePhotoUserUseCase.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -587,17 +606,8 @@
 			isa = PBXGroup;
 			children = (
 				F99409352BEEE1F20017314F /* CryptoUtils.swift */,
-				F99409372BEEE3DC0017314F /* Crypto */,
 			);
 			path = Crypto;
-			sourceTree = "<group>";
-		};
-		F99409372BEEE3DC0017314F /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				F99409382BEEE3DC0017314F /* CryptoUtils.swift */,
-			);
-			name = Crypto;
 			sourceTree = "<group>";
 		};
 		F99AC4102A1BD15F00188124 = {
@@ -748,7 +758,6 @@
 				F9CF26822A1BF04E00D8F5FA /* LoginView.swift in Sources */,
 				F994092F2BEECA560017314F /* CreateUserProfileViewModel.swift in Sources */,
 				24CFC7762BCE941B0022283D /* IWOnboardingSlide.swift in Sources */,
-				F99409392BEEE3DE0017314F /* CryptoUtils.swift in Sources */,
 				F994093B2BEEE7A50017314F /* IWProfilePictureView.swift in Sources */,
 				24CFC77F2BCEBF8D0022283D /* HomeViewModel.swift in Sources */,
 				24CFC7742BCE941B0022283D /* IWGoogleSignInButton.swift in Sources */,
@@ -764,6 +773,7 @@
 				F9B873232A1C665600806327 /* UserProfileViewModel.swift in Sources */,
 				F9B873432A26DA6E00806327 /* ActivateArtistModeView.swift in Sources */,
 				24F029892BCD76750080069D /* WelcomeViewModel.swift in Sources */,
+				3A4804602BF2DE5C00D7E697 /* RemoveLikedDesignUserUseCase.swift in Sources */,
 				66375DAE2BD97E1800FF204C /* UserFeedViewModel.swift in Sources */,
 				2493E6552BCF43340076BA26 /* RegisterNewUserUseCase.swift in Sources */,
 				F9664BAA2BE7B14700E90622 /* ArtistModel.swift in Sources */,
@@ -774,7 +784,9 @@
 				24CFC7722BCE941B0022283D /* IWErrorMessageBar.swift in Sources */,
 				24CFC7782BCE941B0022283D /* IWFlowLayout.swift in Sources */,
 				243F77C42B9E08D900899AD5 /* UsersRepository.swift in Sources */,
+				3A4804662BF2E55900D7E697 /* DeleteProfilePhotoUserUseCase.swift in Sources */,
 				24CFC7792BCE941B0022283D /* IWFormInputField.swift in Sources */,
+				3A48045A2BF2DCC300D7E697 /* SignUpWithAppleUserUseCase.swift in Sources */,
 				24CFC7752BCE941B0022283D /* IWProfilePicturePicker.swift in Sources */,
 				F9674BCD2A27B0ED00143D3C /* ArtistCardViewModel.swift in Sources */,
 				24F029AB2BCD83FD0080069D /* CreateArtistProfileView.swift in Sources */,
@@ -788,8 +800,10 @@
 				F9CE2FDB2A1C17E6008F9E9B /* IWButton.swift in Sources */,
 				662F615D2BD980B000BE6469 /* FeedItemView.swift in Sources */,
 				243F77DD2B9E166900899AD5 /* DesignsRepository.swift in Sources */,
+				3A4804622BF2DF9200D7E697 /* UpdateUserUseCase.swift in Sources */,
 				F99AC41F2A1BD16000188124 /* MainView.swift in Sources */,
 				F9B8734D2A2705F200806327 /* UserDesignViewModel.swift in Sources */,
+				3A48045C2BF2DD0800D7E697 /* SignUpWithGoogleUserUseCase.swift in Sources */,
 				F9B873192A1C594300806327 /* UserModel.swift in Sources */,
 				24BC21B42BDB301500AE616C /* UserDetailViewModel.swift in Sources */,
 				F99AC41D2A1BD16000188124 /* InkWayApp.swift in Sources */,
@@ -798,7 +812,9 @@
 				24CFC7812BCEBF990022283D /* HomeView.swift in Sources */,
 				24CFC76E2BCE941B0022283D /* IWCheckBox.swift in Sources */,
 				24CFC7702BCE941B0022283D /* IWPrimaryButton.swift in Sources */,
+				3A4804642BF2E3A100D7E697 /* UploadProfilePhotoUserUseCase.swift in Sources */,
 				24CFC7772BCE941B0022283D /* IWSecondaryButton.swift in Sources */,
+				3A48045E2BF2DDBF00D7E697 /* AddLikedDesignUserUseCase.swift in Sources */,
 				F93906452BE6B734001E3FBD /* SignInWithGoogleUserUseCase.swift in Sources */,
 				24F0298B2BCD773F0080069D /* WelcomeView.swift in Sources */,
 				F9B8734B2A27054900806327 /* UserDesignView.swift in Sources */,

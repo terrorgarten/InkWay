@@ -45,6 +45,7 @@ extension ArtistModel {
     }
     
     func isValidCoordinates() -> Bool {
+        
         let validLatitudeRange = -90.0...90.0
         let validLongitudeRange = -180.0...180.0
         
@@ -62,7 +63,6 @@ extension ArtistModel {
             return "Uknown city"
         }
     }
-    
 }
 
 

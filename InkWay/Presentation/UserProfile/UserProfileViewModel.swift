@@ -19,6 +19,7 @@ class UserProfileViewModel: ObservableObject {
     
     private let fetchCurrentUserUseCase = FetchCurrentUserUseCase(userRepository: UserRepositoryImpl())
     private let logOutUserUseCase       = LogOutCurrentUserUseCase(userRepository: UserRepositoryImpl())
+    private let updateUserUseCase       = UpdateUserUseCase(userRepository: UserRepositoryImpl())
     
     init () {
         fetchCurrentUser()

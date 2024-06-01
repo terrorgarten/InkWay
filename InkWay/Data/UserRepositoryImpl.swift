@@ -12,9 +12,10 @@ import FirebaseStorage
 import GoogleSignIn
 
 class UserRepositoryImpl: UserRepository {
-    
+
     private let db = Firestore.firestore()
     private let auth = Auth.auth()
+    private let storage = Storage.storage()
 
     // Fetches the current user's profile from Firestore
     func getUser() async throws -> UserModel {
@@ -78,10 +79,6 @@ class UserRepositoryImpl: UserRepository {
                             )
                 return (false, userModel)
             }
-            
-            if result.additionalUserInfo?.isNewUser == true {
-                
-            }
         } catch {
             throw UserRepositoryError.appleSignInFailed
         }
@@ -101,16 +98,17 @@ class UserRepositoryImpl: UserRepository {
                 let surename = fullName?.familyName ?? ""
                 let username = result.user.displayName ?? ""
                 
-                let newUserModel = UserModel(id: userId,
-                                             username: username,
-                                             name: name,
-                                             surename: surename,
-                                             instagram: "",
-                                             email: email,
-                                             joined: Date().timeIntervalSince1970,
-                                             likedDesigns: [],
-                                             artist: false)
-                return newUserModel
+                return UserModel(id: userId,
+                                 username: username,
+                                 name: name,
+                                 surename: surename,
+                                 instagram: "",
+                                 email: email,
+                                 joined: Date().timeIntervalSince1970,
+                                 likedDesigns: [],
+                                 artist: false)
+            } else {
+                throw UserRepositoryError.userAlreadyExists
             }
             
         } catch {
@@ -196,6 +194,78 @@ class UserRepositoryImpl: UserRepository {
         try auth.signOut()
         return None()
     }
+    
+    func addUserLikedDesign(with designId: String) async throws -> None {
+        guard let userId = auth.currentUser?.uid else {
+            throw UserRepositoryError.currentUserNotFound
+        }
+
+        let userDoc = db.collection("users").document(userId)
+        do {
+            try await _ = db.runTransaction { (transaction, errorPointer) -> Any? in
+                let snapshot: DocumentSnapshot
+                do {
+                    snapshot = try transaction.getDocument(userDoc)
+                } catch let error as NSError {
+                    errorPointer?.pointee = error
+                    return nil
+                }
+                
+                guard var likedDesigns = snapshot.data()?["likedDesigns"] as? [String] else {
+                    errorPointer?.pointee = NSError(domain: "UserRepositoryError", code: -1, userInfo: [NSLocalizedDescriptionKey: "User data not found"])
+                    return nil
+                }
+                
+                // Check if the designId is already liked
+                if !likedDesigns.contains(designId) {
+                    likedDesigns.append(designId)
+                    transaction.updateData(["likedDesigns": likedDesigns], forDocument: userDoc)
+                }
+                
+                return nil
+            }
+        } catch {
+            throw UserRepositoryError.failedToFetchCurrentUser(error)
+        }
+        
+        return None()
+    }
+    
+    func removeUserLikedDesign(with designId: String) async throws -> None {
+        guard let userId = auth.currentUser?.uid else {
+            throw UserRepositoryError.currentUserNotFound
+        }
+
+        let userDoc = db.collection("users").document(userId)
+        do {
+            try await _ = db.runTransaction { (transaction, errorPointer) -> Any? in
+                let snapshot: DocumentSnapshot
+                do {
+                    snapshot = try transaction.getDocument(userDoc)
+                } catch let error as NSError {
+                    errorPointer?.pointee = error
+                    return nil
+                }
+                
+                guard var likedDesigns = snapshot.data()?["likedDesigns"] as? [String] else {
+                    errorPointer?.pointee = NSError(domain: "UserRepositoryError", code: -1, userInfo: [NSLocalizedDescriptionKey: "User data not found"])
+                    return nil
+                }
+                
+                // Check if the designId is already liked
+                if let index = likedDesigns.firstIndex(of: designId) {
+                    likedDesigns.remove(at: index)
+                    transaction.updateData(["likedDesigns": likedDesigns], forDocument: userDoc)
+                }
+                
+                return nil
+            }
+        } catch {
+            throw UserRepositoryError.failedToFetchCurrentUser(error)
+        }
+        
+        return None()
+    }
 
     private func userExists(userId: String) async throws -> Bool {
         let document = db.collection("users").document(userId)
@@ -214,10 +284,60 @@ class UserRepositoryImpl: UserRepository {
         let newUser = UserModel(id: id, username: email, name: name, surename: surname, instagram: "", email: email, joined: Date().timeIntervalSince1970, likedDesigns: [], artist: false)
         try await db.collection("users").document(id).setData(newUser.asDictionary())
     }
+    
+    func updateUserProfile(with userModel: UserModel) async throws -> None {
+        if userModel.username.isEmpty {
+            throw UserRepositoryError.invalidUserData
+        }
+        try await db.collection("users").document(userModel.id).updateData(userModel.asDictionary())
+        return None()
+    }
+    
+    func uploadProfilePicture(image: UIImage) async throws -> URL {
+        guard let userId = auth.currentUser?.uid else {
+            throw UserRepositoryError.currentUserNotFound
+        }
+        
+        // Convert UIImage to Data
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            throw UserRepositoryError.imageConversionFailed
+        }
+        
+        let storageRef = storage.reference().child("profile_pictures/\(userId).jpg")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        do {
+            let _ = try await storageRef.putDataAsync(imageData, metadata: metadata)
+            let downloadURL = try await storageRef.downloadURL()
+            return downloadURL
+        } catch {
+            throw UserRepositoryError.uploadFailed(error)
+        }
+    }
+    
+    func removeProfilePicture() async throws -> None {
+        guard let userId = auth.currentUser?.uid else {
+            throw UserRepositoryError.currentUserNotFound
+        }
+        
+        let storageRef = storage.reference().child("profile_pictures/\(userId).jpg")
+        
+        do {
+            try await storageRef.delete()
+            return None()
+        } catch {
+            throw UserRepositoryError.deleteFailed(error)
+        }
+    }
 }
 
 enum UserRepositoryError: Error {
     case currentUserNotFound
+    case imageConversionFailed
+    case uploadFailed(Error)
+    case deleteFailed(Error)
     case userDataNotFound
     case failedToFetchCurrentUser(Error)
     case loginFailed
@@ -229,4 +349,6 @@ enum UserRepositoryError: Error {
     case googleSignUpFailed
     case userDoesNotExist
     case appleSignUpFailed
+    case addingLikedDesignFailed
+    case invalidUserData
 }
