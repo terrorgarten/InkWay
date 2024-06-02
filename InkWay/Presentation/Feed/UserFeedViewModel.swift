@@ -7,15 +7,16 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 class UserFeedViewModel : ObservableObject {
     @Published var searchText: String = ""
     @Published var selectedFeed = 0
-    @Published var distance: Double = 0
     @Published var followingPosts: [PostModel] = []
     @Published var nearmePosts: [PostModel] = []
     @Published var isLoading: Bool = false
     
+    private let locationManager = CLLocationManager()
     private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
     private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
     
@@ -64,4 +65,16 @@ class UserFeedViewModel : ObservableObject {
         }
     }
     
+    func filterPostsByDistance(distance: Double){
+        nearmePosts = nearmePosts.filter { post in
+            distance > calculateDistanceFromMyLocation(post.artist)
+        }
+    }
+    
+    func calculateDistanceFromMyLocation(_ coordinates: UserModel) -> Double {
+        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return 0 }
+        let deltaX = coordinates.coord_x - Float(locValue.longitude)
+        let deltaY = coordinates.coord_y - Float(locValue.latitude)
+        return Double(sqrt(deltaX * deltaX + deltaY * deltaY))
+    }
 }

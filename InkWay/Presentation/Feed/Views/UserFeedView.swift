@@ -11,8 +11,8 @@ struct UserFeedView: View {
     @StateObject var viewModel = UserFeedViewModel()
     @State private var showFilters = false
     @State private var selection: [Tag] = []
-    
-    
+    @State private var distance: Double = 0
+
     var body: some View {
         NavigationView {
             VStack {
@@ -49,7 +49,7 @@ struct UserFeedView: View {
             .pickerStyle(.segmented)
             .frame(alignment: .top)
             .sheet(isPresented: $showFilters) {
-                FiltersView(distatnce: $viewModel.distance, isPresented: $showFilters, selection: $selection)
+                FiltersView(distatnce: $distance, isPresented: $showFilters, selection: $selection)
                     .accentColor(.mint)
             }
             .navigationTitle("Feed")
@@ -66,6 +66,9 @@ struct UserFeedView: View {
             }
             .onChange(of: selection) { _ in
                 viewModel.filterPostsByFlags(selectedTags: selection)
+            }
+            .onChange(of: distance) { _ in
+                viewModel.filterPostsByDistance(distance: distance)
             }
             .onAppear {
                 viewModel.fetchPosts()
