@@ -7,15 +7,16 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 
 class UserFeedViewModel : ObservableObject {
     @Published var searchText: String = ""
     @Published var selectedFeed = 0
-    @Published var distance: Double = 0
     @Published var followingPosts: [PostModel] = []
     @Published var nearmePosts: [PostModel] = []
     @Published var isLoading: Bool = false
     
+    private let locationManager = CLLocationManager()
     private let getLikedDesignsUseCase = GetAllUserLikedPostsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
     private let addLikedDesignUseCase = AddLikedDesignUserUseCase(userRepository: UserRepositoryImpl())
     private let removeLikedDesignUseCase = RemoveLikedDesignUserUseCase(userRepository: UserRepositoryImpl())
@@ -75,7 +76,7 @@ class UserFeedViewModel : ObservableObject {
     }
     
     func handleLikeAction(isLiked: Bool, designId: String) {
-        if isLiked {
+        if (isLiked) {
             unlikePost(designId: designId)
         } else {
             likePost(designId: designId)
@@ -91,7 +92,7 @@ class UserFeedViewModel : ObservableObject {
             }
         }
     }
-    
+
     func unlikePost(designId: String) {
         Task {
             do {
@@ -100,5 +101,18 @@ class UserFeedViewModel : ObservableObject {
                 print("Error unliking post")
             }
         }
+    }
+    
+    func filterPostsByDistance(distance: Double) {
+        nearmePosts = nearmePosts.filter { post in
+            distance > calculateDistanceFromMyLocation(post.artist)
+        }
+    }
+    
+    func calculateDistanceFromMyLocation(_ coordinates: UserModel) -> Double {
+        guard let locValue: CLLocationCoordinate2D = locationManager.location?.coordinate else { return 0 }
+        let deltaX = coordinates.coord_x - Float(locValue.longitude)
+        let deltaY = coordinates.coord_y - Float(locValue.latitude)
+        return Double(sqrt(deltaX * deltaX + deltaY * deltaY))
     }
 }

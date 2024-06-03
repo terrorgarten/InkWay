@@ -13,20 +13,15 @@ import Combine
 import FirebaseFirestore
 import FirebaseAuth
 
-
-
 // MARK: Artist discovery manager
 class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
     @Published var coordinates: CLLocationCoordinate2D? = nil
     @Published var cityName: String = ""
     @Published var artists: [UserModel] = []
     
-
     private var cancellables = Set<AnyCancellable>()
     let locationManager = CLLocationManager()
     var userId: String = ""
-    
     
     // override locationManager
     override init() {
@@ -38,8 +33,6 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
         }
         self.userId = Auth.auth().currentUser?.uid ?? ""
     }
-    
-    
     
     // create subs
     private func createCanecellables() {
@@ -58,14 +51,10 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
             .store(in: &cancellables)
     }
     
-    
-    
     // request location only once when we actually need it.
     func requestAllowOnceLocationPermission() {
         locationManager.requestLocation()
     }
-    
-    
     
     // on update, load coordinates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -78,14 +67,10 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
         }
     }
     
-
-    
     // on fail just print error for now
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
-
-    
     
     // decode x y coords to city name
     private func reverseGeocode(location: CLLocationCoordinate2D) {
@@ -103,8 +88,6 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
             }
         }
     }
-    
-    
     
     // load user objects. Should use cursors or something to not load all at once
     func fetchUsers() {
@@ -141,7 +124,6 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
             }
     }
 
-    
     // calculates the distance between two locations
     func calculateDistance(_ coordinates1: (x: Float, y: Float), _ coordinates2: UserModel) -> Float {
         let deltaX = coordinates1.x - coordinates2.coord_x
