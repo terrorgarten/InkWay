@@ -37,8 +37,6 @@ struct InkWay: App {
                             LoginView()
                         case .register:
                             RegisterView()
-                        case .createTattooerProfile:
-                            CreateTattooerProfileView()
                         case .welcome:
                             WelcomeView()
                         case .onboarding:
@@ -47,6 +45,8 @@ struct InkWay: App {
                             MainView()
                         case .none:
                             EmptyView()
+                        case .createUserProfile(let isArtist, let id, let email):
+                            CreateUserProfileView(viewModel: CreateUserProfileViewModel(isArtist: isArtist, id: id, email: email))
                         }
                     }
             }

@@ -10,7 +10,7 @@ import SwiftUI
 import PhotosUI
 
 class EditDesignViewModel: ObservableObject {
-    @Published private(set) var imageState: ImageState = .empty
+    @Published var imageState: ImageState = .empty
     
     @Published var designImage: UIImage?
     @Published var designDescription: String = ""
@@ -105,12 +105,12 @@ class EditDesignViewModel: ObservableObject {
             let designImageRef = createDesignStorageReferenceUseCase.execute(with: designUUID.uuidString)
             
             let uploadTask = designImageRef.putData(imageData, metadata: nil) { metadata, error in
-                if let error = error {
+                if error != nil {
                     self.designError = "Something went wrong"
                     return
                 }
                 designImageRef.downloadURL { url, error in
-                    if let error = error {
+                    if error != nil {
                         self.designError = "Something went wrong"
                         return
                     }
@@ -143,7 +143,7 @@ class EditDesignViewModel: ObservableObject {
             await MainActor.run {
                 designUploaded = true
             }
-        } catch(let err) {
+        } catch(_) {
             designError = "Something went wrong"
             designUploaded = false
         }

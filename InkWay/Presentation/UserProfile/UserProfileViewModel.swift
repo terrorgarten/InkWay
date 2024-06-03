@@ -9,51 +9,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import Foundation
 import CoreLocation
-
-let us  =  UserModel (
-    id: "1",
-    name: "Name",
-    surename: "Surname",
-    instagram: "ig",
-    email: "",
-    joined: 0,
-    coord_y:  0,
-    coord_x:  0,
-    artist:  true)
-
-let us2  =  UserModel (
-    id: "2",
-    name: "Name",
-    surename: "Surname",
-    instagram: "ig",
-    email: "",
-    joined: 0,
-    coord_y:  0,
-    coord_x:  0,
-    artist:  true)
-
-let us3  =  UserModel (
-    id: "3",
-    name: "Name",
-    surename: "Surname",
-    instagram: "ig",
-    email: "",
-    joined: 0,
-    coord_y:  0,
-    coord_x:  0,
-    artist:  true)
-
-let us4  =  UserModel (
-    id: "4",
-    name: "Name",
-    surename: "Surname",
-    instagram: "ig",
-    email: "",
-    joined: 0,
-    coord_y:  0,
-    coord_x:  0,
-    artist:  true)
-
+import SwiftUI
+import PhotosUI
 
 // MARK: Handle user profile viewing and change propagation
 class UserProfileViewModel: ObservableObject {
@@ -62,106 +19,139 @@ class UserProfileViewModel: ObservableObject {
     @Published var errorMsg: String? = ""
     @Published var cityName: String = ""
     @Published var likedPosts: [PostModel] = []
-    @Published var follwoedArtits: [UserModel] = []
-    @Published var followingArtists: [UserModel] = []
+    @Published var likedPostCount: Int = 0
+    @Published var followedArtits: [UserModel] = []
+    @Published var followedArtitsCount: Int = 0
+    @Published var followers: [UserModel] = []
+    @Published var followersCount: Int = 0
     
-    init () {
-        fetchCurrentUser()
-    }
     
+    // Use cases
+    private let fetchCurrentUserUseCase = FetchCurrentUserUseCase(userRepository: UserRepositoryImpl())
+    private let updateUserUseCase = UpdateUserUseCase(userRepository: UserRepositoryImpl())
+    
+    private let getAllUserLikedPostsUseCase = GetAllUserLikedPostsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+    
+    private let getAllFollowedArtistsUseCase = GetAllFollowedArtistsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+    
+    
+    private let getAllFollowersUserUseCase = GetAllFollowersUserUseCase(userRepository: UserRepositoryImpl())
+    private let signOutUseCase = SignOutUserUseCase(userRepository: UserRepositoryImpl())
+    
+    private let deleteProfilePictureUseCase = DeleteProfilePhotoUserUseCase(userRepository: UserRepositoryImpl())
+    private let updateProfilePictureUseCase = UploadProfilePhotoUserUseCase(userRepository: UserRepositoryImpl())
     
     
     // logout with Firebase
     func logout() {
-        print("logout pressed")
-        
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            errorMsg = "Could not sign you out. Please check the internet connection."
-            print(IWError.LogoutError)
-        }
-    }
-    
-    
-    // load user information from the Firestore
-    func fetchCurrentUser() {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        let db = Firestore.firestore()
-        db.collection("users").document(userId).getDocument { snapshot, error in
-            guard let data = snapshot?.data(), error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.user = UserModel (
-                    id: data ["id"] as? String ?? "",
-                    name: data["name"] as? String ?? "",
-                    surename: data["surename"] as? String ?? "",
-                    instagram: data["instagram"] as? String ?? "",
-                    email: data["email"] as? String ?? "",
-                    joined: data["joined"] as? TimeInterval ?? 0,
-                    coord_y: data["coord_y"] as? Float ?? 0,
-                    coord_x: data["coord_x"] as? Float ?? 0,
-                    artist: data["artist"] as? Bool ?? false)
-                guard let user = self.user else {
-                    return
+        Task {
+            do {
+                try await _ = signOutUseCase.execute(with: None())
+            } catch {
+                await MainActor.run {
+                    self.errorMsg = "Can't sign out. Try again."
                 }
-                self.reverseGeocode(location: CLLocationCoordinate2D(latitude: CLLocationDegrees(user.coord_y), longitude: CLLocationDegrees(user.coord_x)))
+                print("Error signing out")
             }
         }
     }
     
-    
-    // change user status to artist
-    func updateUserAsArtist(_ editedArtistUser: UserModel) {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(userId)
-        
-        userRef.updateData([
-            "artist": editedArtistUser.artist,
-            "coord_y": editedArtistUser.coord_y,
-            "coord_x": editedArtistUser.coord_x,
-        ]) { error in
-            if let error = error {
-                self.errorMsg = "Failed to update user: \(error.localizedDescription)"
+    func loadUserProfile() {
+        Task {
+            do {
+                print("Loading user profile")
+                let user = try await self.fetchCurrentUserUseCase.execute(with: None())
+                
+                // Get the user location
+                if user.coord_x == UserModel.defaultCoordinate && user.coord_y == UserModel.defaultCoordinate {
+                    await MainActor.run {
+                        self.cityName = ""
+                    }
+                } else {
+                    await MainActor.run {
+                        self.reverseGeocode(x_coord: user.coord_x, y_coord: user.coord_y)
+                    }
+                }
+                
+                let likedPosts = try await self.getAllUserLikedPostsUseCase.execute(with: None())
+                let followedArtists = try await self.getAllFollowedArtistsUseCase.execute(with: None())
+                
+                await MainActor.run {
+                    self.user = user
+                    self.likedPosts = likedPosts
+                    self.followedArtits = followedArtists
+                }
+                
+                if user.artist {
+                    // Get followers
+                    let followers = try await self.getAllFollowersUserUseCase.execute(with: None())
+                    await MainActor.run {
+                        self.followers = followers
+                    }
+                }
+                print("User profile loaded")
+
+            } catch {
+                errorMsg = "Can't load user profile. Try again."
+                print("Error loading user profile")
             }
         }
-        fetchCurrentUser()
     }
     
-    
-    // update user information
-    func updateUser(_ editedUser: UserModel) {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return
-        }
-        
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(userId)
-        
-        userRef.updateData([
-            "name": editedUser.name,
-            "surename": editedUser.surename,
-            "instagram": editedUser.instagram
-        ]) { error in
-            if let error = error {
-                self.errorMsg = "Failed to update user: \(error.localizedDescription)"
+    func updateUserProfile(user: UserModel) {
+        Task {
+            do {
+                _ = try await updateUserUseCase.execute(with: user)
+                
+                if user.coord_x == UserModel.defaultCoordinate && user.coord_y == UserModel.defaultCoordinate {
+                    await MainActor.run {
+                        self.cityName = ""
+                    }
+                } else {
+                    await MainActor.run {
+                        self.reverseGeocode(x_coord: user.coord_x, y_coord: user.coord_y)
+                    }
+                }
+                
+            } catch {
+                errorMsg = "Can't update. Try again."
+                print("Error updating user profile")
             }
         }
-        //reload
-        fetchCurrentUser()
+        self.user = user
     }
     
+    func deleteProfilePicture() {
+        print("Deleting profile picture")
+        Task {
+            do {
+                _ = try await deleteProfilePictureUseCase.execute(with: None())
+            } catch {
+                errorMsg = "Delete failed. Try again."
+                print("Error deleting profile picture")
+            }
+        }
+        self.user?.profilePictureURL = URL(string: UserModel.defaultImageURL)!
+    }
     
+    func updateProfilePicture(image: UIImage) {
+        print("Updating profile picture")
+        Task {
+            do {
+                let newPictureURL = try await updateProfilePictureUseCase.execute(with: image)
+                await MainActor.run {
+                    self.user?.profilePictureURL = newPictureURL
+                }
+            } catch {
+                errorMsg = "Upload failed. Try again."
+                print("Error uploading profile picture")
+            }
+        }
+    }
+
     // get city from x y coords
-    private func reverseGeocode(location: CLLocationCoordinate2D) {
+    private func reverseGeocode(x_coord: Float, y_coord: Float) {
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(x_coord), longitude: CLLocationDegrees(y_coord))
         let geocoder = CLGeocoder()
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         
@@ -177,4 +167,43 @@ class UserProfileViewModel: ObservableObject {
         }
     }
     
+}
+
+// MARK: ImagePicker for user profile pictures
+struct ImagePicker: UIViewControllerRepresentable {
+    @Binding var image: UIImage?
+    
+    class Coordinator: NSObject, PHPickerViewControllerDelegate {
+        var parent: ImagePicker
+        
+        init(parent: ImagePicker) {
+            self.parent = parent
+        }
+        
+        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+            picker.dismiss(animated: true)
+            
+            guard let provider = results.first?.itemProvider, provider.canLoadObject(ofClass: UIImage.self) else { return }
+            
+            provider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    self.parent.image = image as? UIImage
+                }
+            }
+        }
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(parent: self)
+    }
+    
+    func makeUIViewController(context: Context) -> PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.filter = .images
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = context.coordinator
+        return picker
+    }
+    
+    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {}
 }

@@ -11,7 +11,7 @@ import WrappingHStack
 struct FeedItemView: View {
     @StateObject var viewModel: UserFeedViewModel
     var postModel: PostModel
-    @State private var isLiked = false
+    @State var isLiked: Bool
     @State private var showPostDetail = false
     @State private var showUserDetail = false
     @State private var showingUnfollowAlert = false
@@ -44,7 +44,6 @@ struct FeedItemView: View {
                         }
                     }
                 )
-                .foregroundColor(.black)
                 
                 Spacer()
                 
@@ -86,6 +85,7 @@ struct FeedItemView: View {
                 
                 HStack {
                     Button(action: {
+                        viewModel.handleLikeAction(isLiked: isLiked, designId: postModel.design.id.uuidString)
                         isLiked.toggle()
                     }
                     ){
@@ -127,12 +127,3 @@ struct FeedItemView: View {
             }
     }
 }
-
-//struct FeedItemView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FeedItemView(model:
-//                        PostModel(design: DesignModel(designURL: <#T##URL#>, userId: <#T##String#>, description: <#T##String#>, tags: <#T##[String]#>, name: <#T##String#>, price: <#T##Int#>), artist: <#T##UserModel#>))
-//    }
-//}
-
-

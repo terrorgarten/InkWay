@@ -37,6 +37,7 @@ struct IWFormInputField: View {
                         )
                 } else {
                     TextField(placeholder, text: $value)
+                        .autocapitalization(.none)
                         .padding()
                         .background(Color.secondary.opacity(0.1))
                         .cornerRadius(5)

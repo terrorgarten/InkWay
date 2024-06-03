@@ -9,7 +9,7 @@ import Foundation
 
 class RegisterNewUserUseCase: UseCase {
     typealias Input = Params
-    typealias Output = None
+    typealias Output = String
     
     private let userRepository: UserRepository
     
@@ -17,7 +17,7 @@ class RegisterNewUserUseCase: UseCase {
         self.userRepository = userRepository
     }
     
-    func execute(with input: Params) async throws -> None {
+    func execute(with input: Params) async throws -> String {
         return try await userRepository.register(with: input.email, password: input.password)
     }
     

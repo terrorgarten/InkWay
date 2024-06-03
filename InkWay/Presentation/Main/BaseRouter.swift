@@ -11,7 +11,7 @@ import SwiftUI
 enum Destination: Hashable {
     case login
     case register
-    case createTattooerProfile
+    case createUserProfile(isArtist: Bool, id: String, email: String)
     case welcome
     case onboarding
     case home

@@ -9,7 +9,7 @@ import Foundation
 
 class SignInWithAppleUserUseCase: UseCase {
     typealias Input = Params
-    typealias Output = None
+    typealias Output = (Bool, UserModel?)
     
     private let userRepository: UserRepository
     
@@ -17,7 +17,7 @@ class SignInWithAppleUserUseCase: UseCase {
         self.userRepository = userRepository
     }
     
-    func execute(with input: Params) async throws -> None {
+    func execute(with input: Params) async throws -> (Bool, UserModel?) {
         return try await userRepository.signInWithApple(with: input.IDToken, rawNonce: input.rawNonce, fullName: input.fullName)
     }
     

@@ -14,7 +14,7 @@ struct RegisterView: View {
 
     // Placeholder
     func showTermsAndConditions() {
-        print("Terms and conditions triggered!")
+        UIApplication.shared.open(URL(string: "https://www.termsfeed.com/live/09ee5043-4803-4567-b8d9-6a14d56019e5")!)
     }
 
     var body: some View {
@@ -41,8 +41,7 @@ struct RegisterView: View {
 
                     Text("I agree to the")
                     Button(action: {
-                        // TODO - Handle Terms & Conditions tap here
-                        print("Terms & Conditions tapped")
+                        showTermsAndConditions()
                     }) {
                         Text("Terms & Conditions")
                             .fontWeight(.semibold)
@@ -66,11 +65,16 @@ struct RegisterView: View {
                 OrDivider().padding(.top, 8)
                 VStack{
                     IWGoogleSignInButton(action: {})
+                    IWAppleSignInButton(onSignInRequest: {_ in },
+                                        onSignInCompleted: {_ in })
+                        .padding(.horizontal, 88)
+                        .padding(.vertical, 3)
                 }
             }
         }
         .onChange(of: viewModel.navigateToPath) { _ in
             if let destination = viewModel.navigateToPath {
+                
                 viewModel.navigateToPath = nil
                 router.navigate(to: destination)
             }

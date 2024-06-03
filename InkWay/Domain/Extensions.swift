@@ -40,27 +40,35 @@ extension TimeInterval {
 // only changes the type of CLLocationDegree, which is a Float typecast
 extension UserModel {
     mutating func saveCLLocation(location: CLLocationCoordinate2D) {
-        self.coord_y = Float(location.latitude)
-        self.coord_x = Float(location.longitude)
+        self.coord_x = Float(location.latitude)
+        self.coord_y = Float(location.longitude)
     }
     
     func isValidCoordinates() -> Bool {
         let validLatitudeRange = -90.0...90.0
         let validLongitudeRange = -180.0...180.0
         
-        let isValidLatitude = validLatitudeRange.contains(CLLocationDegrees(self.coord_y))
-        let isValidLongitude = validLongitudeRange.contains(CLLocationDegrees(self.coord_x))
+        let isValidLatitude = validLatitudeRange.contains(CLLocationDegrees(self.coord_x))
+        let isValidLongitude = validLongitudeRange.contains(CLLocationDegrees(self.coord_y))
         
         return isValidLatitude && isValidLongitude
     }
     
     func getCityNameFromLocation() -> String {
-        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(self.coord_y), longitude: CLLocationDegrees(self.coord_x))
+        let location = CLLocationCoordinate2D(latitude: CLLocationDegrees(self.coord_x), longitude: CLLocationDegrees(self.coord_y))
         if location.isValidCoordinates() {
             return location.reverseGeocode()
         } else {
+            print(location.reverseGeocode())
             return "Uknown city"
         }
+    }
+    
+    func distanceToUser(user: UserModel) -> Double {
+        let location1 = CLLocation(latitude: CLLocationDegrees(self.coord_y), longitude: CLLocationDegrees(self.coord_x))
+        let location2 = CLLocation(latitude: CLLocationDegrees(user.coord_y), longitude: CLLocationDegrees(user.coord_x))
+        
+        return location1.distance(from: location2)
     }
     
 }
