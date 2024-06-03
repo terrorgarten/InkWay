@@ -25,6 +25,7 @@ struct CreateUserProfileView: View {
                 
                 Section(header: Text("How others see you").foregroundColor(Color.mint)){
                     TextField("Display Name", text: $viewModel.name)
+                        .autocorrectionDisabled()
                 }
                 
                 if viewModel.isArtist {
@@ -33,11 +34,13 @@ struct CreateUserProfileView: View {
                         TextEditor(text: $viewModel.bio)
                             .frame(minHeight: 100)
                             .lineLimit(4)
+                            .autocorrectionDisabled()
                     }
                 }
                 
                 Section(header: Text("Your actual name").foregroundColor(Color.mint)){
                     TextField("John Doe", text: $viewModel.surename)
+                        .autocorrectionDisabled()
                 }
                 
                 Section(header: Text("Your Instagram").foregroundColor(Color.mint)){
@@ -56,8 +59,13 @@ struct CreateUserProfileView: View {
                         }, label: {
                             if viewModel.coord_x != UserModel.defaultCoordinate && viewModel.coord_y != UserModel.defaultCoordinate
                             || (coordinates.latitude != 37.7 && coordinates.longitude != -122.4){
-                                Text("Location selected")
-                                    .foregroundColor(.mint)
+                                HStack {
+                                    Text("Location selected")
+                                        .foregroundColor(.mint)
+                                    Spacer()
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(.mint)
+                                }
 
                             } else {
                                 Text("Click to select your location")

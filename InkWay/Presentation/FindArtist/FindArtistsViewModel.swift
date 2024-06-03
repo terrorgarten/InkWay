@@ -130,5 +130,4 @@ class FindArtistsViewModel: NSObject, ObservableObject, CLLocationManagerDelegat
         let deltaY = coordinates1.y - coordinates2.coord_y
         return sqrt(deltaX * deltaX + deltaY * deltaY)
     }
-    
 }

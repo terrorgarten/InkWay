@@ -118,7 +118,7 @@
     "0km" : {
 
     },
-    "100km" : {
+    "250km" : {
 
     },
     "About" : {
@@ -1569,9 +1569,6 @@
       }
     },
     "Type name..." : {
-
-    },
-    "Type something..." : {
 
     },
     "Unfollow" : {

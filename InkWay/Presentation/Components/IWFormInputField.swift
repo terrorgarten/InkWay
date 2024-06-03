@@ -25,6 +25,7 @@ struct IWFormInputField: View {
                         RoundedRectangle(cornerRadius: 5)
                             .stroke(color, lineWidth: 1)
                     )
+                    .autocorrectionDisabled()
             } else {
                 if isSecure {
                     SecureField(placeholder, text: $value)
@@ -35,6 +36,7 @@ struct IWFormInputField: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(color, lineWidth: 1)
                         )
+                        .autocorrectionDisabled()
                 } else {
                     TextField(placeholder, text: $value)
                         .autocapitalization(.none)
@@ -45,6 +47,7 @@ struct IWFormInputField: View {
                             RoundedRectangle(cornerRadius: 5)
                                 .stroke(color, lineWidth: 1)
                         )
+                        .autocorrectionDisabled()
                 }
             }
         }

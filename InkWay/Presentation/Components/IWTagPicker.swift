@@ -34,6 +34,7 @@ struct IWTagPicker: View {
                 customTagString = ""
             })
             .textFieldStyle(RoundedBorderTextFieldStyle())
+            .autocorrectionDisabled()
             
             // Sample tags that the user can click to add them to their selected tags
             IWFlowLayout(sampleTags, spacing: 6) { tag in

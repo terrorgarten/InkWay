@@ -27,9 +27,9 @@ struct LoginView: View {
                 IWErrorMessageBar(message: viewModel.errorMessage)
                 
                 IWFormInputField(placeholder: String(localized: "Enter your email"), value: $viewModel.email, label: String(localized: "Email"), color: .accentColor)
-                
+                    .autocorrectionDisabled()
                 IWFormInputField(placeholder: String(localized: "Enter your password"), value: $viewModel.password, label: String(localized: "Password"), isSecure: true, color: .accentColor)
-                
+                    .autocorrectionDisabled()
                 
                 IWPrimaryButton(title: String(localized: "Sign In"), color: Color.accentColor, action: viewModel.login)
                 

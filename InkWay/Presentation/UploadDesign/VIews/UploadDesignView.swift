@@ -37,10 +37,12 @@ struct UploadDesignView: View {
                         Section(header: Text("Name"), content: {
                             TextField("Type name...", text: $viewModel.designName, axis: .vertical)
                                 .lineLimit(1, reservesSpace: true)
+                                .autocorrectionDisabled()
                         })
                         Section(header: Text("Descritpion"), content: {
-                            TextField("Type something...", text: $viewModel.designDescription, axis: .vertical)
-                                .lineLimit(1, reservesSpace: true)
+                            TextEditor(text: $viewModel.designDescription)
+                                .lineLimit(3, reservesSpace: true)
+                                .autocorrectionDisabled()
                         })
                         Section(header: Text("Price"), content: {
                             TextField("Enter your price", value: $viewModel.designPrice, format: .number)

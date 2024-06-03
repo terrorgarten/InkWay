@@ -29,6 +29,7 @@ struct EditUserProfileView: View {
             Form {
                 Section(header: Text("How others see you").foregroundColor(Color.mint)){
                     TextField("Display Name", text: $editedUser.name)
+                        .autocorrectionDisabled()
                 }
                 
                 if editedUser.artist {
@@ -36,11 +37,13 @@ struct EditUserProfileView: View {
                         TextEditor(text: $editedUser.bio)
                             .frame(minHeight: 100)
                             .lineLimit(4)
+                            .autocorrectionDisabled()
                     }
                 }
                 
                 Section(header: Text("Your actual name").foregroundColor(Color.mint)){
                     TextField("John Doe", text: $editedUser.surename)
+                        .autocorrectionDisabled()
                 }
                 Section(header: Text("Your instagram").foregroundColor(Color.mint)){
                     HStack{
@@ -48,6 +51,7 @@ struct EditUserProfileView: View {
                             .foregroundColor(.gray)
                         TextField("handle", text: $editedUser.instagram)
                             .autocapitalization(.none)
+                            .autocorrectionDisabled()
                     }
                 }
             }
