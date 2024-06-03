@@ -25,7 +25,7 @@ struct FiltersView: View {
                         HStack {
                             Text("0km")
                             Slider(value: $distatnce, in: 0...250)
-                            Text("100km")
+                            Text("250km")
                         }
                     })
 
