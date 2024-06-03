@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+class GetDistanceToUserUseCase: UseCase {
+    typealias Input = UserModel
+    typealias Output = Double
+    
+    private let userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+    }
+    
+    func execute(with input: UserModel) async throws -> Double {
+        return try await userRepository.getDistanceToUser(with: input)
+    }
+}

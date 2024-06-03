@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+class UnfollowArtistUserUseCase: UseCase {
+    
+    typealias Input = String
+    typealias Output = None
+    
+    private let userRepository: UserRepository
+    
+    init(userRepository: UserRepository) {
+        self.userRepository = userRepository
+    }
+    
+    func execute(with input: String) async throws -> None {
+        try await userRepository.unfollowArtist(with: input)
+    }
+}

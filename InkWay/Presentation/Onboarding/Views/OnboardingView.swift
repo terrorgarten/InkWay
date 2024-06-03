@@ -13,14 +13,14 @@ struct OnboardingView: View {
     @EnvironmentObject var router: BaseRouter
     
     var slides: [SlideData] = [
-        SlideData(heading: "Welcome", description: "Welcome to inkway", imageName: "star", backgroundColor: Color.blue),
-        SlideData(heading: "Feature 1", description: "Lorem ipsum placeholder", imageName: "star.fill", backgroundColor:
-                    Color.pink)
+        SlideData(heading: "Welcome", description: "Welcome to inkway! The one app that finds you the best tattoo artsits in your area. Anywhere, anytime.", imageName: "star", backgroundColor: Color.blue),
+        SlideData(heading: "Lookup designs", description: "Get inspired by our members' designs, which you can filter to find the perfect fit", imageName: "heart.circle", backgroundColor: Color.pink),
+        SlideData(heading: "Get new tattoos", description: "Found something you like and the artist is near? Don't be shy and reach out. Our maps are here for you.", imageName: "map", backgroundColor: Color.orange)
     ]
 
     var body: some View {
         ZStack {
-            // Background color changes smoothly with slide change
+            // Background color to change smoothly with slide change
             Color.clear
                 .background(slides[selectedTab].backgroundColor)
                 .edgesIgnoringSafeArea(.all)

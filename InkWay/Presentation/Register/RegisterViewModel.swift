@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import GoogleSignIn
 
 // MARK: Handle registration
 class RegisterViewModel: ObservableObject {
@@ -18,6 +20,8 @@ class RegisterViewModel: ObservableObject {
     @Published var navigateToPath: Destination? = nil
     
     private let registerNewUserUseCase = RegisterNewUserUseCase(userRepository: UserRepositoryImpl())
+    private let signInWithGoogleUserUseCase = SignInWithGoogleUserUseCase(userRepository: UserRepositoryImpl())
+    private let userRepository = UserRepositoryImpl()
     
     func register() {
         guard validate() else {
@@ -25,20 +29,17 @@ class RegisterViewModel: ObservableObject {
         }
         Task {
             do {
-                _ = try await registerNewUserUseCase.execute(with: .init(email: email, password: password))
+                //
+                let userId = try await registerNewUserUseCase.execute(with: .init(email: email, password: password))
+                
                 if UserDefaults.standard.bool(forKey: "createTattooerProfile") {
                     await MainActor.run {
-                        navigateToPath = .createTattooerProfile
+                        navigateToPath = .createUserProfile(isArtist: true, id: userId, email: email)
                     }
+                
                 } else {
-                    if UserDefaults.standard.bool(forKey: "showedOnboarding") {
-                        await MainActor.run {
-                            navigateToPath = .home
-                        }
-                    } else {
-                        await MainActor.run {
-                            navigateToPath = .onboarding
-                        }
+                    await MainActor.run {
+                        navigateToPath = .createUserProfile(isArtist: false, id: userId, email: email)
                     }
                 }
             }
@@ -46,7 +47,53 @@ class RegisterViewModel: ObservableObject {
                 await MainActor.run {
                     switch(error) {
                     case UserRepositoryError.registerFailed:
-                        errorMessage = "Registration failed."
+                        errorMessage = "Registration failed, try again."
+                    default:
+                        errorMessage = "Something went wrong, try again."
+                    }
+                }
+            }
+        }
+    }
+    
+    func signInWithGoogle() -> Void {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              let rootViewController = window.rootViewController else {
+            print("Could not find any rootViewController in current window.")
+            errorMessage = "Google sign in failed."
+            return
+        }
+        
+        Task {
+            do {
+                let userAuth = try await GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController)
+                let user = userAuth.user
+                guard let IDToken = user.idToken else {
+                    throw UserRepositoryError.googleSignInFailed
+                }
+                let accessToken = user.accessToken
+                
+                let (userExists, userModel) = try await signInWithGoogleUserUseCase.execute(with: .init(IDTokenString: IDToken.tokenString, acessTokenString: accessToken.tokenString))
+                
+                if userExists {
+                    await MainActor.run {
+                        navigateToPath = .home
+                    }
+                } else {
+                    await MainActor.run {
+                        if UserDefaults.standard.bool(forKey: "createTattooerProfile") {
+                            navigateToPath = .createUserProfile(isArtist: true, id: userModel!.id, email: userModel!.email)
+                        } else {
+                            navigateToPath = .createUserProfile(isArtist: false, id: userModel!.id, email: userModel!.email)
+                        }
+                    }
+                }
+            } catch(let error) {
+                await MainActor.run {
+                    switch(error) {
+                    case UserRepositoryError.googleSignInFailed:
+                        errorMessage = "Google login failed."
                     default:
                         errorMessage = "Something went wrong, try again."
                     }

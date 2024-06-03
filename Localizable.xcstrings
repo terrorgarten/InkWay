@@ -115,13 +115,13 @@
         }
       }
     },
-    "🔥 Passionate Tattoo Artist 🔥\n🎨 Custom Designs | Fine Artistry | Professional Service\n📸 Follow for Daily Ink Inspiration 📸\n🎉 Bookings Open | DM for Appointments 🎉\n#TattooArtist #InkLife #TattooInspiration" : {
-
-    },
     "0km" : {
 
     },
     "100km" : {
+
+    },
+    "About" : {
 
     },
     "Already have an account?" : {
@@ -176,6 +176,9 @@
 
     },
     "Are you sure you want to unfollow this user?" : {
+
+    },
+    "Artist" : {
 
     },
     "Artist information" : {
@@ -250,9 +253,6 @@
     "ARTIST SETTINGS" : {
 
     },
-    "Artist:" : {
-
-    },
     "Book" : {
 
     },
@@ -278,6 +278,9 @@
         }
       }
     },
+    "Change" : {
+
+    },
     "Change artist info" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -300,9 +303,6 @@
           }
         }
       }
-    },
-    "Change your location" : {
-
     },
     "Choose tags" : {
 
@@ -354,7 +354,13 @@
         }
       }
     },
+    "Click to select your location" : {
+
+    },
     "Close" : {
+
+    },
+    "Confirm log out" : {
 
     },
     "Confirm Password" : {
@@ -401,6 +407,9 @@
         }
       }
     },
+    "Contact" : {
+
+    },
     "CONTENT" : {
 
     },
@@ -439,6 +448,15 @@
 
     },
     "Design successfully uploaded" : {
+
+    },
+    "Designs" : {
+
+    },
+    "Dismiss" : {
+
+    },
+    "Display Name" : {
 
     },
     "DISTANCE" : {
@@ -650,6 +668,9 @@
         }
       }
     },
+    "Estimated price" : {
+
+    },
     "Feed" : {
 
     },
@@ -713,9 +734,6 @@
     "Followers" : {
 
     },
-    "Followers: 32" : {
-
-    },
     "Forgot password?" : {
       "localizations" : {
         "cs" : {
@@ -737,6 +755,12 @@
           }
         }
       }
+    },
+    "handle" : {
+
+    },
+    "How others see you" : {
+
     },
     "I agree to the" : {
       "localizations" : {
@@ -858,6 +882,9 @@
         }
       }
     },
+    "John Doe" : {
+
+    },
     "Let's go!" : {
       "localizations" : {
         "cs" : {
@@ -918,7 +945,6 @@
 
     },
     "Location" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -941,6 +967,7 @@
       }
     },
     "Location Picker" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -961,6 +988,12 @@
           }
         }
       }
+    },
+    "Location selected" : {
+
+    },
+    "Location:" : {
+
     },
     "Log me out" : {
       "extractionState" : "stale",
@@ -1221,10 +1254,10 @@
         }
       }
     },
-    "Post detail" : {
+    "Price" : {
 
     },
-    "Price" : {
+    "Profile Picture Options" : {
 
     },
     "Register" : {
@@ -1248,6 +1281,9 @@
           }
         }
       }
+    },
+    "Remove" : {
+
     },
     "Reset" : {
 
@@ -1324,6 +1360,7 @@
       }
     },
     "Set up your profile" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1796,6 +1833,12 @@
     "You have no designs yet. Go to My designs tab and add some." : {
 
     },
+    "Your actual name" : {
+
+    },
+    "Your bio" : {
+
+    },
     "Your instagram" : {
       "localizations" : {
         "cs" : {
@@ -1818,8 +1861,10 @@
         }
       }
     },
+    "Your Instagram" : {
+
+    },
     "Your location" : {
-      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {
@@ -1864,6 +1909,7 @@
       }
     },
     "Your name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "cs" : {
           "stringUnit" : {

@@ -39,7 +39,8 @@ struct LoginView: View {
                     IWGoogleSignInButton(action: viewModel.signInWithGoogle) 
                     IWAppleSignInButton(onSignInRequest: viewModel.signInWithAppleRequest,
                                         onSignInCompleted: viewModel.signInWithAppleCompletion)
-                        .padding(.horizontal, 50)
+                        .padding(.horizontal, 71)
+                        .padding(.vertical, 5)
                 }
                 
                 Group{

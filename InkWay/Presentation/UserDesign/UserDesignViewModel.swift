@@ -17,16 +17,14 @@ class UserDesignViewModel: ObservableObject {
     
     private var userId: String = ""
     private let getMineDesignsUseCase = GetMineDesignsUseCase(designsRepository: DesignRepositoryImpl())
-    private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
+    private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()), getAllUserLikedPostsUserUseCase: GetAllUserLikedPostsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl())))
 
     func fetchUserDesigns(for userId: String) {
         isLoading = true
         Task {
             do {
-                let resultDesigns = try await getMineDesignsUseCase.execute(with: None())
-                let resultPosts = try await getAllPostsUseCase.execute(with: resultDesigns)
-                print("Your posts")
-                print(resultPosts)
+                let resultDesigns = try await self.getMineDesignsUseCase.execute(with: None())
+                let resultPosts = try await self.getAllPostsUseCase.execute(with: resultDesigns)
                 await MainActor.run {
                     posts = resultPosts
                     isLoading = false

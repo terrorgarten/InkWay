@@ -18,13 +18,11 @@ class HomeViewModel: ObservableObject {
         Task {
             // TODO - fix, returns -> '10.24.0 - [FirebaseFirestore][I-FST000001] Listen for query at users/9EoqC2umhJSvSHeVw0pDuKBfKws2 failed: Missing or insufficient permissions.'
             do {
-                var a = try await fetchCurrentUserUseCase.execute(with: None())
-                print(a)
+                _ = try await fetchCurrentUserUseCase.execute(with: None())
             }
             catch(let error){
                 print(error)
             }
         }
-    }
- 
+    } 
 }

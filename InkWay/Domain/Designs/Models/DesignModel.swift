@@ -26,4 +26,14 @@ struct DesignModel: Identifiable, Codable {
         self.name = name
         self.price = price
     }
+    
+    init(from dict: [String: Any]) {
+        self.id = UUID(uuidString: dict["id"] as! String)!
+        self.designURL = dict["designURL"] as! String
+        self.userId = dict["userId"] as! String
+        self.description = dict["description"] as! String
+        self.tags = dict["tags"] as! [String]
+        self.name = dict["name"] as! String
+        self.price = dict["price"] as! Int
+    }
 }

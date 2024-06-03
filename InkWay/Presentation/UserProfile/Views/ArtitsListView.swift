@@ -37,10 +37,15 @@ struct ArtistsListView: View {
                                 .frame(width: 30, height: 30)
                         }
                         .frame(height: 30)
-                        .padding(4)
+                        .padding()
                         Text(user.name)
-                            .foregroundColor(.black)
+                            .padding()
+                        
                         Spacer()
+                        // Left arrow triangle icon
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color.mint)
+                            .padding()
                     }
                     .padding(2)
                 }

@@ -22,6 +22,7 @@ class LoginViewModel: ObservableObject {
     private let signInUserUseCase = SignInUserUseCase(userRepository: UserRepositoryImpl())
     private let signInWithAppleUserUseCase = SignInWithAppleUserUseCase(userRepository: UserRepositoryImpl())
     private let signInWithGoogleUserUseCase = SignInWithGoogleUserUseCase(userRepository: UserRepositoryImpl())
+    private let userRepository = UserRepositoryImpl()
     
     // logint user with firebase
     func login() -> Void {
@@ -39,8 +40,7 @@ class LoginViewModel: ObservableObject {
                         navigateToPath = .onboarding
                     }
                 }
-            }
-            catch(let error) {
+            } catch(let error) {
                 await MainActor.run {
                     switch(error) {
                     case UserRepositoryError.loginFailed:
@@ -71,17 +71,18 @@ class LoginViewModel: ObservableObject {
                 }
                 let accessToken = user.accessToken
                 
-                _ = try await signInWithGoogleUserUseCase.execute(with: .init(IDTokenString: IDToken.tokenString, acessTokenString: accessToken.tokenString))
-                let showedOnboarding = UserDefaults.standard.bool(forKey: "showedOnboarding")
-                await MainActor.run {
-                    if showedOnboarding {
+                let (userExists, userModel) = try await signInWithGoogleUserUseCase.execute(with: .init(IDTokenString: IDToken.tokenString, acessTokenString: accessToken.tokenString))
+                
+                if userExists {
+                    await MainActor.run {
                         navigateToPath = .home
-                    } else {
-                        navigateToPath = .onboarding
+                    }
+                } else {
+                    await MainActor.run {
+                        navigateToPath = .createUserProfile(isArtist: false, id: userModel!.id, email: userModel!.email)
                     }
                 }
-            }
-            catch(let error) {
+            } catch(let error) {
                 await MainActor.run {
                     switch(error) {
                     case UserRepositoryError.googleSignInFailed:
@@ -106,8 +107,7 @@ class LoginViewModel: ObservableObject {
     func signInWithAppleCompletion(_ result: Result<ASAuthorization, Error>) -> Void {
         if case .failure(let failure) = result {
             errorMessage = failure.localizedDescription
-        }
-        else if case .success(let success) = result {
+        } else if case .success(let success) = result {
             // Apple internal ID token
             if let appleIDCredential = success.credential as? ASAuthorizationAppleIDCredential {
                 guard let nonce = currentNonce else {
@@ -132,8 +132,7 @@ class LoginViewModel: ObservableObject {
                                 navigateToPath = .onboarding
                             }
                         }
-                    }
-                    catch(let error) {
+                    } catch(let error) {
                         await MainActor.run {
                             switch(error) {
                             case UserRepositoryError.appleSignInFailed:
@@ -144,7 +143,6 @@ class LoginViewModel: ObservableObject {
                         }
                     }
                 }
-                
             }
         }
     }

@@ -36,7 +36,7 @@ struct UserFeedView: View {
                     } else {
                         ScrollView{
                             ForEach (viewModel.selectedFeed == 0 ? viewModel.nearmePosts : viewModel.followingPosts, id: \.design.id) { post in
-                                FeedItemView(viewModel: viewModel, postModel: post)
+                                FeedItemView(viewModel: viewModel, postModel: post, isLiked: post.isLiked)
                                 Divider()
                             }
                             .listRowSeparator(.hidden, edges: .all)

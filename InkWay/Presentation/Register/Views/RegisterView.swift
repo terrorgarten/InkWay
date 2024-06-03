@@ -65,11 +65,16 @@ struct RegisterView: View {
                 OrDivider().padding(.top, 8)
                 VStack{
                     IWGoogleSignInButton(action: {})
+                    IWAppleSignInButton(onSignInRequest: {_ in },
+                                        onSignInCompleted: {_ in })
+                        .padding(.horizontal, 88)
+                        .padding(.vertical, 3)
                 }
             }
         }
         .onChange(of: viewModel.navigateToPath) { _ in
             if let destination = viewModel.navigateToPath {
+                
                 viewModel.navigateToPath = nil
                 router.navigate(to: destination)
             }

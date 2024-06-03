@@ -27,20 +27,26 @@ struct EditUserProfileView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Your name").foregroundColor(Color.mint)){
-                    TextField("Name", text: $editedUser.name)
-                        .foregroundColor(Color.mint)
+                Section(header: Text("How others see you").foregroundColor(Color.mint)){
+                    TextField("Display Name", text: $editedUser.name)
                 }
-                Section(header: Text("Your name").foregroundColor(Color.mint)){
-                    TextField("Name", text: $editedUser.surename)
-                        .foregroundColor(Color.mint)
+                
+                if editedUser.artist {
+                    Section(header: Text("Your bio").foregroundColor(Color.mint)){
+                        TextEditor(text: $editedUser.bio)
+                            .frame(minHeight: 100)
+                            .lineLimit(4)
+                    }
+                }
+                
+                Section(header: Text("Your actual name").foregroundColor(Color.mint)){
+                    TextField("John Doe", text: $editedUser.surename)
                 }
                 Section(header: Text("Your instagram").foregroundColor(Color.mint)){
                     HStack{
                         Text("@")
                             .foregroundColor(.gray)
-                        TextField("Name", text: $editedUser.instagram)
-                            .foregroundColor(Color.mint)
+                        TextField("handle", text: $editedUser.instagram)
                             .autocapitalization(.none)
                     }
                 }
@@ -51,18 +57,18 @@ struct EditUserProfileView: View {
                     isShowingEditView = false
                 }, label: {
                     Text("Cancel")
-                        .foregroundColor(Color.mint)
+                        .foregroundColor(Color.red)
                 }),
                 trailing: Button(action: {
                     // update call here, explicit
-                    viewModel.updateUser(editedUser)
+                    viewModel.updateUserProfile(user: editedUser)
                     isShowingEditView = false
                 }, label: {
                     Text("Save")
                         .foregroundColor(Color.mint)
+                        .bold()
                 })
             )
-            .foregroundColor(.accentColor)
         }
     }
     
