@@ -22,6 +22,7 @@ class UserFeedViewModel : ObservableObject {
     private let removeLikedDesignUseCase = RemoveLikedDesignUserUseCase(userRepository: UserRepositoryImpl())
     private let getAllDesignsUseCase = GetAllDesignsUseCase(designsRepository: DesignRepositoryImpl())
     private let getAllPostsUseCase = GetPostsUseCase(fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()), getAllUserLikedPostsUserUseCase: GetAllUserLikedPostsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl())))
+    private let getAllFollowedArtistsUserUseCase = GetAllFollowedArtistsUserUseCase(userRepository: UserRepositoryImpl(), fetchUserWithIdUseCase: FetchUserWithIdUseCase(userRepository: UserRepositoryImpl()))
     
     var followingPostsInitValue: [PostModel] = []
     var nearmePostsInitValue: [PostModel] = []
@@ -34,13 +35,18 @@ class UserFeedViewModel : ObservableObject {
             do {
                 let resultDesigns = try await self.getAllDesignsUseCase.execute(with: None())
                 let resultPosts = try await self.getAllPostsUseCase.execute(with: resultDesigns)
+                let followedArtists = try await getAllFollowedArtistsUserUseCase.execute(with: None())
                 
                 let postsCopy = resultPosts
                 
                 await MainActor.run {
                     // TODO filter following and near by posts
-                    self.followingPosts = postsCopy
-                    self.followingPostsInitValue = postsCopy
+                    self.followingPosts = postsCopy.filter { post in
+                        followedArtists.contains { artist in
+                            post.artist.id == artist.id
+                        }
+                    }
+                    self.followingPostsInitValue = followingPosts
                     self.nearmePosts = postsCopy
                     self.nearmePostsInitValue = postsCopy
                     self.isLoading = false
