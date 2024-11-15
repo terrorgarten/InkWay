@@ -1,3 +1,5 @@
+### Readme needs update, this is the old version from first iteration of this project.
+
 # Aplikace InkWay
 InkWay je jednoduchá aplikace pro vyhledávání tatérů po světě, momentálně 
 v první demoverzi. Byla vytvořena jako projekt do předmětu IZA na FIT VUT 
